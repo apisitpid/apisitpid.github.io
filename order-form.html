@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- LIFF order form (idea 1). ส่งข้อความ [FORM] แบบมีโครงสร้างเข้า LINE → pipeline เดิม route ต่อ.
+     ponytail: ไม่แก้ workflow เลย — form แค่ประกอบข้อความสะอาด แล้ว liff.sendMessages.
+     ตั้งค่า: ใส่ LIFF_ID ด้านล่าง (จาก LINE Developers > LIFF). host ไฟล์นี้แบบ https (GitHub/Cloudflare Pages). -->
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>สั่งงาน — Running Connect</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+  :root { --bg:#f4f5f7; --card:#fff; --line:#e3e6ea; --accent:#06c755; --text:#1c1e21; --muted:#8a8f98; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans Thai",sans-serif; background:var(--bg); color:var(--text); }
+  .wrap { max-width:520px; margin:0 auto; padding:16px; }
+  h1 { font-size:18px; margin:8px 2px 16px; }
+  label { display:block; font-size:13px; color:var(--muted); margin:14px 2px 6px; }
+  select, textarea, input[type=number] { width:100%; padding:12px; font-size:16px; border:1px solid var(--line);
+    border-radius:10px; background:var(--card); color:var(--text); }
+  textarea { min-height:90px; resize:vertical; }
+  .row { display:flex; gap:10px; }
+  .row > div { flex:1; }
+  .chk { display:flex; align-items:center; gap:8px; margin-top:14px; font-size:15px; }
+  .chk input { width:20px; height:20px; }
+  button { width:100%; margin-top:22px; padding:15px; font-size:17px; font-weight:600; color:#fff;
+    background:var(--accent); border:0; border-radius:12px; }
+  button:disabled { background:#b7c0c8; }
+  .hide { display:none; }
+  .hint { font-size:12px; color:var(--muted); margin:4px 2px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📋 สั่งงาน</h1>
+
+  <label>แผนก *</label>
+  <select id="dept">
+    <option value="">— เลือกแผนก —</option>
+    <option value="สถานที่และโครงสร้าง">สถานที่และโครงสร้าง (เต็นท์/เวที/โครงสร้าง)</option>
+    <option value="เส้นทางและจุดบริการ">เส้นทางและจุดบริการ (เส้นทาง/จุดน้ำ/มาร์ก)</option>
+    <option value="ควบคุมการแข่งขัน">ควบคุมการแข่งขัน (ชิป/timing/bib)</option>
+    <option value="บริการนักวิ่ง">บริการนักวิ่ง (ลงทะเบียน/goodie/drop bag)</option>
+    <option value="งานกราฟิก" data-graphic="1">งานกราฟิก (ป้าย/เสื้อ/ผลิต/digital)</option>
+    <option value="การตลาดและสื่อ">การตลาดและสื่อ (แอด/PR/สปอนเซอร์/MC)</option>
+    <option value="จัดซื้อและประสานงาน">จัดซื้อและประสานงาน (สั่งของ/shuttle)</option>
+    <option value="ไอทีและระบบ">ไอทีและระบบ (คอม/wifi/ปริ้นเตอร์)</option>
+    <option value="การแพทย์และกู้ภัย">การแพทย์และกู้ภัย (แพทย์/รถพยาบาล/AED)</option>
+  </select>
+
+  <div id="typeWrap" class="hide">
+    <label>ประเภทงานกราฟิก *</label>
+    <select id="gtype">
+      <option value="ป้าย">ป้าย (ไวนิล/ฟิวเจอร์บอร์ด/สติกเกอร์)</option>
+      <option value="เสื้อ">เสื้อ (staff/นักวิ่ง/finisher)</option>
+      <option value="งานผลิต">งานผลิต (เหรียญ/โล่/ของที่ระลึก)</option>
+      <option value="digital">digital (ภาพกราฟิก/โซเชียล)</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>อีเวนต์</label>
+      <select id="event">
+        <option value="">ไม่ระบุ (กองรวม)</option>
+        <option value="KPTC">KPTC (คีรีมาศ)</option>
+        <option value="BRM">BRM (บุรีรัมย์)</option>
+        <option value="CMUTMB">CMUTMB (เชียงใหม่)</option>
+        <option value="TNT 2026">TNT 2026</option>
+      </select>
+    </div>
+  </div>
+
+  <label>รายละเอียดงาน *</label>
+  <textarea id="detail" placeholder="เช่น ป้ายไวนิล 3x2 เมตร 10 ใบ ติดหน้างาน / เต็นท์ 4 หลัง ติดตั้ง 5 มิ.ย. พื้นที่ 3x3"></textarea>
+  <div class="hint">พิมพ์จำนวน/ขนาด/วันใช้งานให้ครบ ระบบจะถามเพิ่มถ้ายังขาด</div>
+
+  <div class="chk"><input type="checkbox" id="urgent"><label style="margin:0;color:var(--text)">🔴 งานด่วน</label></div>
+
+  <button id="send" disabled>ส่งเข้าระบบ</button>
+</div>
+
+<script>
+// ====== ตั้งค่า ======
+var LIFF_ID = "2010594759-au1Q9BfR";   // LIFF ID จาก LINE Login channel
+// =====================
+
+var deptEl = document.getElementById('dept'),
+    typeWrap = document.getElementById('typeWrap'),
+    gtypeEl = document.getElementById('gtype'),
+    detailEl = document.getElementById('detail'),
+    eventEl = document.getElementById('event'),
+    urgentEl = document.getElementById('urgent'),
+    btn = document.getElementById('send');
+
+function isGraphic(){ var o = deptEl.selectedOptions[0]; return o && o.dataset.graphic === '1'; }
+function validate(){ btn.disabled = !(deptEl.value && detailEl.value.trim()); }
+deptEl.addEventListener('change', function(){ typeWrap.classList.toggle('hide', !isGraphic()); validate(); });
+detailEl.addEventListener('input', validate);
+
+// ประกอบข้อความ [FORM] — บรรทัดชัด ให้ Classify route แม่น (dept ระบุตรง ไม่ต้องเดา)
+function buildText(){
+  var lines = ['[FORM]', 'แผนก: ' + deptEl.value];
+  if (isGraphic()) lines.push('ประเภทงาน: ' + gtypeEl.value);
+  if (eventEl.value) lines.push('อีเวนต์: ' + eventEl.value);
+  if (urgentEl.checked) lines.push('ด่วน: ใช่');
+  lines.push('รายละเอียด: ' + detailEl.value.trim());
+  return lines.join('\n');
+}
+
+btn.addEventListener('click', function(){
+  btn.disabled = true; btn.textContent = 'กำลังส่ง...';
+  liff.sendMessages([{ type:'text', text: buildText() }])
+    .then(function(){ liff.closeWindow(); })
+    .catch(function(e){ btn.disabled=false; btn.textContent='ส่งเข้าระบบ'; alert('ส่งไม่สำเร็จ: ' + (e && e.message || e)); });
+});
+
+liff.init({ liffId: LIFF_ID })
+  .then(function(){ if (!liff.isLoggedIn()) liff.login(); })
+  .catch(function(e){ alert('LIFF init พัง: ' + (e && e.message || e) + '\nตรวจ LIFF_ID'); });
+</script>
+</body>
+</html>
