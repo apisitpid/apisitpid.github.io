@@ -17,13 +17,13 @@
     border-radius:10px; background:var(--card); color:var(--text); }
   textarea { min-height:80px; resize:vertical; }
   .req::after { content:" *"; color:#e0245e; }
+  .hint { font-size:12px; color:var(--muted); margin:4px 2px 0; }
   .chk { display:flex; align-items:center; gap:8px; margin-top:14px; font-size:15px; }
   .chk input { width:20px; height:20px; }
   button { width:100%; margin-top:22px; padding:15px; font-size:17px; font-weight:600; color:#fff;
     background:var(--accent); border:0; border-radius:12px; }
   button:disabled { background:#b7c0c8; }
   .hide { display:none; }
-  .hint { font-size:12px; color:var(--muted); margin:4px 2px 0; }
 </style>
 </head>
 <body>
@@ -56,76 +56,93 @@
 
 <script>
 var LIFF_ID = "2010594759-au1Q9BfR";
-var CFG = {"depts": [{"name": "สถานที่และโครงสร้าง", "key": "venue", "graphic": false}, {"name": "เส้นทางและจุดบริการ", "key": "route", "graphic": false}, {"name": "ควบคุมการแข่งขัน", "key": "race", "graphic": false}, {"name": "บริการนักวิ่ง", "key": "runner", "graphic": false}, {"name": "ศูนย์งานกราฟิก", "key": "graphic", "graphic": true}, {"name": "การตลาดและสื่อ", "key": "marketing", "graphic": false}, {"name": "จัดซื้อและประสานงาน", "key": "procurement", "graphic": false}, {"name": "ไอทีและระบบ", "key": "it", "graphic": false}, {"name": "การแพทย์และกู้ภัย", "key": "medical", "graphic": false}], "schemas": {"graphic": {"subtypes": {"ป้าย": [{"key": "วัสดุ", "label": "วัสดุ", "required": true, "choices": ["ไวนิล", "ฟิวเจอร์บอร์ด", "สติกเกอร์", "อิงค์เจ็ท"], "number": false}, {"key": "ขนาด", "label": "ขนาด (กว้างxสูง)", "required": true, "choices": null, "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": true}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ที่ไหน", "required": false, "choices": null, "number": false}], "เสื้อ": [{"key": "ประเภทเสื้อ", "label": "ประเภท", "required": true, "choices": ["staff", "นักวิ่ง", "finisher"], "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": true}, {"key": "สี", "label": "สี", "required": false, "choices": null, "number": false}, {"key": "ไซส์", "label": "ไซส์/อก", "required": false, "choices": null, "number": false}], "งานผลิต": [{"key": "สิ่งที่ผลิต", "label": "ผลิตอะไร", "required": true, "choices": null, "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": true}, {"key": "สเปค", "label": "สเปค/วัสดุ", "required": false, "choices": null, "number": false}], "digital": [{"key": "แพลตฟอร์ม", "label": "แพลตฟอร์ม", "required": true, "choices": ["facebook", "instagram", "line", "เว็บ"], "number": false}, {"key": "ขนาด/สัดส่วน", "label": "ขนาด/สัดส่วน", "required": false, "choices": null, "number": false}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ทำอะไร", "required": false, "choices": null, "number": false}]}}, "procurement": {"fields": [{"key": "รายการ", "label": "สั่งอะไร", "required": true, "choices": null, "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": true}, {"key": "ยี่ห้อ/รุ่น", "label": "ยี่ห้อ/รุ่น", "required": false, "choices": null, "number": false}, {"key": "ใช้เมื่อไหร่", "label": "ต้องใช้เมื่อไหร่", "required": false, "choices": null, "number": false}, {"key": "งบ", "label": "งบประมาณ", "required": false, "choices": null, "number": false}]}, "medical": {"fields": [{"key": "ประเภท", "label": "ต้องการอะไร", "required": true, "choices": ["รถพยาบาล", "ทีมแพทย์", "ยา/เวชภัณฑ์", "ทีมกู้ภัย", "ประสานงาน/อื่นๆ"], "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": false, "choices": null, "number": true}, {"key": "จุด/พิกัด", "label": "ประจำจุดไหน", "required": false, "choices": null, "number": false}, {"key": "เมื่อไหร่", "label": "เมื่อไหร่", "required": false, "choices": null, "number": false}]}, "venue": {"fields": [{"key": "วันติดตั้ง", "label": "วันติดตั้ง", "required": true, "choices": null, "number": false}, {"key": "วันรื้อถอน", "label": "วันรื้อถอน", "required": false, "choices": null, "number": false}, {"key": "ขนาดพื้นที่/ขนาดบูธ", "label": "ขนาดพื้นที่/บูธ", "required": true, "choices": null, "number": false}, {"key": "สถานที่จัดงาน", "label": "สถานที่จัดงาน", "required": false, "choices": null, "number": false}, {"key": "จำนวน", "label": "จำนวน", "required": false, "choices": null, "number": true}]}, "route": {"fields": [{"key": "ช่วงกิโลเมตร", "label": "กม. ที่เท่าไหร่", "required": true, "choices": null, "number": false}, {"key": "รายละเอียดเส้นทาง", "label": "รายละเอียดการจราจร/เส้นทาง", "required": true, "choices": null, "number": false}, {"key": "จำนวนป้าย/กรวย", "label": "จำนวนอุปกรณ์", "required": false, "choices": null, "number": true}]}, "race": {"fields": [{"key": "ประเภทการแข่ง", "label": "ประเภทการแข่งขัน", "required": true, "choices": ["Trail", "Road", "Triathlon"], "number": false}, {"key": "ระยะทาง", "label": "ระยะทาง (กม.)", "required": true, "choices": null, "number": false}, {"key": "อุปกรณ์เทคนิค", "label": "อุปกรณ์เทคนิคที่ต้องการ", "required": false, "choices": null, "number": false}]}, "runner": {"fields": [{"key": "ปัญหา/เรื่องที่ติดต่อ", "label": "เรื่องที่ติดต่อ (BIB/ของรางวัล/เหรียญ)", "required": true, "choices": null, "number": false}, {"key": "ชื่อนักวิ่ง/BIB", "label": "ชื่อนักวิ่ง หรือ BIB", "required": false, "choices": null, "number": false}, {"key": "รายละเอียด", "label": "รายละเอียดปัญหา", "required": false, "choices": null, "number": false}]}, "marketing": {"fields": [{"key": "ช่องทาง", "label": "ช่องทางโฆษณา", "required": true, "choices": ["Facebook", "TikTok", "LINE", "Instagram", "Website", "งานอีเวนต์/ออนกราวด์"], "number": false}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์แคมเปญ", "required": true, "choices": null, "number": false}, {"key": "งบประมาณ", "label": "งบประมาณโฆษณา", "required": false, "choices": null, "number": false}]}, "it": {"fields": [{"key": "ประเภทอุปกรณ์", "label": "อุปกรณ์หรือระบบที่มีปัญหา", "required": true, "choices": null, "number": false}, {"key": "อาการเสีย/ปัญหา", "label": "อาการเสียหรือความต้องการ", "required": true, "choices": null, "number": false}, {"key": "รหัสทรัพย์สิน", "label": "รหัสเครื่อง/รหัสทรัพย์สิน", "required": false, "choices": null, "number": false}]}}, "events": ["KPTC", "BRM", "CMUTMB", "TNT 2026"], "staff": ["IT Staff", "apisit", "nawakran"]};
+var CFG = {"depts": [{"name": "สถานที่และโครงสร้าง", "key": "venue", "graphic": false}, {"name": "เส้นทางและจุดบริการ", "key": "route", "graphic": false}, {"name": "ควบคุมการแข่งขัน", "key": "race", "graphic": false}, {"name": "บริการนักวิ่ง", "key": "runner", "graphic": false}, {"name": "ศูนย์งานกราฟิก", "key": "graphic", "graphic": true}, {"name": "การตลาดและสื่อ", "key": "marketing", "graphic": false}, {"name": "จัดซื้อและประสานงาน", "key": "procurement", "graphic": false}, {"name": "ไอทีและระบบ", "key": "it", "graphic": false}, {"name": "การแพทย์และกู้ภัย", "key": "medical", "graphic": false}], "schemas": {"graphic": {"subtypes": {"ป้าย": [{"key": "วัสดุ", "label": "วัสดุ", "required": true, "choices": ["ฟิวเจอร์บอร์ด", "ไวนิล", "สติกเกอร์"], "number": false, "note": "ต้องการใช้วัสดุอะไร", "default": null, "cond": null}, {"key": "ความหนา", "label": "ความหนา", "required": false, "choices": ["3 มิล", "5 มิล"], "number": false, "note": null, "default": null, "cond": {"field": "วัสดุ", "val": "ฟิวเจอร์บอร์ด", "req": true}}, {"key": "สีไวนิล", "label": "สีไวนิล", "required": false, "choices": ["ดำ", "ขาว"], "number": false, "note": null, "default": null, "cond": {"field": "วัสดุ", "val": "ไวนิล", "req": true}}, {"key": "ผิวสติกเกอร์", "label": "ผิวสติกเกอร์", "required": false, "choices": ["ด้าน", "เงา"], "number": false, "note": null, "default": "เงา", "cond": {"field": "วัสดุ", "val": "สติกเกอร์", "req": true}}, {"key": "ขนาด", "label": "ขนาด", "required": true, "choices": null, "number": false, "note": "กว้างxสูง (ตัวเลข)", "default": null, "cond": null}, {"key": "หน่วย", "label": "หน่วย", "required": true, "choices": ["เมตร", "เซนติเมตร", "นิ้ว"], "number": false, "note": "หน่วยของขนาด — ถ้าผู้สั่งไม่ระบุต้องถาม", "default": null, "cond": null}, {"key": "เจาะตาไก่", "label": "เจาะตาไก่", "required": true, "choices": ["เจาะ", "ไม่เจาะ"], "number": false, "note": "ถ้าเจาะ เผื่อขอบด้านละ 4 ซม. อัตโนมัติ (ไม่ต้องถามเพิ่ม)", "default": null, "cond": null}, {"key": "พับ", "label": "พับ", "required": true, "choices": ["พับ", "ไม่พับ"], "number": false, "note": "พับ = เพิ่มระยะจากขนาดป้ายด้านละ X ซม. (ขอบขาวใน artwork)", "default": null, "cond": null}, {"key": "ระยะพับ", "label": "ระยะพับ", "required": false, "choices": null, "number": false, "note": "เพิ่มจากขนาดป้ายด้านละ ? ซม. — optional ถ้าไม่ระบุใช้ค่ามาตรฐาน", "default": null, "cond": {"field": "พับ", "val": "พับ", "req": false}}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": false, "note": "เช่น 10 ใบ, 50 ชิ้น", "default": null, "cond": null}, {"key": "deadline", "label": "deadline", "required": true, "choices": null, "number": false, "note": "เช่น 25 มิ.ย., ศุกร์นี้, ภายใน 5 วัน", "default": null, "cond": null}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ที่ไหน/งานอะไร", "required": true, "choices": null, "number": false, "note": "เช่น หน้างานจุดสตาร์ท, ซุ้มลงทะเบียน, โพสต์ facebook", "default": null, "cond": null}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ข้อความบนงาน", "label": "ข้อความบนงาน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "สไตล์/โทน", "label": "สไตล์/โทน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ไฟล์อ้างอิง", "label": "ไฟล์อ้างอิง", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}], "เสื้อ": [{"key": "ประเภทเสื้อ", "label": "ประเภทเสื้อ", "required": true, "choices": ["staff", "นักวิ่ง (ที่ระลึก)", "finisher", "VIP (คอปก)"], "number": false, "note": "เสื้อแบบไหนครับ (staff/นักวิ่ง/finisher/VIP)", "default": null, "cond": null}, {"key": "สี", "label": "สี", "required": true, "choices": null, "number": false, "note": "สีอะไรครับ", "default": null, "cond": null}, {"key": "ตำแหน่งจุดพิเศษ", "label": "ตำแหน่งจุดพิเศษ", "required": false, "choices": null, "number": false, "note": "ระยะจากขอบ เช่น ซ้าย 5 ซม. ขวา 10 ซม.", "default": null, "cond": null}, {"key": "ไซส์/จำนวนต่อไซส์", "label": "ไซส์/จำนวนต่อไซส์", "required": false, "choices": null, "number": false, "note": "แต่ละไซส์กี่ตัว (S-XXXL)", "default": null, "cond": null}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": false, "note": "เช่น 10 ใบ, 50 ชิ้น", "default": null, "cond": null}, {"key": "deadline", "label": "deadline", "required": true, "choices": null, "number": false, "note": "เช่น 25 มิ.ย., ศุกร์นี้, ภายใน 5 วัน", "default": null, "cond": null}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ที่ไหน/งานอะไร", "required": true, "choices": null, "number": false, "note": "เช่น หน้างานจุดสตาร์ท, ซุ้มลงทะเบียน, โพสต์ facebook", "default": null, "cond": null}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ข้อความบนงาน", "label": "ข้อความบนงาน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "สไตล์/โทน", "label": "สไตล์/โทน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ไฟล์อ้างอิง", "label": "ไฟล์อ้างอิง", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}], "งานผลิต": [{"key": "ชิ้นงาน", "label": "ชิ้นงาน", "required": true, "choices": ["ขวด", "แก้ว", "เหรียญ", "สายเหรียญ", "โล่", "BIB", "ริสแบนด์", "กระเป๋า (Goodie Bag)"], "number": false, "note": "ผลิตชิ้นงานอะไรครับ (ขวด/แก้ว/เหรียญ/โล่/BIB/...)", "default": null, "cond": null}, {"key": "วัสดุ/สเปค", "label": "วัสดุ/สเปค", "required": false, "choices": null, "number": false, "note": "วัสดุหรือสเปคหลัก (เช่น สแตนเลส, อะคริลิก, สังกะสีชุบ)", "default": null, "cond": null}, {"key": "โลโก้/ข้อความ", "label": "โลโก้/ข้อความ", "required": false, "choices": null, "number": false, "note": "ใส่โลโก้/ข้อความอะไรบนชิ้นงาน", "default": null, "cond": null}, {"key": "ขนาด", "label": "ขนาด", "required": false, "choices": null, "number": false, "note": "มีขนาดเฉพาะไหม (ถ้าไม่ระบุใช้มาตรฐาน)", "default": null, "cond": null}, {"key": "BIB_แยกระยะ", "label": "BIB_แยกระยะ", "required": false, "choices": null, "number": false, "note": "BIB แยกตามระยะ/รุ่นไหน", "default": null, "cond": {"field": "ชิ้นงาน", "val": "BIB", "req": true}}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": false, "note": "เช่น 10 ใบ, 50 ชิ้น", "default": null, "cond": null}, {"key": "deadline", "label": "deadline", "required": true, "choices": null, "number": false, "note": "เช่น 25 มิ.ย., ศุกร์นี้, ภายใน 5 วัน", "default": null, "cond": null}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ที่ไหน/งานอะไร", "required": true, "choices": null, "number": false, "note": "เช่น หน้างานจุดสตาร์ท, ซุ้มลงทะเบียน, โพสต์ facebook", "default": null, "cond": null}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ข้อความบนงาน", "label": "ข้อความบนงาน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "สไตล์/โทน", "label": "สไตล์/โทน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ไฟล์อ้างอิง", "label": "ไฟล์อ้างอิง", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}], "digital": [{"key": "แพลตฟอร์ม", "label": "แพลตฟอร์ม", "required": true, "choices": null, "number": false, "note": "ลงที่ไหนครับ (Facebook/IG/LINE/เว็บ/จอ LED)", "default": null, "cond": null}, {"key": "ขนาด/สัดส่วน", "label": "ขนาด/สัดส่วน", "required": true, "choices": null, "number": false, "note": "เช่น 1080x1080, 16:9, 1920x1080", "default": null, "cond": null}, {"key": "รูปแบบไฟล์", "label": "รูปแบบไฟล์", "required": false, "choices": null, "number": false, "note": "ไฟล์แบบไหน (JPG/PNG/MP4/GIF)", "default": null, "cond": null}, {"key": "ข้อความ/copy", "label": "ข้อความ/copy", "required": false, "choices": null, "number": false, "note": "มีข้อความ/แคปชันที่ต้องใส่ไหม", "default": null, "cond": null}, {"key": "จำนวนชิ้น", "label": "จำนวนชิ้น", "required": false, "choices": null, "number": false, "note": "ต้องการกี่ภาพ/กี่โพสต์/กี่ไซส์", "default": null, "cond": null}, {"key": "deadline", "label": "deadline", "required": true, "choices": null, "number": false, "note": "เช่น 25 มิ.ย., ศุกร์นี้, ภายใน 5 วัน", "default": null, "cond": null}, {"key": "ใช้ที่ไหน/งานอะไร", "label": "ใช้ที่ไหน/งานอะไร", "required": true, "choices": null, "number": false, "note": "เช่น หน้างานจุดสตาร์ท, ซุ้มลงทะเบียน, โพสต์ facebook", "default": null, "cond": null}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ข้อความบนงาน", "label": "ข้อความบนงาน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "สไตล์/โทน", "label": "สไตล์/โทน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ไฟล์อ้างอิง", "label": "ไฟล์อ้างอิง", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}}, "procurement": {"fields": [{"key": "รายการ", "label": "สั่งอะไร", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "จำนวน", "label": "จำนวน", "required": true, "choices": null, "number": true, "note": null, "default": null, "cond": null}, {"key": "ยี่ห้อ/รุ่น", "label": "ยี่ห้อ/รุ่น", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ใช้เมื่อไหร่", "label": "ต้องใช้เมื่อไหร่", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "งบ", "label": "งบประมาณ", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}, "medical": {"fields": [{"key": "ประเภท", "label": "ต้องการอะไร", "required": true, "choices": ["รถพยาบาล", "ทีมแพทย์", "ยา/เวชภัณฑ์", "ทีมกู้ภัย", "ประสานงาน/อื่นๆ"], "number": false, "note": null, "default": null, "cond": null}, {"key": "จำนวน", "label": "จำนวน", "required": false, "choices": null, "number": true, "note": null, "default": null, "cond": null}, {"key": "จุด/พิกัด", "label": "ประจำจุดไหน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "เมื่อไหร่", "label": "เมื่อไหร่", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}, "venue": {"fields": [{"key": "วันติดตั้ง", "label": "วันติดตั้ง", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "วันรื้อถอน", "label": "วันรื้อถอน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ขนาดพื้นที่/ขนาดบูธ", "label": "ขนาดพื้นที่/บูธ", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "สถานที่จัดงาน", "label": "สถานที่จัดงาน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "จำนวน", "label": "จำนวน", "required": false, "choices": null, "number": true, "note": null, "default": null, "cond": null}]}, "route": {"fields": [{"key": "ช่วงกิโลเมตร", "label": "กม. ที่เท่าไหร่", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "รายละเอียดเส้นทาง", "label": "รายละเอียดการจราจร/เส้นทาง", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "จำนวนป้าย/กรวย", "label": "จำนวนอุปกรณ์", "required": false, "choices": null, "number": true, "note": null, "default": null, "cond": null}]}, "race": {"fields": [{"key": "ประเภทการแข่ง", "label": "ประเภทการแข่งขัน", "required": true, "choices": ["Trail", "Road", "Triathlon"], "number": false, "note": null, "default": null, "cond": null}, {"key": "ระยะทาง", "label": "ระยะทาง (กม.)", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "อุปกรณ์เทคนิค", "label": "อุปกรณ์เทคนิคที่ต้องการ", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}, "runner": {"fields": [{"key": "ปัญหา/เรื่องที่ติดต่อ", "label": "เรื่องที่ติดต่อ (BIB/ของรางวัล/เหรียญ)", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "ชื่อนักวิ่ง/BIB", "label": "ชื่อนักวิ่ง หรือ BIB", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "รายละเอียด", "label": "รายละเอียดปัญหา", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}, "marketing": {"fields": [{"key": "ช่องทาง", "label": "ช่องทางโฆษณา", "required": true, "choices": ["Facebook", "TikTok", "LINE", "Instagram", "Website", "งานอีเวนต์/ออนกราวด์"], "number": false, "note": null, "default": null, "cond": null}, {"key": "วัตถุประสงค์", "label": "วัตถุประสงค์แคมเปญ", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "งบประมาณ", "label": "งบประมาณโฆษณา", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}, "it": {"fields": [{"key": "ประเภทอุปกรณ์", "label": "อุปกรณ์หรือระบบที่มีปัญหา", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "อาการเสีย/ปัญหา", "label": "อาการเสียหรือความต้องการ", "required": true, "choices": null, "number": false, "note": null, "default": null, "cond": null}, {"key": "รหัสทรัพย์สิน", "label": "รหัสเครื่อง/รหัสทรัพย์สิน", "required": false, "choices": null, "number": false, "note": null, "default": null, "cond": null}]}}, "events": ["KPTC", "BRM", "CMUTMB", "TNT 2026"], "staff": ["IT Staff", "apisit", "nawakran"]};
 
 var $ = function(id){ return document.getElementById(id); };
 var deptEl=$('dept'), gtypeWrap=$('gtypeWrap'), gtypeEl=$('gtype'),
     fieldsEl=$('fields'), eventEl=$('event'), assigneeEl=$('assignee'),
     detailEl=$('detail'), urgentEl=$('urgent'), btn=$('send');
 
-// static dropdowns
 CFG.depts.forEach(function(d){ var o=document.createElement('option'); o.value=d.key; o.textContent=d.name; deptEl.appendChild(o); });
 CFG.events.forEach(function(e){ var o=document.createElement('option'); o.value=e; o.textContent=e; eventEl.appendChild(o); });
 CFG.staff.forEach(function(s){ var o=document.createElement('option'); o.value=s; o.textContent=s; assigneeEl.appendChild(o); });
 
 function deptSchema(){ return CFG.schemas[deptEl.value] || null; }
 function isGraphic(){ var d=CFG.depts.find(function(x){return x.key===deptEl.value;}); return d && d.graphic; }
+function currentFields(){ var sc=deptSchema(); if(!sc) return []; return sc.subtypes ? (sc.subtypes[gtypeEl.value]||[]) : (sc.fields||[]); }
 
-// render field inputs for the chosen dept (or graphic subtype). id="f_<key>" so buildText can read them.
+// render one wrapper per field (id=w_<key>); conditional wrappers carry data-cond-* for show/hide
 function renderFields(list){
   fieldsEl.innerHTML='';
   (list||[]).forEach(function(f){
-    var lab=document.createElement('label'); lab.textContent=f.label; if(f.required) lab.className='req';
-    fieldsEl.appendChild(lab);
+    var w=document.createElement('div'); w.id='w_'+f.key;
+    if(f.cond){ w.dataset.condField=f.cond.field; w.dataset.condVal=f.cond.val; w.dataset.condReq=f.cond.req?'1':''; }
+    var lab=document.createElement('label'); lab.textContent=f.label; if(f.required) lab.className='req'; lab.id='l_'+f.key;
+    w.appendChild(lab);
     var inp;
     if(f.choices){ inp=document.createElement('select');
       var blank=document.createElement('option'); blank.value=''; blank.textContent='—'; inp.appendChild(blank);
-      f.choices.forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; inp.appendChild(o); });
-    } else { inp=document.createElement('input'); inp.type=f.number?'number':'text'; }
-    inp.id='f_'+f.key; inp.dataset.label=f.label; inp.dataset.req=f.required?'1':'';
-    inp.addEventListener('input',validate); inp.addEventListener('change',validate);
-    fieldsEl.appendChild(inp);
+      f.choices.forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; if(c===f.default) o.selected=true; inp.appendChild(o); });
+    } else { inp=document.createElement('input'); inp.type=f.number?'number':'text'; if(f.default) inp.value=f.default; }
+    inp.id='f_'+f.key; inp.dataset.req=f.required?'1':'';
+    inp.addEventListener('input',onChange); inp.addEventListener('change',onChange);
+    w.appendChild(inp);
+    if(f.note){ var h=document.createElement('div'); h.className='hint'; h.textContent=f.note; w.appendChild(h); }
+    fieldsEl.appendChild(w);
+  });
+  applyConds();
+}
+
+// show/hide conditional fields based on their parent select; required only while visible
+function applyConds(){
+  fieldsEl.querySelectorAll('[data-cond-field]').forEach(function(w){
+    var pe=$('f_'+w.dataset.condField);
+    var show=pe && pe.value===w.dataset.condVal;
+    w.classList.toggle('hide', !show);
+    var inp=w.querySelector('input,select'), lab=w.querySelector('label');
+    inp.dataset.req=(show && w.dataset.condReq==='1')?'1':'';
+    if(lab) lab.className=inp.dataset.req==='1'?'req':'';
+    if(!show){ if(inp.tagName==='SELECT') inp.selectedIndex=0; else inp.value=''; }
   });
 }
 
-function currentFields(){
-  var sc=deptSchema(); if(!sc) return [];
-  if(sc.subtypes) return sc.subtypes[gtypeEl.value] || [];
-  return sc.fields || [];
+function onChange(){ applyConds(); validate(); }
+
+function visibleField(f){ var w=$('w_'+f.key); return w && !w.classList.contains('hide'); }
+
+// valid = dept chosen AND every visible required field filled
+function validate(){
+  var ok=!!deptEl.value;
+  if(ok) fieldsEl.querySelectorAll('[data-req="1"]').forEach(function(el){
+    var w=el.closest('div[id^="w_"]'); if(w && w.classList.contains('hide')) return;
+    if(!String(el.value).trim()) ok=false; });
+  btn.disabled=!ok;
 }
 
 deptEl.addEventListener('change', function(){
   var sc=deptSchema();
   if(isGraphic() && sc && sc.subtypes){
-    gtypeWrap.classList.remove('hide');
-    gtypeEl.innerHTML='';
+    gtypeWrap.classList.remove('hide'); gtypeEl.innerHTML='';
     Object.keys(sc.subtypes).forEach(function(st){ var o=document.createElement('option'); o.value=st; o.textContent=st; gtypeEl.appendChild(o); });
   } else { gtypeWrap.classList.add('hide'); }
   renderFields(currentFields()); validate();
 });
 gtypeEl.addEventListener('change', function(){ renderFields(currentFields()); validate(); });
+detailEl.addEventListener('input', validate);
 
-// valid = dept chosen AND every required field filled
-function validate(){
-  var ok = !!deptEl.value;
-  if(ok) fieldsEl.querySelectorAll('[data-req="1"]').forEach(function(el){ if(!String(el.value).trim()) ok=false; });
-  btn.disabled=!ok;
-}
-
-// build clean [FORM] text -> existing pipeline parses "key: value" lines
+// build clean [FORM] text -> pipeline parses "key: value" lines (keys match request_form_schema)
 function buildText(){
   var dept=CFG.depts.find(function(x){return x.key===deptEl.value;});
   var lines=['[FORM]','แผนก: '+(dept?dept.name:deptEl.value)];
   if(isGraphic()) lines.push('ประเภทงาน: '+gtypeEl.value);
   if(eventEl.value) lines.push('อีเวนต์: '+eventEl.value);
-  currentFields().forEach(function(f){ var v=$('f_'+f.key); if(v && String(v.value).trim()) lines.push(f.key+': '+String(v.value).trim()); });
+  currentFields().forEach(function(f){ if(!visibleField(f)) return; var v=$('f_'+f.key); if(v && String(v.value).trim()) lines.push(f.key+': '+String(v.value).trim()); });
   if(assigneeEl.value) lines.push('มอบหมายให้: '+assigneeEl.value);
   if(urgentEl.checked) lines.push('ด่วน: ใช่');
   if(detailEl.value.trim()) lines.push('รายละเอียด: '+detailEl.value.trim());
   return lines.join('\n');
 }
 
-detailEl.addEventListener('input',validate);
 btn.addEventListener('click', function(){
   btn.disabled=true; btn.textContent='กำลังส่ง...';
   liff.sendMessages([{type:'text',text:buildText()}])
