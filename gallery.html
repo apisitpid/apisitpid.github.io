@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery Graphic</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>body{margin:0;font:16px system-ui;background:#f4f5f7;color:#17212b;display:grid;min-height:100vh;place-items:center}.box{text-align:center;padding:28px}small{color:#667085}</style>
+<main class="box"><h1>กำลังเปิด Gallery</h1><small id="status">กำลังยืนยันตัวตนด้วย LINE…</small></main>
+<form id="auth" method="post" action="https://buddhist-multiply-transpire.ngrok-free.dev/webhook/gallery-session"><input name="id_token" id="token"></form>
+<script>
+  liff.init({liffId:'2010594759-dv3NJtrM'}).then(function(){
+    if(!liff.isLoggedIn()) return liff.login();
+    var token=liff.getIDToken();
+    if(!token) throw new Error('LINE ไม่ส่ง ID token; ตรวจ scope openid');
+    document.getElementById('token').value=token; document.getElementById('auth').submit();
+  }).catch(function(e){document.getElementById('status').textContent='เปิด Gallery ไม่สำเร็จ: '+(e.message||e);});
+</script>
