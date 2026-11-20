@@ -6,17 +6,17 @@
 
   var PALETTE = {
     light: {
-      land: '#EAEDF2', residential: '#E3E7EE', commercial: '#E6E2DA', park: '#D6E3D4', wood: '#CCDCC9',
-      water: '#B9CCE3', waterway: '#A6BEDC', building: '#DADFE8', buildingLine: '#CDD3DE',
-      minor: '#FFFFFF', minorCase: '#D2D8E3', path: '#C3CAD8',
-      major: '#FBF1D3', majorCase: '#D8B868', motorway: '#EFD08A', motorwayCase: '#B8923F',
+      land: '#E2E6ED', residential: '#DBE0E8', commercial: '#E6E2DA', park: '#D6E3D4', wood: '#CCDCC9',
+      water: '#A9C1E0', waterway: '#94B2DA', building: '#DADFE8', buildingLine: '#CDD3DE',
+      minor: '#FFFFFF', minorCase: '#AEB8C9', path: '#AAB3C4',
+      major: '#F2D27E', majorCase: '#B8923F', motorway: '#E7B954', motorwayCase: '#9C7A2E',
       rail: '#B4BCCB', boundary: '#9AA5BD',
       placeText: '#14254A', placeHalo: 'rgba(244,246,250,.92)', roadText: '#46557A', roadHalo: '#FFFFFF',
       temple: '#8A6A22', templeHalo: 'rgba(250,247,238,.95)', peak: '#5E4B1C', waterText: '#4F6E9C'
     },
     dark: {
       land: '#0D1834', residential: '#111E3D', commercial: '#14203F', park: '#122A35', wood: '#11293A',
-      water: '#06102A', waterway: '#0A1838', building: '#18284D', buildingLine: '#1E3159',
+      water: '#1A3260', waterway: '#22407A', building: '#18284D', buildingLine: '#1E3159',
       minor: '#1E2E55', minorCase: '#152447', path: '#24365F',
       major: '#4B4128', majorCase: '#6F5C2C', motorway: '#8C7334', motorwayCase: '#5E4D24',
       rail: '#2C3D66', boundary: '#3D507E',
@@ -29,7 +29,7 @@
     var chain = {
       th: ['name:th', 'name', 'name:latin', 'name_en'],
       en: ['name:en', 'name_en', 'name:latin', 'name'],
-      zh: ['name:zh', 'name:zh-Hans', 'name:en', 'name_en', 'name:latin', 'name']
+      zh: ['name:zh-Hans', 'name:zh', 'name:en', 'name_en', 'name:latin', 'name']
     }[lang] || ['name'];
     return ['coalesce'].concat(chain.map(function (k) { return ['get', k]; }));
   }
@@ -93,7 +93,7 @@
 
         { id: 'water-name', type: 'symbol', source: 'omt', 'source-layer': 'waterway', minzoom: 13,
           filter: ['==', ['get', 'class'], 'river'],
-          layout: { 'text-field': name, 'text-font': FONT_I, 'symbol-placement': 'line', 'text-size': 12, 'text-letter-spacing': 0.1 },
+          layout: { 'text-field': name, 'text-font': FONT_I, 'symbol-placement': 'line', 'text-size': 12, 'text-letter-spacing': lang === 'en' ? 0.1 : 0 },
           paint: { 'text-color': c.waterText, 'text-halo-color': c.placeHalo, 'text-halo-width': 1.4 } },
         { id: 'road-name', type: 'symbol', source: 'omt', 'source-layer': 'transportation_name', minzoom: 14,
           filter: cls(['primary', 'secondary', 'tertiary', 'trunk', 'minor']),
@@ -112,7 +112,7 @@
         { id: 'place-small', type: 'symbol', source: 'omt', 'source-layer': 'place', minzoom: 12,
           filter: cls(['suburb', 'neighbourhood', 'quarter', 'village', 'hamlet']),
           layout: { 'text-field': name, 'text-font': FONT_B, 'text-size': interp([[12, 11], [16, 14]]),
-            'text-transform': 'uppercase', 'text-letter-spacing': 0.12, 'text-max-width': 8 },
+            'text-transform': 'uppercase', 'text-letter-spacing': lang === 'en' ? 0.12 : 0, 'text-max-width': 8 },
           paint: { 'text-color': c.placeText, 'text-opacity': 0.62, 'text-halo-color': c.placeHalo, 'text-halo-width': 1.6 } },
         { id: 'place-town', type: 'symbol', source: 'omt', 'source-layer': 'place', maxzoom: 15,
           filter: cls(['town', 'city']),

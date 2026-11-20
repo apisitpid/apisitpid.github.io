@@ -26,7 +26,7 @@
     <img src="brand/emblem.svg" alt="" width="26" height="29">
     <span class="bt"><b id="t-app"></b><span id="t-sub"></span></span>
     <span class="seg" role="group" id="langs" aria-label="Language / ภาษา / 语言">
-      <button type="button" data-lang="th" lang="th">TH</button><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="zh" lang="zh-Hans">中</button>
+      <button type="button" data-lang="th" lang="th">TH</button><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="zh" lang="zh-Hans">中文</button>
     </span>
   </div>
   <form class="search" id="search-form" role="search">
@@ -38,6 +38,7 @@
 </header>
 
 <div class="fabs" id="fabs">
+  <button class="fab" type="button" id="b-theme"></button>
   <button class="fab" type="button" id="b-locate"></button>
   <button class="fab" type="button" id="b-fit"></button>
 </div>
@@ -54,6 +55,7 @@
 </section>
 
 <div class="toast" id="toast" role="status" hidden></div>
+<div class="staff" id="staff" hidden></div>
 <noscript><p style="padding:24px;font:16px system-ui">This map needs JavaScript. · แผนที่นี้ต้องเปิดใช้ JavaScript · 此地图需要启用 JavaScript</p></noscript>
 
 <script src="vendor/maplibre-gl.js"></script>

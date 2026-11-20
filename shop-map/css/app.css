@@ -1,6 +1,7 @@
 /* App layout. Mobile: full-bleed map, floating header, draggable bottom sheet.
    Desktop (≥900px): header + panel become a 380px left column floating over the map. */
 html, body { height: 100%; margin: 0; }
+[hidden] { display: none !important; }
 body { background: var(--bg); color: var(--fg); font: 400 15px/1.5 var(--f-ui); overflow: hidden; -webkit-font-smoothing: antialiased; }
 button, input { font: inherit; }
 :root { --top-h: 150px; --sheet-vis: 180px; --sheet-max: 70vh; --gutter: 12px; --col: 380px; }
@@ -48,13 +49,13 @@ button, input { font: inherit; }
 
 /* ---------- detail ---------- */
 .detail-top { display: flex; justify-content: space-between; align-items: center; margin: -6px -6px 2px; }
-.detail-head { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: center; padding: 2px 2px 14px; }
-.detail-logo { width: 76px; height: 76px; border-radius: 50%; overflow: hidden; background: var(--logo-bg); --pin: 76px;
+.detail-head { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 12px; align-items: center; padding: 0 2px 12px; }
+.detail-logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: var(--logo-bg); --pin: 60px;
   box-shadow: 0 0 0 1px var(--line), 0 0 0 4px var(--surface), 0 0 0 6px var(--cat), var(--sh-1); }
 .detail-logo img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.detail-head h2 { margin: 0; font: 600 22px/1.2 var(--f-display); text-wrap: balance; overflow-wrap: anywhere; }
+.detail-head h2 { margin: 0; font: 600 20px/1.2 var(--f-display); text-wrap: balance; overflow-wrap: anywhere; }
 .detail-head .sub { color: var(--fg-2); font-size: 13.5px; margin-top: 2px; }
-.detail-head .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 6px; align-items: center; }
+.detail-head .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px; align-items: center; }
 .actions { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 46px; gap: 8px; margin-top: 14px; }
 .actions .btn { padding: 0 12px; min-width: 0; }
 .actions .btn span { overflow: hidden; text-overflow: ellipsis; }
@@ -67,6 +68,24 @@ button, input { font: inherit; }
 .fact .icon-btn { margin: -8px -6px -8px 0; width: 40px; height: 40px; }
 .fact .icon-btn .ico { width: 18px; height: 18px; }
 .also { margin-top: 12px; font-size: 12.5px; color: var(--fg-3); }
+
+/* ---------- staff card ---------- */
+.staff { position: fixed; inset: 0; z-index: 50; background: var(--scrim); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.staff-card { position: relative; width: min(100%, 460px); max-height: 100%; overflow-y: auto; background: var(--ticket); border: 1px solid var(--ticket-line); border-radius: var(--r-lg);
+  padding: 22px 22px 18px; display: grid; justify-items: center; gap: 10px; text-align: center; box-shadow: var(--sh-2); color: var(--fg); }
+.staff-x { position: absolute; top: 8px; right: 8px; }
+.staff-hint { font: 500 13px/1.3 var(--f-ui); color: var(--fg-2); }
+.staff-card .detail-logo { width: 88px; height: 88px; --pin: 88px; }
+.staff-card h2 { margin: 0; font: 600 28px/1.2 var(--f-display); text-wrap: balance; }
+.staff-card .sub { color: var(--fg-2); }
+.staff-perk { font: 700 34px/1.15 var(--f-display); color: var(--fg); padding: 6px 14px; border-radius: 12px; background: linear-gradient(180deg, var(--gold-300), var(--gold-500)); color: var(--navy-950); }
+.staff-offer { font: 500 18px/1.6 var(--f-ui); white-space: pre-line; text-align: left; width: 100%; }
+.staff-who { font: 600 15px/1.5 var(--f-ui); color: var(--fg); border-top: 1px dashed var(--ticket-line); padding-top: 10px; width: 100%; }
+.staff-mine { font: 400 13.5px/1.5 var(--f-ui); color: var(--fg-2); text-align: left; width: 100%; white-space: pre-line; }
+.staff-mark { display: flex; align-items: center; gap: 6px; font: 500 12px/1 var(--f-ui); color: var(--fg-3); margin-top: 4px; }
+
+.map.z-near { --pin: 54px; }
+.chip-open .ico { color: var(--ok); }
 
 /* ---------- map overlays ---------- */
 .ghost { width: 10px; height: 10px; border-radius: 50%; background: var(--navy-500); opacity: .5; box-shadow: 0 0 0 2px var(--pin-ring); pointer-events: none; }

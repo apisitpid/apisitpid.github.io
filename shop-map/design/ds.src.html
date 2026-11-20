@@ -92,10 +92,10 @@ h3 { font: 600 13px/1.3 var(--f-ui); letter-spacing: .08em; text-transform: uppe
 .msheet .sum { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 2px 4px; }
 .msheet .sum b { font: 600 17px/1.3 var(--f-display); }
 .msheet .sum span { font-size: 12px; color: var(--fg-3); white-space: nowrap; }
-.detail-head { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: center; padding: 6px 2px 12px; }
-.detail-logo { width: 76px; height: 76px; border-radius: 50%; overflow: hidden; background: var(--logo-bg); --pin: 76px; box-shadow: 0 0 0 1px var(--line), 0 0 0 4px var(--surface), 0 0 0 6px var(--cat), var(--sh-1); }
+.detail-head { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 12px; align-items: center; padding: 4px 2px 10px; }
+.detail-logo { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: var(--logo-bg); --pin: 60px; box-shadow: 0 0 0 1px var(--line), 0 0 0 4px var(--surface), 0 0 0 6px var(--cat), var(--sh-1); }
 .detail-logo img { width: 100%; height: 100%; display: block; object-fit: cover; }
-.detail-head h4 { margin: 0; font: 600 22px/1.2 var(--f-display); text-wrap: balance; }
+.detail-head h4 { margin: 0; font: 600 20px/1.2 var(--f-display); text-wrap: balance; }
 .detail-head .sub { color: var(--fg-2); font-size: 13.5px; margin-top: 2px; }
 .detail-head .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 6px; }
 .facts-list { display: grid; gap: 10px; margin-top: 12px; font-size: 13.5px; }
@@ -143,7 +143,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
   <div class="wrap hero">
     <img src="{{EMBLEM}}" alt="Runner Privileges emblem: a navy map pin holding Doi Suthep, its golden chedi and a dotted trail">
     <div>
-      <div class="eyebrow">Design system v0.1 · for audit</div>
+      <div class="eyebrow">Design system v0.2 · audited</div>
       <h1>Runner Privileges <em>Chiang Mai</em></h1>
       <p>A map of partner shops that give runners and supporters a perk during race week. Each shop's own logo is its pin. Tap one and the privilege is the first thing you read.</p>
       <div class="langs"><span lang="th">สิทธิพิเศษนักวิ่ง เชียงใหม่</span><span lang="en">Runner Privileges · Chiang Mai</span><span lang="zh">清迈 · 跑者专享优惠</span></div>
@@ -152,7 +152,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
   </div>
 </header>
 <nav class="toc wrap" aria-label="Sections">
-  <a href="#principles">Principles</a><a href="#brand">Brand mark</a><a href="#color">Color</a><a href="#type">Type</a><a href="#pins">Pins</a><a href="#components">Components</a><a href="#screens">Screens</a><a href="#behaviour">Behaviour</a><a href="#names">Names</a><a href="#data">Data flags</a>
+  <a href="#principles">Principles</a><a href="#brand">Brand mark</a><a href="#color">Color</a><a href="#type">Type</a><a href="#pins">Pins</a><a href="#components">Components</a><a href="#screens">Screens</a><a href="#behaviour">Behaviour</a><a href="#names">Names</a><a href="#audit">Audit</a><a href="#data">Data flags</a>
 </nav>
 
 <main class="wrap">
@@ -161,8 +161,8 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
     <p class="lead">Research inputs: Mapbox's store-locator guidance (branded markers, list + map in sync, mobile first), Mapped's logo-pin markers and logo filter chips, and UTMB's own "UTMB Friendly" partner list, which is a plain text list with no map. This design keeps the list-and-map pairing and makes the logo the marker.</p>
     <div class="principles">
       <div class="panel"><h4>The logo is the pin</h4><p>Every logo is fitted into the pin's circle by measuring its content, so round badges fill the disc and wide wordmarks fit by their corners. Nothing is cropped. A shop without a logo gets a navy monogram.</p></div>
-      <div class="panel"><h4>Gold means privilege</h4><p>Gold appears only on the perk badge, the privilege ticket, selection and the main roads you navigate by. Navy carries structure. Category is shown by a ring color and an icon badge together, so it never depends on color alone.</p></div>
-      <div class="panel"><h4>Three languages, one identity</h4><p>The shop's name stays exactly as written on its logo. Under it, the name in the reader's language, or in the other script when they match. Offers, categories, map labels and UI switch together.</p></div>
+      <div class="panel"><h4>Gold means privilege</h4><p>Gold marks the perk badge, the privilege ticket, the selected pin and the main roads you navigate by. Navy carries structure. Category is shown by a ring color and an icon badge together, so it never depends on color alone.</p></div>
+      <div class="panel"><h4>Three languages, one identity</h4><p>The title is the name as printed on the shop's logo, in the reader's script when the logo prints it (海底捞火锅, กระทรวงการคั่ว). Chinese readers get the Latin brand plus a Chinese descriptor, never an invented name. The Thai name is always one tap away for drivers and staff.</p></div>
     </div>
   </section>
 
@@ -180,7 +180,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
 
   <section class="doc" id="color">
     <h2><small>03</small>Color</h2>
-    <p class="lead">Navy and gold ramps, four category hues tuned to sit beside them, and the basemap palette. Text contrast: navy-800 on white 15.2:1, gold-700 on white 5.0:1, gold-500 on navy-800 6.4:1.</p>
+    <p class="lead">Navy and gold ramps, four category hues (each lightened for dark mode) and the basemap palette. Text contrast: navy-800 on white 15.2:1, gold-700 on white 5.0:1, fg-3 on white 5.8:1, gold-500 on navy-800 6.4:1. Main roads are a real gold so they hold up in sunlight.</p>
     <h3>Navy</h3><div class="ramp" id="r-navy"></div>
     <h3>Gold</h3><div class="ramp" id="r-gold"></div>
     <h3>Category + status</h3><div class="ramp" id="r-cat"></div>
@@ -189,7 +189,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
 
   <section class="doc" id="type">
     <h2><small>04</small>Type</h2>
-    <p class="lead">Trirong (Thai + Latin) gives shop names and headings a Lanna-manuscript serif. IBM Plex Sans Thai sets every control and line of UI. Chinese switches to Noto Serif SC and Noto Sans SC so the weights stay matched.</p>
+    <p class="lead">Trirong, a formal Thai and Latin serif, sets shop names, perks and headings. IBM Plex Sans Thai sets every control and line of UI. Chinese uses the phone's own CJK fonts first (PingFang, Microsoft YaHei), then Noto, so it still renders if Google Fonts is unreachable.</p>
     <div class="panel spec">
       <div class="spec-row"><small>Display · Trirong 600 · 34</small><div class="d1">ห้องแถว · Hong Tauw Inn</div></div>
       <div class="spec-row"><small>Display ZH · Noto Serif SC 600</small><div class="d1 zh" lang="zh">绿洲水疗 兰纳店</div></div>
@@ -260,6 +260,12 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
     <div class="panel tw"><table class="names" id="names-t"><thead><tr><th>Logo</th><th>ไทย</th><th>English</th><th>中文</th><th>Area</th></tr></thead><tbody></tbody></table></div>
   </section>
 
+  <section class="doc" id="audit">
+    <h2><small>11</small>Audit changes (v0.1 → v0.2)</h2>
+    <p class="lead">An independent design audit raised 35 findings. These shipped:</p>
+    <div class="panel"><ul class="rules" id="audit-list"></ul></div>
+  </section>
+
   <section class="doc" id="data">
     <h2><small>10</small>Data flags from the sheet</h2>
     <p class="lead">Handled in the build, but the owners should confirm these.</p>
@@ -297,8 +303,8 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
   function sw(list) { return list.map(function (x) { return '<div class="sw"><i style="background:' + x[1] + '"></i><div>' + x[0] + '<br><code>' + x[1] + '</code></div></div>'; }).join(''); }
   $('r-navy').innerHTML = sw([['navy-950', '#08122A'], ['navy-900', '#0B1834'], ['navy-800 · chrome', '#12234A'], ['navy-700', '#1B3263'], ['navy-500', '#3A548C'], ['navy-200', '#C5CEE0'], ['navy-100', '#E4E8F1']]);
   $('r-gold').innerHTML = sw([['gold-700 · text', '#8A6A1F'], ['gold-600', '#A9822F'], ['gold-500 · accent', '#C9A24B'], ['gold-300', '#E6CC8A'], ['gold-100', '#F7EED6'], ['ticket', '#FBF5E6']]);
-  $('r-cat').innerHTML = sw([['Café', '#A55E33'], ['Food', '#C2412C'], ['Massage & Spa', '#23866F'], ['Sport & Fitness', '#2F62C6'], ['Open', '#1D8048'], ['Closing soon', '#B26A12'], ['Closed', '#7D869A']]);
-  var P = { l: { Land: '#EAEDF2', Water: '#B9CCE3', Park: '#D6E3D4', 'Main road': '#FBF1D3', 'Road edge': '#D8B868', Labels: '#14254A' }, d: { Land: '#0D1834', Water: '#06102A', Park: '#122A35', 'Main road': '#4B4128', Motorway: '#8C7334', Labels: '#E3E9F6' } };
+  $('r-cat').innerHTML = sw([['Café', '#A55E33'], ['Food', '#B8325E'], ['Massage & Spa', '#1D7562'], ['Sport & Fitness', '#2F62C6'], ['☾ Café', '#E09A6E'], ['☾ Food', '#F07C9E'], ['☾ Spa', '#5CC9A8'], ['☾ Sport', '#7FA6F0'], ['Open', '#1D8048'], ['Closing soon', '#9A5A0C'], ['Closed', '#6B7488']]);
+  var P = { l: { Land: '#E2E6ED', Water: '#A9C1E0', Park: '#D6E3D4', 'Main road': '#F2D27E', 'Road edge': '#B8923F', Labels: '#14254A' }, d: { Land: '#0D1834', Water: '#1A3260', Park: '#122A35', 'Main road': '#4B4128', Motorway: '#8C7334', Labels: '#E3E9F6' } };
   $('r-map').innerHTML = sw(Object.keys(P.l).map(function (k) { return ['☀ ' + k, P.l[k]]; }).concat(Object.keys(P.d).map(function (k) { return ['☾ ' + k, P.d[k]]; })));
 
   /* pins */
@@ -326,8 +332,7 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
   $('c-search').innerHTML = '<label class="search">' + ic('search') + '<input id="ds-q" value="roast" aria-label="Search"><button class="icon-btn" type="button" aria-label="Clear">' + ic('close') + '</button></label>';
   function chips(lang, active) {
     var L = CNX_I18N[lang];
-    return '<button class="chip" type="button" aria-pressed="' + (active === 'all') + '">' + ic('all') + L.all + ' <small>' + S.length + '</small></button>' +
-      C.CATS.map(function (c) { return '<button class="chip" type="button" data-cat="' + c + '" aria-pressed="' + (active === c) + '">' + ic(c) + L.cats[c] + ' <small>' + count(c) + '</small></button>'; }).join('');
+    return C.CATS.map(function (c) { return '<button class="chip" type="button" data-cat="' + c + '" aria-pressed="' + (active === c) + '">' + ic(c) + L.cats[c] + ' <small>' + count(c) + '</small></button>'; }).join('') + '<button class="chip" type="button" aria-pressed="false">' + ic('clock') + L.openChip + '</button>';
   }
   $('c-chips').innerHTML = chips('en', 'cafe');
   function brandbar(lang, emblem) {
@@ -337,11 +342,11 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
   }
   var EMB = document.querySelector('.hero img').src;
   $('c-bar').innerHTML = brandbar('th', EMB);
-  $('c-rows').innerHTML = ['roast8ry-flagship', 'oasis-nimman', 'krudam'].map(function (id) { return C.rowHTML(by[id], 'en', { now: NOW, dist: C.km(ME, by[id]), q: id === 'roast8ry-flagship' ? 'roast' : '' }); }).join('');
-  $('c-ticket').innerHTML = C.ticketHTML(by['ministry-of-roasters'], 'en');
+  $('c-rows').innerHTML = ['roast8ry-flagship', 'oasis-nimman', 'decathlon-thaphae'].map(function (id) { return C.rowHTML(by[id], 'en', { now: NOW, dist: C.km(ME, by[id]), q: id === 'roast8ry-flagship' ? 'roast' : '' }); }).join('');
+  $('c-ticket').innerHTML = C.ticketHTML(by['haidilao'], 'en', { staffButton: true });
   $('c-btns').innerHTML = '<a class="btn btn-primary" href="#">' + ic('directions') + 'Directions</a><a class="btn" href="#">' + ic('phone') + 'Call</a><button class="btn" type="button" aria-label="Share">' + ic('share') + '</button>';
-  $('c-perks').innerHTML = ['tann', 'basecamp', 'oasis-nimman', 'ministry-of-roasters', 'bananarun', 'thorphan'].map(function (id) { return '<span class="perk">' + by[id].perk.en + '</span>'; }).join('') + ['th', 'zh'].map(function (l) { return '<span class="perk" lang="' + l + '">' + by['oasis-nimman'].perk[l] + '</span>'; }).join('');
-  $('c-status').innerHTML = [C.statusHTML(by['tann'], 'en', NOW), C.statusHTML(by['tann'], 'en', 16 * 60 + 20), C.statusHTML(by['each-other'], 'en', NOW), C.statusHTML(by['oasis-nimman'], 'th', NOW), C.statusHTML(by['oasis-nimman'], 'zh', NOW)].join('');
+  $('c-perks').innerHTML = ['tann', 'decathlon-chiangmai', 'oasis-nimman', 'ministry-of-roasters', 'bananarun', 'thorphan'].map(function (id) { return '<span class="perk">' + by[id].perk.en + '</span>'; }).join('') + ['th', 'zh'].map(function (l) { return '<span class="perk" lang="' + l + '">' + by['oasis-nimman'].perk[l] + '</span>'; }).join('');
+  $('c-status').innerHTML = [C.statusHTML(by['tann'], 'en', NOW), C.statusHTML(by['tann'], 'en', 16 * 60 + 20), C.statusHTML(by['each-other'], 'en', NOW), C.statusHTML(by['herb-nimman'], 'th', NOW), C.statusHTML(by['herb-nimman'], 'zh', NOW), C.statusHTML(by['oasis-nimman'], 'th', NOW)].join('');
 
   /* ---------- screens ---------- */
   function placePins(key, ids, opts) {
@@ -377,7 +382,7 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
     var n = C.names(s, lang), L = CNX_I18N[lang], cat = s.cats[0], area = CNX_AREAS[s.area][lang];
     return '<div class="sheet-handle"></div><div class="detail-head" data-cat="' + cat + '"><span class="detail-logo" style="--logo-bg:' + s.bg + '">' + C.logo(s) + '</span><div><h4>' + n.title + '</h4><div class="sub">' + n.sub + '</div>' +
       '<div class="meta"><span class="cat-tag">' + ic(cat) + L.cats[cat] + '</span>' + C.statusHTML(s, lang, NOW) + '<span class="row-dist">' + C.t(lang, 'away', { d: C.distText(C.km(ME, s), lang) }) + '</span></div></div></div>' +
-      C.ticketHTML(s, lang) +
+      C.ticketHTML(s, lang, { staffButton: true }) +
       '<div class="actions"><a class="btn btn-primary" href="#">' + ic('directions') + L.directions + '</a><a class="btn" href="#">' + ic('phone') + L.call + '</a><button class="btn sq" type="button" aria-label="' + L.share + '">' + ic('share') + '</button></div>' +
       '<div class="facts-list"><div>' + ic('clock') + '<span><b>' + C.hoursText(s) + '</b></span></div><div>' + ic('pin') + '<span><b>' + area + '</b> · ' + s.address + '</span></div><div>' + ic('phone') + '<span>' + s.phones.map(function (p) { return p.display; }).join(' · ') + '</span></div></div>';
   }
@@ -392,10 +397,10 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
       note: '<b>2 · Search.</b> "roast" matches names in any language, categories ("coffee", "นวด", "按摩") and areas ("Nimman"). Non-matching pins dim in place.' }),
     phone({ lang: 'th', map: 'm-light-th', pins: placePins('m-light-th', null, { active: 'hongtauw-inn', radius: 36 }),
       sheet: detail(by['hongtauw-inn'], 'th'),
-      note: '<b>3 · Shop detail, Thai.</b> Title stays as the logo writes it (ห้องแถว); the English reading sits under it. The privilege ticket comes before the address.' }),
+      note: '<b>3 · Shop detail, Thai.</b> The perk is the largest text on the sheet. "Show staff" opens a full-screen Thai card, so a foreign runner can hand the phone over the counter.' }),
     phone({ lang: 'zh', dark: true, map: 'm-dark-zh', pins: placePins('m-dark-zh', null, { active: 'oasis-lanna', radius: 40 }),
       sheet: detail(by['oasis-lanna'], 'zh'),
-      note: '<b>4 · Night mode, Chinese.</b> Follows the phone\'s dark setting. Map labels switch to Chinese with the UI; the gold arteries stay readable.' })
+      note: '<b>4 · Night mode, Chinese.</b> Follows the phone, with a sun/moon button to override it. The Chinese line is the Latin brand plus a descriptor (Oasis Spa 兰纳店), so it matches the sign and the shop\'s listings.' })
   ].join('');
   document.querySelectorAll('.phone[data-dark]').forEach(function (p) { p.setAttribute('data-theme-scope', 'dark'); p.querySelector('.statusbar').classList.remove('on-light'); });
 
@@ -410,14 +415,15 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
     ['pin', '<b>Tap a pin</b>: the map eases the pin above the sheet and the sheet opens on that shop. Tap the map or Back to return to the list.'],
     ['fit', '<b>Tap a cluster</b>: zoom to fit its shops. At max zoom, overlapping shops fan out in a ring.'],
     ['search', '<b>Search</b> runs on every keystroke across all three languages, categories, areas and offer text. Name matches rank first. Enter jumps to the top result.'],
-    ['all', '<b>Category chips</b> filter both map and list. Counts stay visible so you see how many shops each type has.'],
+    ['all', '<b>Category chips</b> filter both map and list; tap again to clear. <b>Open now</b> hides closed shops. Counts follow the current search.'],
     ['globe', '<b>Language</b>: TH / EN / 中 switches UI, offers, names and map labels together. Remembered on the device and kept in the link (?lang=).']
   ], R2 = [
     ['locate', '<b>My location</b> asks permission only on tap. With it, lists sort by distance and rows show how far each shop is.'],
     ['clock', '<b>Open now</b> uses Bangkok time. "Closing soon" appears in the last hour.'],
     ['directions', '<b>Directions</b> opens Google Maps to the sheet coordinates, which are more reliable than the sheet\'s short links (two of them point to the wrong shop).'],
     ['share', '<b>Deep links</b>: ?shop=oasis-lanna opens that shop directly, so a QR code at each counter can point to its own page.'],
-    ['map', '<b>Desktop</b>: the list lives in a 360 px side panel; the detail replaces the list in the same panel.']
+    ['ticket', '<b>Show staff</b>: a full-screen card with the shop, perk, offer and who may redeem it in Thai, plus the reader\'s language underneath. Keeps the screen awake where the browser allows.'],
+    ['map', '<b>Desktop</b>: the list lives in a 380 px side panel; the detail replaces the list in the same panel.']
   ];
   function rules(list) { return list.map(function (r) { return '<li>' + ic(r[0]) + '<span>' + r[1] + '</span></li>'; }).join(''); }
   $('rules').innerHTML = rules(R); $('rules2').innerHTML = rules(R2);
@@ -436,8 +442,20 @@ window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
     '<b>Pasto hours</b> read "5:30–10:00, 11:30–20:00". Kept as written; 5:30 may be a typo.',
     '<b>Thorphan Coffee Roaster</b> appears in both Café and Restaurant with slightly different wording. Merged into one pin listed under both categories.',
     '<b>Varalee Massage (×3) and The Artist</b> have no logo in the sheet, so they use the navy monogram.',
-    '<b>Thai/Chinese names not printed on a logo</b> (e.g. ทอพัน, บ้านลานดาย, most Chinese names) are transliterations. Shops can send their official spelling and it replaces ours in one place.'
+    '<b>Thai names not printed on a logo</b> (e.g. ทอพัน, บ้านลานดาย) are transliterations. Shops can send their official spelling and it replaces ours in one place.',
+    '<b>Who may redeem</b>: Treespoon, Haidilao and Baan Landai say runners or the UTMB pass only, so their tickets say "Runners only". The sheet does not say what a supporter should show; confirm with the organiser.',
+    '<b>Punn Toh</b> supplied a photo of its sign, not a logo file, so the pin crops the photo. Ask for a vector logo.'
   ];
+  $('audit-list').innerHTML = rules([
+    ['ticket', '<b>Eligibility and conditions</b>: runner-only offers are labelled; perk badges carry the minimum spend ("−10% · 1,000 ฿+").'],
+    ['globe', '<b>Chinese names</b>: invented translations (and two that could read as adult services) replaced by brand + descriptor.'],
+    ['all', '<b>Dark mode</b>: selected chips turn gold; category hues lightened to ≥ 6:1.'],
+    ['pin', '<b>Light map</b>: stronger roads, land and water contrast; dark water lifted so the moat and the Ping river show.'],
+    ['search', '<b>Search</b>: unspaced Thai/Chinese (กาแฟนิมมาน, 宁曼咖啡), suffixes (ร้านนวด, 咖啡店), per-shop tags instead of category-wide synonyms.'],
+    ['clock', '<b>Hours wording</b>: "Not open yet · opens 11:00" before opening; "Closed · opens tomorrow" after closing.'],
+    ['ticket', '<b>Show staff</b> card and perk-first detail sheet.'],
+    ['fit', '<b>Touch and focus</b>: 44 px targets, 3:1 focus rings, localized screen-reader labels with lang tags.']
+  ]);
   $('flags').innerHTML = F.map(function (f) { return '<div class="flag">' + ic('ticket') + '<span>' + f + '</span></div>'; }).join('');
 })();
 </script>

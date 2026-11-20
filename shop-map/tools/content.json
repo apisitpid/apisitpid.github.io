@@ -1,223 +1,1147 @@
 {
-  "_note": "Hand-written localisation for each shop. Brand names keep the spelling on the shop's own logo (field `brand`); `name` is how the name reads in each language. Rows are matched to the sheet by [sheet index, row].",
-  "areas": {
-    "nimman":        {"en": "Nimman",           "th": "นิมมาน",           "zh": "宁曼"},
-    "oldcity":       {"en": "Old City",         "th": "เมืองเก่า",         "zh": "古城"},
-    "suthep":        {"en": "Suthep",           "th": "สุเทพ",            "zh": "素贴"},
-    "changphueak":   {"en": "Chang Phueak",     "th": "ช้างเผือก",         "zh": "白象门"},
-    "santitham":     {"en": "Santitham",        "th": "สันติธรรม",         "zh": "山迪坦"},
-    "chotana":       {"en": "Chotana",          "th": "โชตนา",            "zh": "措塔纳"},
-    "central":       {"en": "Central Festival", "th": "เซ็นทรัลเฟสติวัล",   "zh": "尚泰节日商场"},
-    "maerim":        {"en": "Mae Rim",          "th": "แม่ริม",            "zh": "湄林"},
-    "hangdong":      {"en": "Hang Dong",        "th": "หางดง",            "zh": "杭东"},
-    "thaphae":       {"en": "Tha Phae Gate",    "th": "ประตูท่าแพ",        "zh": "塔佩门"},
-    "riverside":     {"en": "Riverside",        "th": "ริมปิง",            "zh": "滨河区"},
-    "nightbazaar":   {"en": "Night Bazaar",     "th": "ไนท์บาซาร์",        "zh": "夜市"},
-    "superhighway":  {"en": "Superhighway",     "th": "ซูเปอร์ไฮเวย์",      "zh": "超级公路"},
-    "south":         {"en": "Nong Hoi",         "th": "หนองหอย",          "zh": "农怀"},
-    "padaet":        {"en": "Pa Daet",          "th": "ป่าแดด",            "zh": "巴代"},
-    "haiya":         {"en": "Hai Ya",           "th": "หายยา",            "zh": "海亚"}
+ "_note": "Hand-written localisation for each shop. Brand names keep the spelling on the shop's own logo (field `brand`); `name` is how the name reads in each language. Rows are matched to the sheet by [sheet index, row].",
+ "areas": {
+  "nimman": {
+   "en": "Nimman",
+   "th": "นิมมาน",
+   "zh": "宁曼"
   },
-  "rows": {
-    "0:5":  {"id": "tann", "brand": "en", "area": "nimman",
-             "name": {"en": "TANN", "th": "แทน", "zh": "坦恩"},
-             "perk": {"en": "−15 ฿", "th": "ลด 15 ฿", "zh": "减 15 ฿"},
-             "offer": {"en": "15 THB off any drink", "th": "ลด 15 บาท ทุกเครื่องดื่ม", "zh": "任意饮品立减 15 泰铢"}},
-    "0:6":  {"id": "fohhide", "brand": "en", "area": "nimman",
-             "name": {"en": "FOHHIDE", "th": "ฟอไฮด์", "zh": "福海德"},
-             "perk": {"en": "−15 ฿", "th": "ลด 15 ฿", "zh": "减 15 ฿"},
-             "offer": {"en": "15 THB off any drink", "th": "ลด 15 บาท ทุกเครื่องดื่ม", "zh": "任意饮品立减 15 泰铢"}},
-    "0:7":  {"id": "cafe-de-oasis", "brand": "en", "area": "changphueak",
-             "name": {"en": "Café de Oasis & Toby's Pizza", "th": "คาเฟ่ เดอ โอเอซิส & โทบี้ส์ พิซซ่า", "zh": "绿洲咖啡馆 & 托比披萨"},
-             "perk": {"en": "−100 ฿", "th": "ลดสูงสุด 100 ฿", "zh": "最高减 100 ฿"},
-             "offer": {"en": "50 THB off when you spend 500 THB+ on food & drinks\n100 THB off when you spend 1,000 THB+", "th": "ลด 50 บาท เมื่อสั่งอาหารและเครื่องดื่มครบ 500 บาท\nลด 100 บาท เมื่อครบ 1,000 บาท", "zh": "餐饮消费满 500 泰铢减 50 泰铢\n满 1,000 泰铢减 100 泰铢"}},
-    "0:8":  {"id": "basecamp", "brand": "en", "area": "suthep",
-             "name": {"en": "Basecamp Coffee Club", "th": "เบสแคมป์ คอฟฟี่ คลับ", "zh": "大本营咖啡俱乐部"},
-             "perk": {"en": "−50%", "th": "ลด 50%", "zh": "5 折"},
-             "offer": {"en": "50% off the special UTMB season menu", "th": "ลด 50% เมนูพิเศษประจำซีซัน UTMB", "zh": "UTMB 赛季特别菜单 5 折"}},
-    "0:9":  {"id": "rosemary", "brand": "en", "area": "nimman",
-             "name": {"en": "Café Rosemary", "th": "คาเฟ่ โรสแมรี่", "zh": "迷迭香咖啡馆"},
-             "perk": {"en": "−10% + gift", "th": "ลด 10% + ของแถม", "zh": "9 折 + 赠品"},
-             "offer": {"en": "10% off all menu items, plus a free energy bar", "th": "ลด 10% ทุกเมนู แถมฟรีเอนเนอร์จีบาร์", "zh": "全单 9 折，另赠能量棒一根"}},
-    "0:10": {"id": "roast8ry-flagship", "brand": "en", "area": "nimman",
-             "name": {"en": "Roast8ry Flagship Store", "th": "โรสต์เอทรี แฟล็กชิป สโตร์", "zh": "Roast8ry 旗舰店"},
-             "perk": {"en": "2 gifts", "th": "ของที่ระลึก 2 ชิ้น", "zh": "双重礼品"},
-             "offer": {"en": "Complete the store's conditions to receive two exclusive gifts:\n• Award-winning Thai coffee beans (Thailand Barista Championship 2027 winner)\n• A brownie from Oldschool Brownies", "th": "ทำตามเงื่อนไขของร้าน รับของที่ระลึกพิเศษ 2 ชิ้น:\n• เมล็ดกาแฟไทยรางวัลชนะเลิศ Thailand Barista Championship 2027\n• บราวนี่จาก Oldschool Brownies", "zh": "完成店内指定条件，即可获得两份专属礼品：\n• 获奖泰国咖啡豆（2027 泰国咖啡师锦标赛冠军）\n• Oldschool Brownies 布朗尼一块"}},
-    "0:11": {"id": "roast8ry-lab", "brand": "en", "area": "nimman",
-             "name": {"en": "Roast8ry Lab", "th": "โรสต์เอทรี แล็บ", "zh": "Roast8ry 实验室"},
-             "perk": {"en": "2 gifts", "th": "ของที่ระลึก 2 ชิ้น", "zh": "双重礼品"},
-             "offer": {"en": "Complete the store's conditions to receive two exclusive gifts:\n• Award-winning Thai coffee beans (Thailand Barista Championship 2027 winner)\n• A brownie from Oldschool Brownies", "th": "ทำตามเงื่อนไขของร้าน รับของที่ระลึกพิเศษ 2 ชิ้น:\n• เมล็ดกาแฟไทยรางวัลชนะเลิศ Thailand Barista Championship 2027\n• บราวนี่จาก Oldschool Brownies", "zh": "完成店内指定条件，即可获得两份专属礼品：\n• 获奖泰国咖啡豆（2027 泰国咖啡师锦标赛冠军）\n• Oldschool Brownies 布朗尼一块"}},
-    "0:12": {"id": "ministry-of-roasters", "brand": "en", "area": "thaphae",
-             "name": {"en": "Ministry of Roasters", "th": "กระทรวงการคั่ว", "zh": "烘焙部"},
-             "perk": {"en": "Free drink", "th": "ฟรีเครื่องดื่ม", "zh": "免费饮品"},
-             "offer": {"en": "1. Buy any drink over 100 THB and get a FREE 10 oz Iced Light Roast Thai Americano (worth 80 THB), a THGCC2026 special edition\n2. Spend over 800 THB on coffee beans and get 3 complimentary drip bags (3 varieties)", "th": "1. ซื้อเครื่องดื่มใดก็ได้ราคาเกิน 100 บาท รับฟรี Iced Light Roast Thai Americano 10 ออนซ์ (มูลค่า 80 บาท) รุ่นพิเศษ THGCC2026\n2. ซื้อเมล็ดกาแฟเกิน 800 บาท รับฟรีดริปแบ็ก 3 ซอง (3 สายพันธุ์)", "zh": "1. 购买任意 100 泰铢以上饮品，免费获赠 10 盎司冰浅烘泰式美式一杯（价值 80 泰铢），THGCC2026 特别版\n2. 购买咖啡豆满 800 泰铢，赠送 3 款不同风味挂耳咖啡"}},
-    "0:13": {"id": "thorphan", "brand": "en", "area": "oldcity",
-             "name": {"en": "Thorphan Coffee Roaster", "th": "ทอพัน คอฟฟี่ โรสเตอร์", "zh": "托潘咖啡烘焙"},
-             "perk": {"en": "2 for 100 ฿", "th": "2 แก้ว 100 ฿", "zh": "两杯 100 ฿"},
-             "offer": {"en": "2 Americanos for 100 THB (regularly 60 THB each)", "th": "อเมริกาโน่ 2 แก้ว 100 บาท (ปกติแก้วละ 60 บาท)", "zh": "美式咖啡两杯仅 100 泰铢（原价每杯 60 泰铢）"}},
-    "0:14": {"id": "pegasus", "brand": "en", "area": "oldcity",
-             "name": {"en": "Pegasus Café & Roastery", "th": "เพกาซัส คาเฟ่ แอนด์ โรสเตอรี", "zh": "飞马咖啡烘焙坊"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all menu items", "th": "ลด 10% ทุกเมนู", "zh": "全单 9 折"}},
-
-    "1:5":  {"id": "run2paradise", "brand": "en", "area": "nimman",
-             "name": {"en": "RUN2PARADISE Nimman", "th": "รันทูพาราไดซ์ นิมมาน", "zh": "Run2Paradise 宁曼店"},
-             "perk": {"en": "+5% off", "th": "ลดเพิ่ม 5%", "zh": "再减 5%"},
-             "offer": {"en": "An extra 5% off purchases of 4,000 THB or more", "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 4,000 บาทขึ้นไป", "zh": "单笔消费满 4,000 泰铢，额外再减 5%"}},
-    "1:6":  {"id": "highlandner", "brand": "en", "area": "changphueak",
-             "name": {"en": "The Highlandner", "th": "เดอะ ไฮแลนด์เนอร์", "zh": "高地人"},
-             "perk": {"en": "+5% off", "th": "ลดเพิ่ม 5%", "zh": "再减 5%"},
-             "offer": {"en": "An extra 5% off single receipts of 1,000 THB or more (clearance items excluded)", "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ (ยกเว้นสินค้าเคลียร์สต็อก)", "zh": "单张小票满 1,000 泰铢，额外再减 5%（清仓商品除外）"}},
-    "1:7":  {"id": "bananarun", "brand": "en", "area": "nimman",
-             "name": {"en": "BananaRun Chiang Mai", "th": "บานาน่ารัน เชียงใหม่", "zh": "香蕉跑 清迈"},
-             "perk": {"en": "Up to −40%", "th": "ลดสูงสุด 40%", "zh": "低至 6 折"},
-             "offer": {"en": "10–40% off accessories and energy products, under the company's terms and conditions", "th": "ลด 10–40% สินค้าอุปกรณ์เสริมและสินค้ากลุ่มพลังงาน ตามเงื่อนไขของบริษัท", "zh": "配件及能量补给产品 6–9 折，以公司条款为准"}},
-    "1:8":  {"id": "krudam", "brand": "en", "area": "haiya",
-             "name": {"en": "Krudam Gym Chiang Mai", "th": "ครูดำ ยิม เชียงใหม่", "zh": "古丹拳馆 清迈"},
-             "perk": {"en": "−20%", "th": "ลด 20%", "zh": "8 折"},
-             "offer": {"en": "20% off all gym courses", "th": "ลด 20% ทุกคอร์สยิม", "zh": "所有健身课程 8 折"}},
-    "1:9":  {"id": "decathlon-chiangmai", "brand": "en", "area": "superhighway",
-             "name": {"en": "Decathlon Chiang Mai", "th": "ดีแคทลอน เชียงใหม่", "zh": "迪卡侬 清迈店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.", "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด", "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"}},
-    "1:10": {"id": "decathlon-hangdong", "brand": "en", "area": "hangdong",
-             "name": {"en": "Decathlon Hang Dong Convenience Store", "th": "ดีแคทลอน หางดง (คอนวีเนียนสโตร์)", "zh": "迪卡侬 杭东便利店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.", "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด", "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"}},
-    "1:11": {"id": "decathlon-thaphae", "brand": "en", "area": "thaphae",
-             "name": {"en": "Decathlon Tha Phae Gate", "th": "ดีแคทลอน ประตูท่าแพ", "zh": "迪卡侬 塔佩门店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.", "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด", "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"}},
-
-    "2:5":  {"id": "varalee", "brand": "en", "area": "nimman",
-             "name": {"en": "Varalee Massage", "th": "วราลี มาสสาจ", "zh": "瓦拉丽按摩"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all services and treatments", "th": "ลด 10% ทุกบริการและทรีตเมนต์", "zh": "所有服务与疗程 9 折"}},
-    "2:6":  {"id": "varalee-2", "brand": "en", "area": "nimman",
-             "name": {"en": "Varalee Massage 2", "th": "วราลี มาสสาจ 2", "zh": "瓦拉丽按摩 2 店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all services and treatments", "th": "ลด 10% ทุกบริการและทรีตเมนต์", "zh": "所有服务与疗程 9 折"}},
-    "2:7":  {"id": "varalee-one-nimman", "brand": "en", "area": "nimman",
-             "name": {"en": "Varalee Massage @One Nimman", "th": "วราลี มาสสาจ @วันนิมมาน", "zh": "瓦拉丽按摩 @One Nimman"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all services and treatments", "th": "ลด 10% ทุกบริการและทรีตเมนต์", "zh": "所有服务与疗程 9 折"}},
-    "2:8":  {"id": "the-artist", "brand": "en", "area": "nimman",
-             "name": {"en": "The Artist", "th": "ดิ อาร์ทิสท์", "zh": "艺术家"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all services and treatments", "th": "ลด 10% ทุกบริการและทรีตเมนต์", "zh": "所有服务与疗程 9 折"}},
-    "2:9":  {"id": "oasis-nimman", "brand": "en", "area": "nimman",
-             "name": {"en": "Oasis Spa Nimman", "th": "โอเอซิส สปา นิมมาน", "zh": "绿洲水疗 宁曼店"},
-             "perk": {"en": "Buy 1 Get 1", "th": "1 แถม 1", "zh": "买一送一"},
-             "offer": {"en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB", "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท", "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"}},
-    "2:10": {"id": "oasis-lanna", "brand": "en", "area": "oldcity",
-             "name": {"en": "Oasis Spa Lanna", "th": "โอเอซิส สปา ล้านนา", "zh": "绿洲水疗 兰纳店"},
-             "perk": {"en": "Buy 1 Get 1", "th": "1 แถม 1", "zh": "买一送一"},
-             "offer": {"en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB", "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท", "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"}},
-    "2:11": {"id": "gc-wellness", "brand": "en", "area": "south",
-             "name": {"en": "GC Wellness House Polyclinic", "th": "จีซี เวลเนส เฮาส์ โพลีคลินิก", "zh": "GC 康养之家综合诊所"},
-             "perk": {"en": "−15%", "th": "ลด 15%", "zh": "85 折"},
-             "offer": {"en": "15% off all services", "th": "ลด 15% ทุกบริการ", "zh": "所有服务 85 折"}},
-    "2:12": {"id": "rungwara", "brand": "th", "area": "oldcity",
-             "name": {"en": "Rungwara Thai Massage", "th": "รุ่งวรา นวดเพื่อสุขภาพ", "zh": "荣瓦拉泰式按摩"},
-             "perk": {"en": "−20%", "th": "ลด 20%", "zh": "8 折"},
-             "offer": {"en": "20% off all courses", "th": "ลด 20% ทุกคอร์ส", "zh": "所有疗程 8 折"}},
-    "2:13": {"id": "herb-nimman", "brand": "en", "area": "nimman",
-             "name": {"en": "Herb Massage at Nimman", "th": "เฮิร์บ มาสสาจ นิมมาน", "zh": "草本按摩 宁曼店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all courses", "th": "ลด 10% ทุกคอร์ส", "zh": "所有疗程 9 折"}},
-    "2:14": {"id": "herb-annex", "brand": "en", "area": "nimman",
-             "name": {"en": "Herb Massage Annex", "th": "เฮิร์บ มาสสาจ แอนเน็กซ์", "zh": "草本按摩 分馆"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all courses", "th": "ลด 10% ทุกคอร์ส", "zh": "所有疗程 9 折"}},
-    "2:15": {"id": "herb-central", "brand": "en", "area": "central",
-             "name": {"en": "Herb Massage at Central Chiang Mai", "th": "เฮิร์บ มาสสาจ เซ็นทรัล เชียงใหม่", "zh": "草本按摩 尚泰清迈店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all courses", "th": "ลด 10% ทุกคอร์ส", "zh": "所有疗程 9 折"}},
-    "2:16": {"id": "herb-nimman-soi6", "brand": "en", "area": "nimman",
-             "name": {"en": "Herb Massage at Nimman Soi 6", "th": "เฮิร์บ มาสสาจ นิมมาน ซอย 6", "zh": "草本按摩 宁曼 6 巷店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all courses", "th": "ลด 10% ทุกคอร์ส", "zh": "所有疗程 9 折"}},
-    "2:17": {"id": "zira-spa", "brand": "en", "area": "oldcity",
-             "name": {"en": "Zira Spa", "th": "ซีร่า สปา", "zh": "姬拉水疗"},
-             "perk": {"en": "−5%", "th": "ลด 5%", "zh": "95 折"},
-             "offer": {"en": "5% off spa treatments when you spend 2,000 THB or more. Cannot be combined with other promotions.", "th": "ลด 5% ทรีตเมนต์สปา เมื่อใช้บริการครบ 2,000 บาท ไม่สามารถใช้ร่วมกับโปรโมชันอื่นได้", "zh": "水疗消费满 2,000 泰铢享 95 折，不可与其他优惠同享。"}},
-    "2:18": {"id": "gentle-massage", "brand": "en", "area": "nimman",
-             "name": {"en": "The Gentle Massage & Spa", "th": "เดอะ เจนเทิล มาสสาจ แอนด์ สปา", "zh": "温柔按摩水疗"},
-             "perk": {"en": "Special price", "th": "ราคาพิเศษ", "zh": "特价"},
-             "offer": {"en": "• Aroma hot oil massage, 2 hrs: 1,100 THB (from 1,400)\n• Deep tissue massage, 2 hrs: 1,500 THB (from 1,700)\n• Foot & Thai massage, 1.5 hrs: 600 THB (from 660)", "th": "• นวดน้ำมันอโรมาร้อน 2 ชม. 1,100 บาท (ปกติ 1,400)\n• นวดกดลึก (Deep tissue) 2 ชม. 1,500 บาท (ปกติ 1,700)\n• นวดเท้าและนวดไทย 1.30 ชม. 600 บาท (ปกติ 660)", "zh": "• 香薰热油按摩 2 小时 1,100 泰铢（原价 1,400）\n• 深层组织按摩 2 小时 1,500 泰铢（原价 1,700）\n• 足部 + 泰式按摩 1.5 小时 600 泰铢（原价 660）"}},
-    "2:19": {"id": "g-massage", "brand": "en", "area": "central",
-             "name": {"en": "G Massage Therapy Central Festival", "th": "จี มาสสาจ เธอราพี เซ็นทรัลเฟสติวัล", "zh": "G 按摩理疗 尚泰节日店"},
-             "perk": {"en": "−20%", "th": "ลด 20%", "zh": "8 折"},
-             "offer": {"en": "20% off all courses", "th": "ลด 20% ทุกคอร์ส", "zh": "所有疗程 8 折"}},
-    "2:20": {"id": "fahlanna-oldcity", "brand": "en", "area": "oldcity",
-             "name": {"en": "Fah Lanna Spa Old City", "th": "ฟ้าล้านนา สปา เมืองเก่า", "zh": "法兰纳水疗 古城店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all spa treatments", "th": "ลด 10% ทุกทรีตเมนต์สปา", "zh": "所有水疗项目 9 折"}},
-    "2:21": {"id": "fahlanna-massage", "brand": "en", "area": "nightbazaar",
-             "name": {"en": "Fah Lanna Massage", "th": "ฟ้าล้านนา มาสสาจ", "zh": "法兰纳按摩"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all spa treatments", "th": "ลด 10% ทุกทรีตเมนต์สปา", "zh": "所有水疗项目 9 折"}},
-    "2:22": {"id": "fahlanna-nimman", "brand": "en", "area": "nimman",
-             "name": {"en": "Fah Lanna Spa Exclusive Nimman", "th": "ฟ้าล้านนา สปา เอ็กซ์คลูซีฟ นิมมาน", "zh": "法兰纳水疗 宁曼尊享店"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all spa treatments", "th": "ลด 10% ทุกทรีตเมนต์สปา", "zh": "所有水疗项目 9 折"}},
-
-    "3:5":  {"id": "treespoon", "brand": "en", "area": "suthep",
-             "name": {"en": "Treespoon Barbecue", "th": "ทรีสปูน บาร์บีคิว", "zh": "树勺烧烤"},
-             "perk": {"en": "Runner menu", "th": "เมนูนักวิ่ง", "zh": "跑者特价"},
-             "offer": {"en": "Special menu at special prices, exclusive for UTMB runners:\n• Beef sandwich\n• Pulled pork sandwich\n• Fresh coconut", "th": "เมนูพิเศษในราคาพิเศษ เฉพาะนักวิ่ง UTMB:\n• แซนด์วิชเนื้อ\n• แซนด์วิชพูลด์พอร์ก\n• มะพร้าวสด", "zh": "UTMB 跑者专享特价菜单：\n• 牛肉三明治\n• 手撕猪肉三明治\n• 新鲜椰子"}},
-    "3:6":  {"id": "meeanjakin", "brand": "th", "area": "padaet",
-             "name": {"en": "Mee An Ja Kin", "th": "มีอันจะกิน", "zh": "米安扎金"},
-             "perk": {"en": "−15%", "th": "ลด 15%", "zh": "85 折"},
-             "offer": {"en": "15% off food", "th": "ลด 15% ค่าอาหาร", "zh": "食物 85 折"}},
-    "3:7":  {"id": "khoei", "brand": "th", "area": "santitham",
-             "name": {"en": "Khoei Chiang Mai", "th": "เขยเจียงใหม่", "zh": "清迈女婿"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off food when you spend 1,000 THB or more (excluding beverages)", "th": "ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,000 บาท (ไม่รวมเครื่องดื่ม)", "zh": "消费满 1,000 泰铢，食物享 9 折（饮品除外）"}},
-    "3:8":  {"id": "haidilao", "brand": "en", "area": "central",
-             "name": {"en": "Haidilao Hot Pot", "th": "ไหตี่เลา หั่วกัว", "zh": "海底捞火锅"},
-             "perk": {"en": "−20%", "th": "ลด 20%", "zh": "8 折"},
-             "offer": {"en": "20% off food when you show your UTMB Runner Pass, unlimited visits", "th": "ลด 20% ค่าอาหาร เมื่อแสดง UTMB Runner Pass ใช้ได้ไม่จำกัดครั้ง", "zh": "出示 UTMB 跑者证，食物享 8 折，不限次数"}},
-    "3:9":  {"id": "akai8", "brand": "th", "area": "suthep",
-             "name": {"en": "Akai8", "th": "อาไก๋", "zh": "阿凯 8"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off food, subject to the store's terms and conditions", "th": "ลด 10% ค่าอาหาร ตามเงื่อนไขของร้าน", "zh": "食物 9 折，以店铺条款为准"}},
-    "3:10": {"id": "hongtauw-inn", "brand": "th", "area": "nimman",
-             "name": {"en": "Hong Tauw Inn", "th": "ห้องแถว", "zh": "鸿涛客栈"},
-             "perk": {"en": "Up to −10%", "th": "ลดสูงสุด 10%", "zh": "低至 9 折"},
-             "offer": {"en": "5% off food when you spend 1,000 THB or more\n10% off food when you spend 1,500 THB or more", "th": "ลด 5% ค่าอาหาร เมื่อสั่งครบ 1,000 บาท\nลด 10% เมื่อสั่งครบ 1,500 บาท", "zh": "消费满 1,000 泰铢，食物 95 折\n满 1,500 泰铢，食物 9 折"}},
-    "3:11": {"id": "krua-lhong-khao", "brand": "th", "area": "maerim",
-             "name": {"en": "Krua Lhong Khao", "th": "ครัวหลองข้าว", "zh": "隆考厨房"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off food and drinks when you spend 1,000 THB or more", "th": "ลด 10% ค่าอาหารและเครื่องดื่ม เมื่อสั่งครบ 1,000 บาท", "zh": "餐饮消费满 1,000 泰铢享 9 折"}},
-    "3:12": {"id": "saiyud-doctor-sai", "brand": "th", "area": "chotana",
-             "name": {"en": "Saiyud & Doctor Sai Kitchen", "th": "ครัวอาจารย์สายหยุด & หมอทราย", "zh": "赛育老师与赛医生厨房"},
-             "perk": {"en": "−5% + dessert", "th": "ลด 5% + ขนมไทย", "zh": "95 折 + 甜点"},
-             "offer": {"en": "5% off food, plus a complimentary set of auspicious Thai desserts", "th": "ลด 5% ค่าอาหาร แถมฟรีขนมไทยมงคล 1 ชุด", "zh": "食物 95 折，另赠泰式吉祥甜点一套"}},
-    "3:13": {"id": "gongkham", "brand": "th", "area": "maerim",
-             "name": {"en": "Gongkham", "th": "ก๋องคำ", "zh": "金鼓"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off food and drinks when you spend 1,000 THB or more", "th": "ลด 10% ค่าอาหารและเครื่องดื่ม เมื่อสั่งครบ 1,000 บาท", "zh": "餐饮消费满 1,000 泰铢享 9 折"}},
-    "3:14": {"id": "each-other", "brand": "en", "area": "riverside",
-             "name": {"en": "Each Other!", "th": "อีช อาเธอร์", "zh": "彼此"},
-             "perk": {"en": "−5%", "th": "ลด 5%", "zh": "95 折"},
-             "offer": {"en": "5% off food", "th": "ลด 5% ค่าอาหาร", "zh": "食物 95 折"}},
-    "3:15": {"id": "pasto", "brand": "en", "area": "oldcity",
-             "name": {"en": "Pasto Italian Restaurant", "th": "ปาสโต อิตาเลียน เรสเตอรองต์", "zh": "帕斯托意大利餐厅"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off food when you spend 1,500 THB or more (excluding beverages). Subject to change without notice.", "th": "ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,500 บาท (ไม่รวมเครื่องดื่ม) เงื่อนไขอาจเปลี่ยนแปลงโดยไม่แจ้งล่วงหน้า", "zh": "消费满 1,500 泰铢，食物享 9 折（饮品除外），如有变动恕不另行通知"}},
-    "3:16": {"id": "baan-landai", "brand": "th", "area": "maerim",
-             "name": {"en": "BAAN Landai Mae Rim", "th": "บ้านลานดาย แม่ริม", "zh": "兰岱之家 湄林"},
-             "perk": {"en": "Free drink", "th": "ฟรีเครื่องดื่ม", "zh": "免费饮品"},
-             "offer": {"en": "1 free drink per person when you show your UTMB pass", "th": "รับเครื่องดื่มฟรี 1 แก้วต่อท่าน เพียงแสดงบัตร UTMB", "zh": "出示 UTMB 证件，每人免费饮品一杯"}},
-    "3:17": {"merge": "thorphan"},
-    "3:18": {"id": "punn-toh", "brand": "th", "logoFit": "cover", "area": "riverside",
-             "name": {"en": "Punn Toh", "th": "ปั้นโต๊ะ", "zh": "潘托"},
-             "perk": {"en": "−15%", "th": "ลด 15%", "zh": "85 折"},
-             "offer": {"en": "15% off food and drinks", "th": "ลด 15% ค่าอาหารและเครื่องดื่ม", "zh": "餐饮 85 折"}},
-    "3:19": {"id": "jeab", "brand": "th", "area": "nimman",
-             "name": {"en": "JEAB Café & Thai Food", "th": "เจี๊ยบ คาเฟ่ & อาหารไทย", "zh": "杰布咖啡 & 泰餐"},
-             "perk": {"en": "−10%", "th": "ลด 10%", "zh": "9 折"},
-             "offer": {"en": "10% off all food and drinks", "th": "ลด 10% อาหารและเครื่องดื่มทุกรายการ", "zh": "所有餐饮 9 折"}}
+  "oldcity": {
+   "en": "Old City",
+   "th": "เมืองเก่า",
+   "zh": "古城"
+  },
+  "suthep": {
+   "en": "Suthep",
+   "th": "สุเทพ",
+   "zh": "素贴"
+  },
+  "changphueak": {
+   "en": "Chang Phueak",
+   "th": "ช้างเผือก",
+   "zh": "白象门"
+  },
+  "santitham": {
+   "en": "Santitham",
+   "th": "สันติธรรม",
+   "zh": "山迪坦"
+  },
+  "chotana": {
+   "en": "Chotana",
+   "th": "โชตนา",
+   "zh": "措塔纳"
+  },
+  "central": {
+   "en": "Central Festival",
+   "th": "เซ็นทรัลเฟสติวัล",
+   "zh": "尚泰节日商场"
+  },
+  "maerim": {
+   "en": "Mae Rim",
+   "th": "แม่ริม",
+   "zh": "湄林"
+  },
+  "hangdong": {
+   "en": "Hang Dong",
+   "th": "หางดง",
+   "zh": "杭东"
+  },
+  "thaphae": {
+   "en": "Tha Phae Gate",
+   "th": "ประตูท่าแพ",
+   "zh": "塔佩门"
+  },
+  "riverside": {
+   "en": "Riverside",
+   "th": "ริมปิง",
+   "zh": "滨河区"
+  },
+  "nightbazaar": {
+   "en": "Night Bazaar",
+   "th": "ไนท์บาซาร์",
+   "zh": "清迈夜市"
+  },
+  "superhighway": {
+   "en": "Superhighway",
+   "th": "ซูเปอร์ไฮเวย์",
+   "zh": "超级公路"
+  },
+  "south": {
+   "en": "Nong Hoi",
+   "th": "หนองหอย",
+   "zh": "农怀"
+  },
+  "padaet": {
+   "en": "Pa Daet",
+   "th": "ป่าแดด",
+   "zh": "巴代"
+  },
+  "haiya": {
+   "en": "Hai Ya",
+   "th": "หายยา",
+   "zh": "海亚"
   }
+ },
+ "rows": {
+  "0:5": {
+   "id": "tann",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "TANN",
+    "th": "แทน",
+    "zh": "TANN 咖啡馆"
+   },
+   "perk": {
+    "en": "−15 ฿",
+    "th": "ลด 15 ฿",
+    "zh": "减 15 ฿"
+   },
+   "offer": {
+    "en": "15 THB off any drink",
+    "th": "ลด 15 บาท ทุกเครื่องดื่ม",
+    "zh": "任意饮品立减 15 泰铢"
+   }
+  },
+  "0:6": {
+   "id": "fohhide",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "FOHHIDE",
+    "th": "ฟอไฮด์",
+    "zh": "FOHHIDE 咖啡馆"
+   },
+   "perk": {
+    "en": "−15 ฿",
+    "th": "ลด 15 ฿",
+    "zh": "减 15 ฿"
+   },
+   "offer": {
+    "en": "15 THB off any drink",
+    "th": "ลด 15 บาท ทุกเครื่องดื่ม",
+    "zh": "任意饮品立减 15 泰铢"
+   }
+  },
+  "0:7": {
+   "id": "cafe-de-oasis",
+   "brand": "en",
+   "area": "changphueak",
+   "name": {
+    "en": "Café de Oasis & Toby's Pizza",
+    "th": "คาเฟ่ เดอ โอเอซิส & โทบี้ส์ พิซซ่า",
+    "zh": "Café de Oasis & Toby's 披萨咖啡馆"
+   },
+   "perk": {
+    "en": "Up to −100 ฿",
+    "th": "ลดสูงสุด 100 ฿",
+    "zh": "最高减 100 ฿"
+   },
+   "offer": {
+    "en": "50 THB off when you spend 500 THB+ on food & drinks\n100 THB off when you spend 1,000 THB+",
+    "th": "ลด 50 บาท เมื่อสั่งอาหารและเครื่องดื่มครบ 500 บาท\nลด 100 บาท เมื่อครบ 1,000 บาท",
+    "zh": "餐饮消费满 500 泰铢减 50 泰铢\n满 1,000 泰铢减 100 泰铢"
+   },
+   "tags": "pizza พิซซ่า 披萨"
+  },
+  "0:8": {
+   "id": "basecamp",
+   "brand": "en",
+   "area": "suthep",
+   "name": {
+    "en": "Basecamp Coffee Club",
+    "th": "เบสแคมป์ คอฟฟี่ คลับ",
+    "zh": "Basecamp 咖啡"
+   },
+   "perk": {
+    "en": "−50% special menu",
+    "th": "ลด 50% เมนูพิเศษ",
+    "zh": "特别菜单 5 折"
+   },
+   "offer": {
+    "en": "50% off the special UTMB season menu",
+    "th": "ลด 50% เมนูพิเศษประจำซีซัน UTMB",
+    "zh": "UTMB 赛季特别菜单 5 折"
+   }
+  },
+  "0:9": {
+   "id": "rosemary",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Café Rosemary",
+    "th": "คาเฟ่ โรสแมรี่",
+    "zh": "Café Rosemary 咖啡馆"
+   },
+   "perk": {
+    "en": "−10% + gift",
+    "th": "ลด 10% + ของแถม",
+    "zh": "9 折 + 赠品"
+   },
+   "offer": {
+    "en": "10% off all menu items, plus a free energy bar",
+    "th": "ลด 10% ทุกเมนู แถมฟรีเอนเนอร์จีบาร์",
+    "zh": "全单 9 折，另赠能量棒一根"
+   }
+  },
+  "0:10": {
+   "id": "roast8ry-flagship",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Roast8ry Flagship Store",
+    "th": "โรสเตอรี่ แฟล็กชิป สโตร์",
+    "zh": "Roast8ry 咖啡 旗舰店"
+   },
+   "perk": {
+    "en": "2 gifts",
+    "th": "ของที่ระลึก 2 ชิ้น",
+    "zh": "赠 2 份礼品"
+   },
+   "offer": {
+    "en": "Complete the store's conditions to receive two exclusive gifts:\n• Award-winning Thai coffee beans (Thailand Barista Championship 2027 winner)\n• A brownie from Oldschool Brownies",
+    "th": "ทำตามเงื่อนไขของร้าน รับของที่ระลึกพิเศษ 2 ชิ้น:\n• เมล็ดกาแฟไทยรางวัลชนะเลิศ Thailand Barista Championship 2027\n• บราวนี่จาก Oldschool Brownies",
+    "zh": "完成店内指定条件，即可获得两份专属礼品：\n• 获奖泰国咖啡豆（2027 泰国咖啡师锦标赛冠军）\n• Oldschool Brownies 布朗尼一块"
+   },
+   "tags": "roastery"
+  },
+  "0:11": {
+   "id": "roast8ry-lab",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Roast8ry Lab",
+    "th": "โรสเตอรี่ แล็บ",
+    "zh": "Roast8ry Lab 咖啡"
+   },
+   "perk": {
+    "en": "2 gifts",
+    "th": "ของที่ระลึก 2 ชิ้น",
+    "zh": "赠 2 份礼品"
+   },
+   "offer": {
+    "en": "Complete the store's conditions to receive two exclusive gifts:\n• Award-winning Thai coffee beans (Thailand Barista Championship 2027 winner)\n• A brownie from Oldschool Brownies",
+    "th": "ทำตามเงื่อนไขของร้าน รับของที่ระลึกพิเศษ 2 ชิ้น:\n• เมล็ดกาแฟไทยรางวัลชนะเลิศ Thailand Barista Championship 2027\n• บราวนี่จาก Oldschool Brownies",
+    "zh": "完成店内指定条件，即可获得两份专属礼品：\n• 获奖泰国咖啡豆（2027 泰国咖啡师锦标赛冠军）\n• Oldschool Brownies 布朗尼一块"
+   },
+   "tags": "roastery"
+  },
+  "0:12": {
+   "id": "ministry-of-roasters",
+   "brand": "en",
+   "area": "thaphae",
+   "name": {
+    "en": "Ministry of Roasters",
+    "th": "กระทรวงการคั่ว",
+    "zh": "Ministry of Roasters 咖啡烘焙"
+   },
+   "perk": {
+    "en": "Free drink · 100 ฿+",
+    "th": "ฟรีเครื่องดื่ม · ซื้อเกิน 100 ฿",
+    "zh": "满 100 ฿ 送饮品"
+   },
+   "offer": {
+    "en": "1. Buy any drink over 100 THB and get a FREE 10 oz Iced Light Roast Thai Americano (worth 80 THB), a THGCC2026 special edition\n2. Spend over 800 THB on coffee beans and get 3 complimentary drip bags (3 varieties)",
+    "th": "1. ซื้อเครื่องดื่มใดก็ได้ราคาเกิน 100 บาท รับฟรี Iced Light Roast Thai Americano 10 ออนซ์ (มูลค่า 80 บาท) รุ่นพิเศษ THGCC2026\n2. ซื้อเมล็ดกาแฟเกิน 800 บาท รับฟรีดริปแบ็ก 3 ซอง (3 สายพันธุ์)",
+    "zh": "1. 购买任意 100 泰铢以上饮品，免费获赠 10 盎司冰浅烘泰式美式一杯（价值 80 泰铢），THGCC2026 特别版\n2. 购买咖啡豆满 800 泰铢，赠送 3 款不同风味挂耳咖啡"
+   },
+   "scripts": [
+    "en",
+    "th"
+   ]
+  },
+  "0:13": {
+   "id": "thorphan",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Thorphan Coffee Roaster",
+    "th": "ทอพัน คอฟฟี่ โรสเตอร์",
+    "zh": "Thorphan 咖啡烘焙"
+   },
+   "perk": {
+    "en": "2 for 100 ฿",
+    "th": "2 แก้ว 100 ฿",
+    "zh": "两杯 100 ฿"
+   },
+   "offer": {
+    "en": "2 Americanos for 100 THB (regularly 60 THB each)",
+    "th": "อเมริกาโน่ 2 แก้ว 100 บาท (ปกติแก้วละ 60 บาท)",
+    "zh": "美式咖啡两杯仅 100 泰铢（原价每杯 60 泰铢）"
+   }
+  },
+  "0:14": {
+   "id": "pegasus",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Pegasus Café & Roastery",
+    "th": "เพกาซัส คาเฟ่ แอนด์ โรสเตอรี",
+    "zh": "Pegasus 咖啡烘焙坊"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all menu items",
+    "th": "ลด 10% ทุกเมนู",
+    "zh": "全单 9 折"
+   }
+  },
+  "1:5": {
+   "id": "run2paradise",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "RUN2PARADISE Nimman",
+    "th": "รันทูพาราไดซ์ นิมมาน",
+    "zh": "Run2Paradise 跑步装备 宁曼店"
+   },
+   "perk": {
+    "en": "Extra 5% · 4,000 ฿+",
+    "th": "ลดเพิ่ม 5% · ครบ 4,000 ฿",
+    "zh": "满 4,000 ฿ 再减 5%"
+   },
+   "offer": {
+    "en": "An extra 5% off purchases of 4,000 THB or more",
+    "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 4,000 บาทขึ้นไป",
+    "zh": "单笔消费满 4,000 泰铢，额外再减 5%"
+   },
+   "tags": "running shoes trail gear รองเท้าวิ่ง รองเท้า 跑鞋 跑步"
+  },
+  "1:6": {
+   "id": "highlandner",
+   "brand": "en",
+   "area": "changphueak",
+   "name": {
+    "en": "The Highlandner",
+    "th": "เดอะ ไฮแลนด์เนอร์",
+    "zh": "The Highlandner 户外运动装备"
+   },
+   "perk": {
+    "en": "Extra 5% · 1,000 ฿+",
+    "th": "ลดเพิ่ม 5% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 再减 5%"
+   },
+   "offer": {
+    "en": "An extra 5% off single receipts of 1,000 THB or more (clearance items excluded)",
+    "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ (ยกเว้นสินค้าเคลียร์สต็อก)",
+    "zh": "单张小票满 1,000 泰铢，额外再减 5%（清仓商品除外）"
+   },
+   "tags": "trail running shoes outdoor triathlon รองเท้าวิ่ง เทรล 越野跑 跑鞋 户外"
+  },
+  "1:7": {
+   "id": "bananarun",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "BananaRun Chiang Mai",
+    "th": "บานาน่ารัน เชียงใหม่",
+    "zh": "BananaRun 跑步装备 清迈店"
+   },
+   "perk": {
+    "en": "Up to −40%",
+    "th": "ลดสูงสุด 40%",
+    "zh": "低至 6 折"
+   },
+   "offer": {
+    "en": "10–40% off accessories and energy products, under the company's terms and conditions",
+    "th": "ลด 10–40% สินค้าอุปกรณ์เสริมและสินค้ากลุ่มพลังงาน ตามเงื่อนไขของบริษัท",
+    "zh": "配件及能量补给产品 6–9 折，以公司条款为准"
+   },
+   "tags": "running shoes gel energy รองเท้าวิ่ง เจล 跑鞋 能量胶"
+  },
+  "1:8": {
+   "id": "krudam",
+   "brand": "en",
+   "area": "haiya",
+   "name": {
+    "en": "Krudam Gym Chiang Mai",
+    "th": "ครูดำ ยิม เชียงใหม่",
+    "zh": "Krudam 泰拳健身馆"
+   },
+   "perk": {
+    "en": "−20%",
+    "th": "ลด 20%",
+    "zh": "8 折"
+   },
+   "offer": {
+    "en": "20% off all gym courses",
+    "th": "ลด 20% ทุกคอร์สยิม",
+    "zh": "所有健身课程 8 折"
+   },
+   "tags": "boxing muay thai gym fitness มวย มวยไทย ยิม 泰拳 拳击 健身房"
+  },
+  "1:9": {
+   "id": "decathlon-chiangmai",
+   "brand": "en",
+   "area": "superhighway",
+   "name": {
+    "en": "Decathlon Chiang Mai",
+    "th": "ดีแคทลอน เชียงใหม่",
+    "zh": "迪卡侬 清迈店"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.",
+    "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด",
+    "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"
+   },
+   "scripts": [
+    "en"
+   ],
+   "tags": "running shoes gear รองเท้า 跑鞋 装备"
+  },
+  "1:10": {
+   "id": "decathlon-hangdong",
+   "brand": "en",
+   "area": "hangdong",
+   "name": {
+    "en": "Decathlon Hang Dong Convenience Store",
+    "th": "ดีแคทลอน หางดง (คอนวีเนียนสโตร์)",
+    "zh": "迪卡侬 杭东便利店"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.",
+    "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด",
+    "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"
+   },
+   "tags": "running shoes gear รองเท้า 跑鞋 装备"
+  },
+  "1:11": {
+   "id": "decathlon-thaphae",
+   "brand": "en",
+   "area": "thaphae",
+   "name": {
+    "en": "Decathlon Tha Phae Gate",
+    "th": "ดีแคทลอน ประตูท่าแพ",
+    "zh": "迪卡侬 塔佩门店"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off when you spend 1,000 THB+ per receipt. Valid only at Decathlon Chiang Mai, Hang Dong and Tha Phae. Terms and conditions apply.",
+    "th": "ลด 10% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ ใช้ได้เฉพาะสาขาเชียงใหม่ หางดง และท่าแพ เป็นไปตามเงื่อนไขที่กำหนด",
+    "zh": "单张小票满 1,000 泰铢享 9 折。仅限迪卡侬清迈店、杭东店及塔佩门店，适用相关条款。"
+   },
+   "tags": "running shoes gear รองเท้า 跑鞋 装备"
+  },
+  "2:5": {
+   "id": "varalee",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Varalee Massage",
+    "th": "วราลี มาสสาจ",
+    "zh": "Varalee 泰式按摩"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all services and treatments",
+    "th": "ลด 10% ทุกบริการและทรีตเมนต์",
+    "zh": "所有服务与疗程 9 折"
+   }
+  },
+  "2:6": {
+   "id": "varalee-2",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Varalee Massage 2",
+    "th": "วราลี มาสสาจ 2",
+    "zh": "Varalee 泰式按摩 2 号店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all services and treatments",
+    "th": "ลด 10% ทุกบริการและทรีตเมนต์",
+    "zh": "所有服务与疗程 9 折"
+   }
+  },
+  "2:7": {
+   "id": "varalee-one-nimman",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Varalee Massage @One Nimman",
+    "th": "วราลี มาสสาจ @วันนิมมาน",
+    "zh": "Varalee 泰式按摩 One Nimman 店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all services and treatments",
+    "th": "ลด 10% ทุกบริการและทรีตเมนต์",
+    "zh": "所有服务与疗程 9 折"
+   }
+  },
+  "2:8": {
+   "id": "the-artist",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "The Artist",
+    "th": "ดิ อาร์ทิสท์",
+    "zh": "The Artist 按摩店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all services and treatments",
+    "th": "ลด 10% ทุกบริการและทรีตเมนต์",
+    "zh": "所有服务与疗程 9 折"
+   }
+  },
+  "2:9": {
+   "id": "oasis-nimman",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Oasis Spa Nimman",
+    "th": "โอเอซิส สปา นิมมาน",
+    "zh": "Oasis Spa 宁曼店"
+   },
+   "perk": {
+    "en": "Buy 1 Get 1",
+    "th": "1 แถม 1",
+    "zh": "买一送一"
+   },
+   "offer": {
+    "en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB",
+    "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท",
+    "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"
+   }
+  },
+  "2:10": {
+   "id": "oasis-lanna",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Oasis Spa Lanna",
+    "th": "โอเอซิส สปา ล้านนา",
+    "zh": "Oasis Spa 兰纳店"
+   },
+   "perk": {
+    "en": "Buy 1 Get 1",
+    "th": "1 แถม 1",
+    "zh": "买一送一"
+   },
+   "offer": {
+    "en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB",
+    "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท",
+    "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"
+   }
+  },
+  "2:11": {
+   "id": "gc-wellness",
+   "brand": "en",
+   "area": "south",
+   "name": {
+    "en": "GC Wellness House Polyclinic",
+    "th": "จีซี เวลเนส เฮาส์ โพลีคลินิก",
+    "zh": "GC Wellness 中医理疗诊所"
+   },
+   "perk": {
+    "en": "−15%",
+    "th": "ลด 15%",
+    "zh": "85 折"
+   },
+   "offer": {
+    "en": "15% off all services",
+    "th": "ลด 15% ทุกบริการ",
+    "zh": "所有服务 85 折"
+   },
+   "tags": "clinic physio physical therapy chinese medicine คลินิก กายภาพ แพทย์แผนจีน 中医 理疗"
+  },
+  "2:12": {
+   "id": "rungwara",
+   "brand": "th",
+   "area": "oldcity",
+   "name": {
+    "en": "Rungwara Thai Massage",
+    "th": "รุ่งวรา นวดเพื่อสุขภาพ",
+    "zh": "Rungwara 泰式按摩"
+   },
+   "perk": {
+    "en": "−20%",
+    "th": "ลด 20%",
+    "zh": "8 折"
+   },
+   "offer": {
+    "en": "20% off all courses",
+    "th": "ลด 20% ทุกคอร์ส",
+    "zh": "所有疗程 8 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  },
+  "2:13": {
+   "id": "herb-nimman",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Herb Massage at Nimman",
+    "th": "เฮิร์บ มาสสาจ นิมมาน",
+    "zh": "Herb Massage 宁曼店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all courses",
+    "th": "ลด 10% ทุกคอร์ส",
+    "zh": "所有疗程 9 折"
+   }
+  },
+  "2:14": {
+   "id": "herb-annex",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Herb Massage Annex",
+    "th": "เฮิร์บ มาสสาจ แอนเน็กซ์",
+    "zh": "Herb Massage 分店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all courses",
+    "th": "ลด 10% ทุกคอร์ส",
+    "zh": "所有疗程 9 折"
+   }
+  },
+  "2:15": {
+   "id": "herb-central",
+   "brand": "en",
+   "area": "central",
+   "name": {
+    "en": "Herb Massage at Central Chiang Mai",
+    "th": "เฮิร์บ มาสสาจ เซ็นทรัล เชียงใหม่",
+    "zh": "Herb Massage 尚泰清迈店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all courses",
+    "th": "ลด 10% ทุกคอร์ส",
+    "zh": "所有疗程 9 折"
+   }
+  },
+  "2:16": {
+   "id": "herb-nimman-soi6",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Herb Massage at Nimman Soi 6",
+    "th": "เฮิร์บ มาสสาจ นิมมาน ซอย 6",
+    "zh": "Herb Massage 宁曼 6 巷店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all courses",
+    "th": "ลด 10% ทุกคอร์ส",
+    "zh": "所有疗程 9 折"
+   }
+  },
+  "2:17": {
+   "id": "zira-spa",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Zira Spa",
+    "th": "ซีร่า สปา",
+    "zh": "Zira Spa 水疗"
+   },
+   "perk": {
+    "en": "−5% · 2,000 ฿+",
+    "th": "ลด 5% · ครบ 2,000 ฿",
+    "zh": "满 2,000 ฿ 95 折"
+   },
+   "offer": {
+    "en": "5% off spa treatments when you spend 2,000 THB or more. Cannot be combined with other promotions.",
+    "th": "ลด 5% ทรีตเมนต์สปา เมื่อใช้บริการครบ 2,000 บาท ไม่สามารถใช้ร่วมกับโปรโมชันอื่นได้",
+    "zh": "水疗消费满 2,000 泰铢享 95 折，不可与其他优惠同享。"
+   }
+  },
+  "2:18": {
+   "id": "gentle-massage",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "The Gentle Massage & Spa",
+    "th": "เดอะ เจนเทิล มาสสาจ แอนด์ สปา",
+    "zh": "The Gentle 按摩水疗"
+   },
+   "perk": {
+    "en": "Special price",
+    "th": "ราคาพิเศษ",
+    "zh": "特价"
+   },
+   "offer": {
+    "en": "• Aroma hot oil massage, 2 hrs: 1,100 THB (from 1,400)\n• Deep tissue massage, 2 hrs: 1,500 THB (from 1,700)\n• Foot & Thai massage, 1.5 hrs: 600 THB (from 660)",
+    "th": "• นวดน้ำมันอโรมาร้อน 2 ชม. 1,100 บาท (ปกติ 1,400)\n• นวดกดลึก (Deep tissue) 2 ชม. 1,500 บาท (ปกติ 1,700)\n• นวดเท้าและนวดไทย 1.30 ชม. 600 บาท (ปกติ 660)",
+    "zh": "• 香薰热油按摩 2 小时 1,100 泰铢（原价 1,400）\n• 深层组织按摩 2 小时 1,500 泰铢（原价 1,700）\n• 足部 + 泰式按摩 1.5 小时 600 泰铢（原价 660）"
+   }
+  },
+  "2:19": {
+   "id": "g-massage",
+   "brand": "en",
+   "area": "central",
+   "name": {
+    "en": "G Massage Therapy Central Festival",
+    "th": "จี มาสสาจ เธอราพี เซ็นทรัลเฟสติวัล",
+    "zh": "G Massage Therapy 尚泰节日店"
+   },
+   "perk": {
+    "en": "−20%",
+    "th": "ลด 20%",
+    "zh": "8 折"
+   },
+   "offer": {
+    "en": "20% off all courses",
+    "th": "ลด 20% ทุกคอร์ส",
+    "zh": "所有疗程 8 折"
+   },
+   "scripts": [
+    "en",
+    "th"
+   ]
+  },
+  "2:20": {
+   "id": "fahlanna-oldcity",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Fah Lanna Spa Old City",
+    "th": "ฟ้าล้านนา สปา เมืองเก่า",
+    "zh": "Fah Lanna Spa 古城店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all spa treatments",
+    "th": "ลด 10% ทุกทรีตเมนต์สปา",
+    "zh": "所有水疗项目 9 折"
+   },
+   "scripts": [
+    "en",
+    "th"
+   ]
+  },
+  "2:21": {
+   "id": "fahlanna-massage",
+   "brand": "en",
+   "area": "nightbazaar",
+   "name": {
+    "en": "Fah Lanna Massage",
+    "th": "ฟ้าล้านนา มาสสาจ",
+    "zh": "Fah Lanna 按摩"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all spa treatments",
+    "th": "ลด 10% ทุกทรีตเมนต์สปา",
+    "zh": "所有水疗项目 9 折"
+   },
+   "scripts": [
+    "en",
+    "th"
+   ]
+  },
+  "2:22": {
+   "id": "fahlanna-nimman",
+   "brand": "en",
+   "area": "nimman",
+   "name": {
+    "en": "Fah Lanna Spa Exclusive Nimman",
+    "th": "ฟ้าล้านนา สปา เอ็กซ์คลูซีฟ นิมมาน",
+    "zh": "Fah Lanna Spa 宁曼尊享店"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all spa treatments",
+    "th": "ลด 10% ทุกทรีตเมนต์สปา",
+    "zh": "所有水疗项目 9 折"
+   },
+   "scripts": [
+    "en",
+    "th"
+   ]
+  },
+  "3:5": {
+   "id": "treespoon",
+   "brand": "en",
+   "area": "suthep",
+   "name": {
+    "en": "Treespoon Barbecue",
+    "th": "ทรีสปูน บาร์บีคิว",
+    "zh": "Treespoon 烧烤餐厅"
+   },
+   "perk": {
+    "en": "Runner menu",
+    "th": "เมนูนักวิ่ง",
+    "zh": "跑者特价"
+   },
+   "offer": {
+    "en": "Special menu at special prices, exclusive for UTMB runners:\n• Beef sandwich\n• Pulled pork sandwich\n• Fresh coconut",
+    "th": "เมนูพิเศษในราคาพิเศษ เฉพาะนักวิ่ง UTMB:\n• แซนด์วิชเนื้อ\n• แซนด์วิชพูลด์พอร์ก\n• มะพร้าวสด",
+    "zh": "UTMB 跑者专享特价菜单：\n• 牛肉三明治\n• 手撕猪肉三明治\n• 新鲜椰子"
+   },
+   "who": "runner",
+   "tags": "bbq barbecue sandwich บาร์บีคิว 烧烤"
+  },
+  "3:6": {
+   "id": "meeanjakin",
+   "brand": "th",
+   "area": "padaet",
+   "name": {
+    "en": "Mee An Ja Kin",
+    "th": "มีอันจะกิน",
+    "zh": "Mee An Ja Kin 咖啡餐厅"
+   },
+   "perk": {
+    "en": "−15%",
+    "th": "ลด 15%",
+    "zh": "85 折"
+   },
+   "offer": {
+    "en": "15% off food",
+    "th": "ลด 15% ค่าอาหาร",
+    "zh": "食物 85 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  },
+  "3:7": {
+   "id": "khoei",
+   "brand": "th",
+   "area": "santitham",
+   "name": {
+    "en": "Khoei Chiang Mai",
+    "th": "เขยเจียงใหม่",
+    "zh": "Khoei 清迈北部菜"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off food when you spend 1,000 THB or more (excluding beverages)",
+    "th": "ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,000 บาท (ไม่รวมเครื่องดื่ม)",
+    "zh": "消费满 1,000 泰铢，食物享 9 折（饮品除外）"
+   },
+   "tags": "northern thai อาหารเหนือ 北部菜"
+  },
+  "3:8": {
+   "id": "haidilao",
+   "brand": "en",
+   "area": "central",
+   "name": {
+    "en": "Haidilao Hot Pot",
+    "th": "ไหตี่เลา หั่วกัว",
+    "zh": "海底捞火锅"
+   },
+   "perk": {
+    "en": "−20%",
+    "th": "ลด 20%",
+    "zh": "8 折"
+   },
+   "offer": {
+    "en": "20% off food when you show your UTMB Runner Pass, unlimited visits",
+    "th": "ลด 20% ค่าอาหาร เมื่อแสดง UTMB Runner Pass ใช้ได้ไม่จำกัดครั้ง",
+    "zh": "出示 UTMB 跑者证，食物享 8 折，不限次数"
+   },
+   "scripts": [
+    "en",
+    "th",
+    "zh"
+   ],
+   "who": "runner",
+   "tags": "hotpot hot pot shabu สุกี้ ชาบู หม้อไฟ 火锅"
+  },
+  "3:9": {
+   "id": "akai8",
+   "brand": "th",
+   "area": "suthep",
+   "name": {
+    "en": "Akai8",
+    "th": "อาไก๋",
+    "zh": "Akai8 海南鸡饭"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off food, subject to the store's terms and conditions",
+    "th": "ลด 10% ค่าอาหาร ตามเงื่อนไขของร้าน",
+    "zh": "食物 9 折，以店铺条款为准"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ],
+   "tags": "chicken rice ข้าวมันไก่ 海南鸡饭"
+  },
+  "3:10": {
+   "id": "hongtauw-inn",
+   "brand": "th",
+   "area": "nimman",
+   "name": {
+    "en": "Hong Tauw Inn",
+    "th": "ห้องแถว",
+    "zh": "Hong Tauw Inn 泰式餐厅"
+   },
+   "perk": {
+    "en": "Up to −10% · 1,000 ฿+",
+    "th": "ลดสูงสุด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 起享折扣"
+   },
+   "offer": {
+    "en": "5% off food when you spend 1,000 THB or more\n10% off food when you spend 1,500 THB or more",
+    "th": "ลด 5% ค่าอาหาร เมื่อสั่งครบ 1,000 บาท\nลด 10% เมื่อสั่งครบ 1,500 บาท",
+    "zh": "消费满 1,000 泰铢，食物 95 折\n满 1,500 泰铢，食物 9 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  },
+  "3:11": {
+   "id": "krua-lhong-khao",
+   "brand": "th",
+   "area": "maerim",
+   "name": {
+    "en": "Lhongkhao Kitchen",
+    "th": "ครัวหลองข้าว",
+    "zh": "Lhongkhao Kitchen 泰式餐厅"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off food and drinks when you spend 1,000 THB or more",
+    "th": "ลด 10% ค่าอาหารและเครื่องดื่ม เมื่อสั่งครบ 1,000 บาท",
+    "zh": "餐饮消费满 1,000 泰铢享 9 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  },
+  "3:12": {
+   "id": "saiyud-doctor-sai",
+   "brand": "th",
+   "area": "chotana",
+   "name": {
+    "en": "Saiyud & Doctor Sai Kitchen",
+    "th": "ครัวอาจารย์สายหยุด & หมอทราย",
+    "zh": "Saiyud & Doctor Sai 泰式厨房"
+   },
+   "perk": {
+    "en": "−5% + dessert",
+    "th": "ลด 5% + ขนมไทย",
+    "zh": "95 折 + 甜点"
+   },
+   "offer": {
+    "en": "5% off food, plus a complimentary set of auspicious Thai desserts",
+    "th": "ลด 5% ค่าอาหาร แถมฟรีขนมไทยมงคล 1 ชุด",
+    "zh": "食物 95 折，另赠泰式吉祥甜点一套"
+   }
+  },
+  "3:13": {
+   "id": "gongkham",
+   "brand": "th",
+   "area": "maerim",
+   "name": {
+    "en": "Gongkham",
+    "th": "ก๋องคำ",
+    "zh": "Gongkham 北部菜餐厅"
+   },
+   "perk": {
+    "en": "−10% · 1,000 ฿+",
+    "th": "ลด 10% · ครบ 1,000 ฿",
+    "zh": "满 1,000 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off food and drinks when you spend 1,000 THB or more",
+    "th": "ลด 10% ค่าอาหารและเครื่องดื่ม เมื่อสั่งครบ 1,000 บาท",
+    "zh": "餐饮消费满 1,000 泰铢享 9 折"
+   },
+   "tags": "northern thai อาหารเหนือ 北部菜"
+  },
+  "3:14": {
+   "id": "each-other",
+   "brand": "en",
+   "area": "riverside",
+   "name": {
+    "en": "Each Other!",
+    "th": "อีช อัทเธอร์",
+    "zh": "Each Other! 餐厅"
+   },
+   "perk": {
+    "en": "−5%",
+    "th": "ลด 5%",
+    "zh": "95 折"
+   },
+   "offer": {
+    "en": "5% off food",
+    "th": "ลด 5% ค่าอาหาร",
+    "zh": "食物 95 折"
+   }
+  },
+  "3:15": {
+   "id": "pasto",
+   "brand": "en",
+   "area": "oldcity",
+   "name": {
+    "en": "Pasto Italian Restaurant",
+    "th": "ปาสโต อิตาเลียน เรสเตอรองต์",
+    "zh": "Pasto 意大利餐厅"
+   },
+   "perk": {
+    "en": "−10% · 1,500 ฿+",
+    "th": "ลด 10% · ครบ 1,500 ฿",
+    "zh": "满 1,500 ฿ 9 折"
+   },
+   "offer": {
+    "en": "10% off food when you spend 1,500 THB or more (excluding beverages). Subject to change without notice.",
+    "th": "ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,500 บาท (ไม่รวมเครื่องดื่ม) เงื่อนไขอาจเปลี่ยนแปลงโดยไม่แจ้งล่วงหน้า",
+    "zh": "消费满 1,500 泰铢，食物享 9 折（饮品除外），如有变动恕不另行通知"
+   },
+   "tags": "italian pasta pizza อิตาเลียน 意大利"
+  },
+  "3:16": {
+   "id": "baan-landai",
+   "brand": "th",
+   "area": "maerim",
+   "name": {
+    "en": "BAAN Landai Mae Rim",
+    "th": "บ้านลานดาย แม่ริม",
+    "zh": "Baan Landai 餐厅 湄林"
+   },
+   "perk": {
+    "en": "Free drink",
+    "th": "ฟรีเครื่องดื่ม",
+    "zh": "免费饮品"
+   },
+   "offer": {
+    "en": "1 free drink per person when you show your UTMB pass",
+    "th": "รับเครื่องดื่มฟรี 1 แก้วต่อท่าน เพียงแสดงบัตร UTMB",
+    "zh": "出示 UTMB 证件，每人免费饮品一杯"
+   },
+   "who": "runner"
+  },
+  "3:17": {
+   "merge": "thorphan"
+  },
+  "3:18": {
+   "id": "punn-toh",
+   "brand": "th",
+   "logoFit": "cover",
+   "area": "riverside",
+   "name": {
+    "en": "Punn Toh",
+    "th": "ปั้นโต๊ะ",
+    "zh": "Punn Toh 餐厅"
+   },
+   "perk": {
+    "en": "−15%",
+    "th": "ลด 15%",
+    "zh": "85 折"
+   },
+   "offer": {
+    "en": "15% off food and drinks",
+    "th": "ลด 15% ค่าอาหารและเครื่องดื่ม",
+    "zh": "餐饮 85 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  },
+  "3:19": {
+   "id": "jeab",
+   "brand": "th",
+   "area": "nimman",
+   "name": {
+    "en": "JEAB Café & Thai Food",
+    "th": "เจี๊ยบ คาเฟ่ & อาหารไทย",
+    "zh": "JEAB 咖啡 & 泰餐"
+   },
+   "perk": {
+    "en": "−10%",
+    "th": "ลด 10%",
+    "zh": "9 折"
+   },
+   "offer": {
+    "en": "10% off all food and drinks",
+    "th": "ลด 10% อาหารและเครื่องดื่มทุกรายการ",
+    "zh": "所有餐饮 9 折"
+   },
+   "scripts": [
+    "th",
+    "en"
+   ]
+  }
+ }
 }
