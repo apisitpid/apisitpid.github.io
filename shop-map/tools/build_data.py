@@ -133,7 +133,11 @@ def fit_logo(data, trim=0.006, force=None):
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     r = np.sqrt((xs + 0.5 - cx) ** 2 + (ys + 0.5 - cy) ** 2).max()
     ratio = r / (math.hypot(x1 - x0, y1 - y0) / 2)      # 1.0 = rectangular content, ~0.71 = round badge
-    scale = (SIZE / 2 * 0.93) / r
+    # Safe zone. A round badge has its own ring, meant to sit just inside the pin's ring: keep it near
+    # the edge. Wordmarks and square marks get breathing room: nothing past 80% of the radius
+    # (≈4.5 px clear at the 46 px pin), the way app icons keep a safe area.
+    SAFE_ROUND, SAFE_MARK = 0.955, 0.80
+    scale = (SIZE / 2 * (SAFE_ROUND if ratio < 0.8 else SAFE_MARK)) / r
     crop = flat.crop((int(x0), int(y0), int(x1), int(y1)))
     nw, nh = max(1, round((x1 - x0) * scale)), max(1, round((y1 - y0) * scale))
     crop = crop.resize((nw, nh), Image.LANCZOS)
