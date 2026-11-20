@@ -1,0 +1,57 @@
+/* UI strings. Store names/offers live in data/stores.js. */
+window.CNX_I18N = {
+  th: {
+    htmlLang: 'th', label: 'ไทย', short: 'TH',
+    appName: 'สิทธิพิเศษนักวิ่ง', appSub: 'เชียงใหม่',
+    tagline: 'ร้านพันธมิตรที่มอบสิทธิพิเศษให้นักวิ่งและกองเชียร์',
+    search: 'ค้นหาร้าน ประเภท หรือย่าน',
+    all: 'ทั้งหมด', cats: { cafe: 'คาเฟ่', food: 'ร้านอาหาร', spa: 'นวด & สปา', sport: 'กีฬา & ฟิตเนส' },
+    catsLong: { cafe: 'คาเฟ่ & ร้านกาแฟ', food: 'ร้านอาหาร', spa: 'นวด & สปา', sport: 'อุปกรณ์กีฬา มวย & ฟิตเนส' },
+    countAll: '{n} ร้านพร้อมสิทธิพิเศษ', countFound: 'พบ {n} ร้าน', noneTitle: 'ไม่พบร้านที่ตรงกับ “{q}”',
+    noneHint: 'ลองพิมพ์ชื่อร้าน ประเภท เช่น “กาแฟ” “นวด” หรือชื่อย่าน เช่น “นิมมาน”', clear: 'ล้างการค้นหา',
+    sortNear: 'เรียงตามระยะทาง', sortName: 'เรียงตามย่าน',
+    openNow: 'เปิดอยู่', closesAt: 'ปิด {t}', closed: 'ปิดแล้ว', opensAt: 'เปิด {t}', closingSoon: 'ใกล้ปิด · {t}',
+    privilege: 'สิทธิพิเศษนักวิ่ง', redeem: 'สำหรับนักวิ่งและกองเชียร์ · แสดง BIB หรือบัตรนักวิ่งที่ร้านเพื่อรับสิทธิ์',
+    hours: 'เวลาเปิด–ปิด', address: 'ที่อยู่', phone: 'โทร', directions: 'นำทาง', call: 'โทร', share: 'แชร์', copy: 'คัดลอก', copied: 'คัดลอกแล้ว',
+    locate: 'ตำแหน่งของฉัน', fitAll: 'ดูทุกร้าน', list: 'รายการ', map: 'แผนที่', back: 'กลับ', close: 'ปิด',
+    away: 'ห่าง {d}', locDenied: 'ไม่ได้รับสิทธิ์เข้าถึงตำแหน่ง', alsoIn: 'อยู่ในหมวด',
+    stores: 'ร้าน', mapError: 'โหลดแผนที่ไม่สำเร็จ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่', retry: 'ลองใหม่',
+    km: 'กม.', m: 'ม.'
+  },
+  en: {
+    htmlLang: 'en', label: 'English', short: 'EN',
+    appName: 'Runner Privileges', appSub: 'Chiang Mai',
+    tagline: 'Partner shops with perks for runners and supporters',
+    search: 'Search shops, types or areas',
+    all: 'All', cats: { cafe: 'Café', food: 'Food', spa: 'Massage & Spa', sport: 'Sport & Fitness' },
+    catsLong: { cafe: 'Café & Coffee', food: 'Restaurant', spa: 'Massage & Spa', sport: 'Sports gear, Boxing & Fitness' },
+    countAll: '{n} shops with runner perks', countFound: '{n} found', noneTitle: 'No shops match “{q}”',
+    noneHint: 'Try a shop name, a type like “coffee” or “massage”, or an area like “Nimman”.', clear: 'Clear search',
+    sortNear: 'Nearest first', sortName: 'By area',
+    openNow: 'Open', closesAt: 'until {t}', closed: 'Closed', opensAt: 'opens {t}', closingSoon: 'Closing soon · {t}',
+    privilege: 'Runner privilege', redeem: 'For runners and supporters · show your race bib or runner pass at the counter',
+    hours: 'Opening hours', address: 'Address', phone: 'Phone', directions: 'Directions', call: 'Call', share: 'Share', copy: 'Copy', copied: 'Copied',
+    locate: 'My location', fitAll: 'Show all shops', list: 'List', map: 'Map', back: 'Back', close: 'Close',
+    away: '{d} away', locDenied: 'Location permission was not granted', alsoIn: 'Listed in',
+    stores: 'shops', mapError: 'The map could not load. Check your connection and try again.', retry: 'Try again',
+    km: 'km', m: 'm'
+  },
+  zh: {
+    htmlLang: 'zh-Hans', label: '中文', short: '中',
+    appName: '跑者专享优惠', appSub: '清迈',
+    tagline: '为跑者与亲友团提供优惠的合作商家',
+    search: '搜索店名、类型或区域',
+    all: '全部', cats: { cafe: '咖啡', food: '餐厅', spa: '按摩水疗', sport: '运动健身' },
+    catsLong: { cafe: '咖啡馆', food: '餐厅', spa: '按摩与水疗', sport: '运动装备、拳馆与健身' },
+    countAll: '{n} 家商户提供跑者优惠', countFound: '找到 {n} 家', noneTitle: '没有与“{q}”匹配的商户',
+    noneHint: '试试店名、类型（如“咖啡”“按摩”）或区域（如“宁曼”）。', clear: '清除搜索',
+    sortNear: '按距离排序', sortName: '按区域',
+    openNow: '营业中', closesAt: '营业至 {t}', closed: '已打烊', opensAt: '{t} 开门', closingSoon: '即将打烊 · {t}',
+    privilege: '跑者专享', redeem: '跑者及亲友团适用 · 到店出示号码布或跑者证即可享受',
+    hours: '营业时间', address: '地址', phone: '电话', directions: '导航', call: '致电', share: '分享', copy: '复制', copied: '已复制',
+    locate: '我的位置', fitAll: '查看全部', list: '列表', map: '地图', back: '返回', close: '关闭',
+    away: '距离 {d}', locDenied: '未获得定位权限', alsoIn: '所属类别',
+    stores: '家', mapError: '地图加载失败，请检查网络后重试。', retry: '重试',
+    km: '公里', m: '米'
+  }
+};

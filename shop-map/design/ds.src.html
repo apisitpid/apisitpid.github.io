@@ -1,0 +1,443 @@
+<meta charset="utf-8">
+<title>Runner Privileges Design System</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600&family=Trirong:wght@500;600;700&display=swap">
+<style>
+/*INLINE:css/ui.css*/
+/* ---- documentation layout: a long spec sheet, navy title band, then numbered sections in a 2-col grid on desktop ---- */
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font: 400 15px/1.6 var(--f-ui); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { background: radial-gradient(120% 140% at 85% 0%, #1D3672 0%, var(--navy-900) 55%, var(--navy-950) 100%); color: #EDE7D6;
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px)); padding-top: calc(env(safe-area-inset-top, 0px) + 40px); padding-bottom: 36px; position: relative; overflow: hidden; }
+.band::after { content: ""; position: absolute; inset: auto 0 0 0; height: 10px; background:
+  radial-gradient(circle at 5px 5px, var(--gold-500) 1.6px, transparent 2px) 0 0/20px 10px repeat-x, linear-gradient(var(--gold-500), var(--gold-500)) 0 50%/100% 1px no-repeat; opacity: .5; }
+.hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: center; }
+.hero img { width: 92px; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,.35)); }
+.eyebrow { font: 600 11.5px/1.3 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-300); }
+.hero h1 { margin: 6px 0 4px; font: 600 clamp(28px, 5vw, 46px)/1.1 var(--f-display); letter-spacing: -.01em; text-wrap: balance; color: #FBF6EA; }
+.hero h1 em { font-style: normal; color: var(--gold-300); }
+.hero p { margin: 0; max-width: 62ch; color: #C9D0E2; }
+.langs { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font: 500 14px/1.4 var(--f-ui); color: #E6CC8A; }
+.langs span:lang(zh) { font-family: "Noto Sans SC", sans-serif; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.facts div { padding: 8px 14px; border-radius: var(--r-pill); background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1px rgba(230,204,138,.28); font: 500 13px/1.2 var(--f-ui); color: #DCE2EF; }
+.facts b { color: #fff; font-variant-numeric: tabular-nums; margin-right: 4px; }
+nav.toc { display: flex; gap: 6px; overflow-x: auto; padding-block: 14px; scrollbar-width: none; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav.toc a { flex: none; padding: 6px 12px; border-radius: var(--r-pill); color: var(--fg-2); text-decoration: none; font: 500 13px/1 var(--f-ui); }
+nav.toc a:hover { background: var(--surface); color: var(--fg); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+section.doc { padding-block: 44px 8px; scroll-margin-top: 60px; }
+.doc > h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 6px; font: 600 26px/1.2 var(--f-display); text-wrap: balance; }
+.doc > h2 small { font: 600 12px/1 var(--f-ui); color: var(--accent-ink); letter-spacing: .1em; }
+.doc > p.lead { margin: 0 0 22px; color: var(--fg-2); max-width: 70ch; }
+h3 { font: 600 13px/1.3 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); margin: 26px 0 12px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 20px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; align-items: start; }
+.grid2 > .panel { align-content: start; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.principles .panel h4 { margin: 0 0 6px; font: 600 17px/1.3 var(--f-display); }
+.principles .panel p { margin: 0; color: var(--fg-2); font-size: 14px; }
+/* swatches */
+.ramp { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
+.sw { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.sw i { display: block; height: 62px; }
+.sw div { padding: 8px 10px; font: 500 12px/1.35 var(--f-ui); }
+.sw code { font: 500 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--fg-3); }
+/* type */
+.spec { display: grid; gap: 18px; }
+.spec-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.spec-row > small { color: var(--fg-3); font: 500 12px/1.4 var(--f-ui); }
+.d1 { font: 600 34px/1.15 var(--f-display); } .d2 { font: 600 22px/1.25 var(--f-display); } .b1 { font: 500 15px/1.55 var(--f-ui); } .b2 { font: 400 13px/1.5 var(--f-ui); color: var(--fg-2); }
+.zh { font-family: "Noto Serif SC", serif; } .zhs { font-family: "Noto Sans SC", sans-serif; }
+/* stage for components */
+.stage { display: flex; flex-wrap: wrap; gap: 28px 30px; align-items: flex-end; padding: 26px 22px 34px; border-radius: var(--r-md);
+  background: var(--stage, #E4E8EF) url("") center/cover; border: 1px solid var(--line); }
+.stage.dark { --stage: #0D1834; }
+.stage figure { margin: 0; display: grid; justify-items: center; gap: 10px; }
+.stage figcaption { font: 500 11.5px/1.3 var(--f-ui); color: var(--fg-3); text-align: center; max-width: 130px; }
+.stage.dark figcaption { color: #9AA8C8; }
+.kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 14px; font-size: 13.5px; }
+.kv dt { color: var(--fg-3); } .kv dd { margin: 0; }
+.tok { font: 500 12px/1 ui-monospace, Menlo, monospace; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; }
+/* anatomy */
+.anat { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; align-items: center; }
+.anat-fig { position: relative; height: 150px; display: grid; place-items: center; background: #E4E8EF; border-radius: var(--r-md); border: 1px solid var(--line); }
+.anat-fig .pin { --pin: 80px; }
+.anat-fig .pin-badge { width: 26px; height: 26px; } .anat-fig .pin-badge .ico { width: 16px; height: 16px; }
+.anat ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; color: var(--fg-2); }
+.anat ol b { color: var(--fg); }
+/* phone frames */
+.screens { display: flex; gap: 28px; overflow-x: auto; padding: 6px 4px 22px; scroll-snap-type: x mandatory; }
+.screen-col { flex: none; display: grid; gap: 12px; scroll-snap-align: start; }
+.screen-col > p { margin: 0; max-width: 360px; font-size: 13.5px; color: var(--fg-2); }
+.screen-col > p b { color: var(--fg); }
+.phone { position: relative; width: 360px; height: 760px; border-radius: 44px; overflow: hidden; background: #D9DEE7; box-shadow: 0 0 0 9px #0A1228, 0 0 0 10px #2A3A62, 0 30px 60px -20px rgba(8,18,42,.55); margin: 10px; isolation: isolate; }
+.phone > .mapbg { position: absolute; inset: 0; background-size: 360px 760px; }
+.phone .pins { position: absolute; inset: 0; overflow: hidden; }
+.phone .pins > * { position: absolute; transform: translate(-50%, -100%); }
+.phone .pins > .cluster { transform: translate(-50%, -50%); }
+.statusbar { position: absolute; top: 0; left: 0; right: 0; height: 44px; display: flex; justify-content: space-between; align-items: center; padding: 0 28px; font: 600 14px/1 var(--f-ui); color: var(--fg); z-index: 3; }
+.statusbar.on-light { color: var(--fg); }
+.appbar { position: absolute; top: 44px; left: 12px; right: 12px; z-index: 3; display: grid; gap: 10px; }
+.brandbar { display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 12px; border-radius: 18px; background: var(--chrome); color: var(--chrome-fg); box-shadow: var(--sh-2); }
+.brandbar img { width: 26px; height: auto; }
+.brandbar .bt { flex: 1; min-width: 0; line-height: 1.15; }
+.brandbar .bt b { display: block; font: 600 15px/1.2 var(--f-display); color: #FBF6EA; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brandbar .bt span { font: 500 10.5px/1 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-300); }
+.fabs { position: absolute; right: 12px; z-index: 3; display: grid; gap: 10px; }
+.msheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; padding: 0 16px 22px; }
+.msheet .sum { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 6px 2px 4px; }
+.msheet .sum b { font: 600 17px/1.3 var(--f-display); }
+.msheet .sum span { font-size: 12px; color: var(--fg-3); white-space: nowrap; }
+.detail-head { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px; align-items: center; padding: 6px 2px 12px; }
+.detail-logo { width: 76px; height: 76px; border-radius: 50%; overflow: hidden; background: var(--logo-bg); --pin: 76px; box-shadow: 0 0 0 1px var(--line), 0 0 0 4px var(--surface), 0 0 0 6px var(--cat), var(--sh-1); }
+.detail-logo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.detail-head h4 { margin: 0; font: 600 22px/1.2 var(--f-display); text-wrap: balance; }
+.detail-head .sub { color: var(--fg-2); font-size: 13.5px; margin-top: 2px; }
+.detail-head .meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 6px; }
+.facts-list { display: grid; gap: 10px; margin-top: 12px; font-size: 13.5px; }
+.facts-list div { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; color: var(--fg-2); }
+.facts-list .ico { width: 18px; height: 18px; color: var(--fg-3); margin-top: 2px; }
+.facts-list b { color: var(--fg); font-weight: 600; }
+.actions { display: grid; grid-template-columns: 1.4fr 1fr 46px; gap: 8px; margin-top: 14px; }
+.actions .btn { padding: 0 12px; }
+.actions .btn.sq { padding: 0; }
+.scrim { position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(8,18,42,.25)); z-index: 2; pointer-events: none; }
+/* desktop frame */
+.desk-wrap { overflow-x: auto; padding: 6px 4px 18px; }
+.desk { width: 1240px; height: 600px; border-radius: 14px; overflow: hidden; display: grid; grid-template-columns: 360px 1fr; box-shadow: 0 0 0 1px var(--line-2), 0 30px 60px -24px rgba(8,18,42,.45); background: var(--surface); }
+.desk-side { display: grid; grid-template-rows: auto auto auto minmax(0, 1fr); gap: 12px; padding: 14px; border-right: 1px solid var(--line); min-height: 0; }
+.desk-side .brandbar { box-shadow: none; }
+.desk-list { overflow: hidden; min-height: 0; }
+.desk-map { position: relative; background-size: 880px 600px; }
+.desk-map .pins { position: absolute; inset: 0; }
+.desk-map .pins > * { position: absolute; transform: translate(-50%, -100%); }
+.desk-map .pins > .cluster { transform: translate(-50%, -50%); }
+/* dark-scoped mock phone (doc only) */
+.phone[data-dark] { --bg: #0B1834; --surface: #111F40; --surface-2: #17284F; --line: #22365F; --line-2: #2E4473; --fg: #EEF1F8; --fg-2: #B5C0D8; --fg-3: #8D99B6;
+  --accent-ink: var(--gold-300); --ticket: #1B2A4E; --ticket-line: #6F5A2A; --chrome: #0E1B3A; --ok: #4CC37F; --warn: #E9A13B; --off: #8D99B6; --pin-ring: #F4F1E8;
+  --primary-bg: var(--gold-500); --primary-fg: var(--navy-950); --primary-ico: var(--navy-900); color: var(--fg); }
+/* behaviour + audit */
+.rules { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.rules li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; font-size: 14px; color: var(--fg-2); }
+.rules li .ico { color: var(--accent-ink); width: 20px; height: 20px; margin-top: 2px; }
+.rules li b { color: var(--fg); }
+table.names { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.names th, table.names td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.names th { font: 600 11.5px/1.2 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--fg-3); }
+table.names td:nth-child(4) { font-family: "Noto Sans SC", var(--f-ui); }
+.tw { overflow-x: auto; }
+.flag { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--fg-2); }
+.flag .ico { color: var(--warn); width: 18px; height: 18px; margin-top: 3px; }
+footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; } .hero img { width: 64px; }
+  .spec-row, .anat { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+
+<header class="band">
+  <div class="wrap hero">
+    <img src="{{EMBLEM}}" alt="Runner Privileges emblem: a navy map pin holding Doi Suthep, its golden chedi and a dotted trail">
+    <div>
+      <div class="eyebrow">Design system v0.1 · for audit</div>
+      <h1>Runner Privileges <em>Chiang Mai</em></h1>
+      <p>A map of partner shops that give runners and supporters a perk during race week. Each shop's own logo is its pin. Tap one and the privilege is the first thing you read.</p>
+      <div class="langs"><span lang="th">สิทธิพิเศษนักวิ่ง เชียงใหม่</span><span lang="en">Runner Privileges · Chiang Mai</span><span lang="zh">清迈 · 跑者专享优惠</span></div>
+      <div class="facts" id="facts"></div>
+    </div>
+  </div>
+</header>
+<nav class="toc wrap" aria-label="Sections">
+  <a href="#principles">Principles</a><a href="#brand">Brand mark</a><a href="#color">Color</a><a href="#type">Type</a><a href="#pins">Pins</a><a href="#components">Components</a><a href="#screens">Screens</a><a href="#behaviour">Behaviour</a><a href="#names">Names</a><a href="#data">Data flags</a>
+</nav>
+
+<main class="wrap">
+  <section class="doc" id="principles">
+    <h2><small>01</small>Principles</h2>
+    <p class="lead">Research inputs: Mapbox's store-locator guidance (branded markers, list + map in sync, mobile first), Mapped's logo-pin markers and logo filter chips, and UTMB's own "UTMB Friendly" partner list, which is a plain text list with no map. This design keeps the list-and-map pairing and makes the logo the marker.</p>
+    <div class="principles">
+      <div class="panel"><h4>The logo is the pin</h4><p>Every logo is fitted into the pin's circle by measuring its content, so round badges fill the disc and wide wordmarks fit by their corners. Nothing is cropped. A shop without a logo gets a navy monogram.</p></div>
+      <div class="panel"><h4>Gold means privilege</h4><p>Gold appears only on the perk badge, the privilege ticket, selection and the main roads you navigate by. Navy carries structure. Category is shown by a ring color and an icon badge together, so it never depends on color alone.</p></div>
+      <div class="panel"><h4>Three languages, one identity</h4><p>The shop's name stays exactly as written on its logo. Under it, the name in the reader's language, or in the other script when they match. Offers, categories, map labels and UI switch together.</p></div>
+    </div>
+  </section>
+
+  <section class="doc" id="brand">
+    <h2><small>02</small>Brand mark</h2>
+    <p class="lead">A navy pin-shaped seal: the Doi Suthep ridge, the golden chedi on its summit and the dotted trail that runners climb to reach it. The pin outline echoes the shop pins, so the app's mark reads as the first pin on the map.</p>
+    <div class="grid3">
+      <div class="stage dark" style="justify-content:center"><figure><img src="{{EMBLEM}}" alt="" width="96"><figcaption>Primary, on night navy</figcaption></figure></div>
+      <div class="stage" style="justify-content:center"><figure><img src="{{EMBLEM}}" alt="" width="96"><figcaption>On light ground</figcaption></figure></div>
+      <div class="stage" style="justify-content:center;gap:18px"><figure><span style="display:grid;place-items:center;width:72px;height:72px;border-radius:18px;background:var(--navy-800)"><img src="{{EMBLEM}}" alt="" width="40"></span><figcaption>App icon</figcaption></figure><figure><img src="{{EMBLEM}}" alt="" width="22"><figcaption>22 px floor</figcaption></figure></div>
+    </div>
+    <h3>Lockups</h3>
+    <div class="grid3" id="lockups"></div>
+  </section>
+
+  <section class="doc" id="color">
+    <h2><small>03</small>Color</h2>
+    <p class="lead">Navy and gold ramps, four category hues tuned to sit beside them, and the basemap palette. Text contrast: navy-800 on white 15.2:1, gold-700 on white 5.0:1, gold-500 on navy-800 6.4:1.</p>
+    <h3>Navy</h3><div class="ramp" id="r-navy"></div>
+    <h3>Gold</h3><div class="ramp" id="r-gold"></div>
+    <h3>Category + status</h3><div class="ramp" id="r-cat"></div>
+    <h3>Basemap (light / dark)</h3><div class="ramp" id="r-map"></div>
+  </section>
+
+  <section class="doc" id="type">
+    <h2><small>04</small>Type</h2>
+    <p class="lead">Trirong (Thai + Latin) gives shop names and headings a Lanna-manuscript serif. IBM Plex Sans Thai sets every control and line of UI. Chinese switches to Noto Serif SC and Noto Sans SC so the weights stay matched.</p>
+    <div class="panel spec">
+      <div class="spec-row"><small>Display · Trirong 600 · 34</small><div class="d1">ห้องแถว · Hong Tauw Inn</div></div>
+      <div class="spec-row"><small>Display ZH · Noto Serif SC 600</small><div class="d1 zh" lang="zh">绿洲水疗 兰纳店</div></div>
+      <div class="spec-row"><small>Title · Trirong 600 · 22</small><div class="d2">Runner Privileges · สิทธิพิเศษนักวิ่ง</div></div>
+      <div class="spec-row"><small>Body · Plex Sans Thai 500 · 15</small><div class="b1">ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,000 บาท · 10% off food when you spend 1,000 THB+</div></div>
+      <div class="spec-row"><small>Caption · Plex Sans Thai 400 · 13</small><div class="b2">นิมมาน · Nimman · <span class="zhs" lang="zh">宁曼</span> — 10:00–22:00</div></div>
+    </div>
+  </section>
+
+  <section class="doc" id="pins">
+    <h2><small>05</small>Pins</h2>
+    <p class="lead">46 px logo disc, a white ring, a category-colored ring, an icon badge below the disc and a stem. Selected pins grow to 60 px with a gold ring and a label. Search dims non-matching pins instead of hiding them, so you keep your bearings.</p>
+    <div class="anat">
+      <div class="anat-fig" id="anat"></div>
+      <ol>
+        <li><b>Logo disc</b>: the logo pre-fitted to a 288 px square on its own background color, so the circle never shows a mismatched edge.</li>
+        <li><b>Ring</b>: 2 px white separates any logo from the map. The 2 px category ring sits outside it.</li>
+        <li><b>Badge</b>: category icon on its hue, hung below the disc so it overlaps the rings and never the logo. It carries the category for color-blind users.</li>
+        <li><b>Tail</b>: a short stem under the badge. Its tip is the exact coordinate, so the anchor is the bottom of the pin, not the circle center.</li>
+      </ol>
+    </div>
+    <h3>States</h3>
+    <div class="stage" id="pin-states"></div>
+    <h3>On night navy</h3>
+    <div class="stage dark" id="pin-dark"></div>
+    <h3>All 49 shops as pins</h3>
+    <div class="stage" id="pin-all" style="gap:22px 18px"></div>
+  </section>
+
+  <section class="doc" id="components">
+    <h2><small>06</small>Components</h2>
+    <div class="grid2">
+      <div class="panel" style="display:grid;gap:14px"><h3 style="margin:0">Search + filters</h3><div id="c-search"></div><div class="chips" id="c-chips"></div></div>
+      <div class="panel" style="display:grid;gap:14px;background:var(--navy-800);border-color:var(--navy-800)"><h3 style="margin:0;color:var(--gold-300)">App bar + language</h3><div id="c-bar"></div></div>
+      <div class="panel"><h3 style="margin:0 0 6px">List rows</h3><div id="c-rows"></div></div>
+      <div class="panel" style="display:grid;gap:14px"><h3 style="margin:0">Privilege ticket</h3><div id="c-ticket"></div><div style="display:flex;flex-wrap:wrap;gap:8px" id="c-btns"></div></div>
+      <div class="panel" style="display:grid;gap:12px"><h3 style="margin:0">Perk badge · status</h3><div style="display:flex;flex-wrap:wrap;gap:8px" id="c-perks"></div><div style="display:grid;gap:8px" id="c-status"></div></div>
+      <div class="panel"><h3 style="margin:0 0 10px">Tokens</h3><dl class="kv">
+        <dt>Radius</dt><dd><span class="tok">8</span> <span class="tok">14</span> <span class="tok">22</span> <span class="tok">pill</span></dd>
+        <dt>Spacing</dt><dd>4 px base: <span class="tok">4 8 12 16 24 32</span></dd>
+        <dt>Pin</dt><dd><span class="tok">46</span> rest, <span class="tok">60</span> selected, <span class="tok">30</span> in cluster</dd>
+        <dt>Touch</dt><dd>44 px minimum hit area on every control</dd>
+        <dt>Motion</dt><dd>180 ms <span class="tok">cubic-bezier(.2,.8,.2,1)</span>; none with reduced motion</dd>
+        <dt>Elevation</dt><dd>Floating chrome uses sh-2; pins use their own drop shadow</dd>
+      </dl></div>
+    </div>
+  </section>
+
+  <section class="doc" id="screens">
+    <h2><small>07</small>Screens</h2>
+    <p class="lead">Map captures are the real basemap at these zooms, with pins at their projected positions. Overlapping pins merge into a logo-stack cluster that zooms in on tap.</p>
+    <div class="screens" id="screen-row"></div>
+    <h3>Desktop ≥ 900 px</h3>
+    <div class="desk-wrap"><div class="desk" id="desk"></div></div>
+  </section>
+
+  <section class="doc" id="behaviour">
+    <h2><small>08</small>Behaviour</h2>
+    <div class="grid2">
+      <div class="panel"><ul class="rules" id="rules"></ul></div>
+      <div class="panel"><ul class="rules" id="rules2"></ul></div>
+    </div>
+  </section>
+
+  <section class="doc" id="names">
+    <h2><small>09</small>Names in three languages</h2>
+    <p class="lead">The "Logo" column is the identity and is never translated. The other columns are how each audience reads it. Official forms are used where they exist (Decathlon 迪卡侬, Haidilao 海底捞火锅, กระทรวงการคั่ว); the rest are transliterated, with meaning used where a brand name is a word (Basecamp 大本营, Pegasus 飞马, ก๋องคำ 金鼓).</p>
+    <div class="panel tw"><table class="names" id="names-t"><thead><tr><th>Logo</th><th>ไทย</th><th>English</th><th>中文</th><th>Area</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="doc" id="data">
+    <h2><small>10</small>Data flags from the sheet</h2>
+    <p class="lead">Handled in the build, but the owners should confirm these.</p>
+    <div class="panel" id="flags"></div>
+  </section>
+  <footer>Map data © OpenStreetMap contributors, tiles OpenFreeMap / OpenMapTiles. Shop logos belong to their owners and come from the partner sheet.</footer>
+</main>
+
+<script>/*INLINE:js/icons.js*/</script>
+<script>/*INLINE:js/i18n.js*/</script>
+<script>/*INLINE:data/stores.js*/</script>
+<script>/*INLINE:js/core.js*/</script>
+<script>
+window.__LOGOS = {{LOGOS}}; window.__MAPS = {{MAPS}}; window.__PROJ = {{PROJ}};
+</script>
+<script>
+(function () {
+  var S = CNX_STORES, C = CNX, ic = CNXIcon, $ = function (id) { return document.getElementById(id); };
+  S.forEach(function (s) { if (s.logo) s.logo = __LOGOS[s.id]; });
+  C.buildIndex(S);
+  var by = {}; S.forEach(function (s) { by[s.id] = s; });
+  var NOW = 10 * 60 + 30;  /* mock clock: 10:30 Bangkok */
+  var ME = { lat: 18.7996, lng: 98.9677 }; /* mock position: One Nimman */
+  var count = function (c) { return S.filter(function (s) { return s.cats.indexOf(c) >= 0; }).length; };
+
+  $('facts').innerHTML = '<div><b>' + S.length + '</b>partner shops</div><div><b>' + S.filter(function (s) { return s.logo; }).length + '</b>logos fitted</div><div><b>4</b>categories</div><div><b>3</b>languages</div>';
+
+  /* lockups */
+  $('lockups').innerHTML = ['th', 'en', 'zh'].map(function (l) {
+    var L = CNX_I18N[l];
+    return '<div class="brandbar" lang="' + L.htmlLang + '"><img src="' + document.querySelector('.hero img').src + '" alt=""><span class="bt"><b>' + L.appName + '</b><span>' + L.appSub + '</span></span></div>';
+  }).join('');
+
+  /* swatches */
+  function sw(list) { return list.map(function (x) { return '<div class="sw"><i style="background:' + x[1] + '"></i><div>' + x[0] + '<br><code>' + x[1] + '</code></div></div>'; }).join(''); }
+  $('r-navy').innerHTML = sw([['navy-950', '#08122A'], ['navy-900', '#0B1834'], ['navy-800 · chrome', '#12234A'], ['navy-700', '#1B3263'], ['navy-500', '#3A548C'], ['navy-200', '#C5CEE0'], ['navy-100', '#E4E8F1']]);
+  $('r-gold').innerHTML = sw([['gold-700 · text', '#8A6A1F'], ['gold-600', '#A9822F'], ['gold-500 · accent', '#C9A24B'], ['gold-300', '#E6CC8A'], ['gold-100', '#F7EED6'], ['ticket', '#FBF5E6']]);
+  $('r-cat').innerHTML = sw([['Café', '#A55E33'], ['Food', '#C2412C'], ['Massage & Spa', '#23866F'], ['Sport & Fitness', '#2F62C6'], ['Open', '#1D8048'], ['Closing soon', '#B26A12'], ['Closed', '#7D869A']]);
+  var P = { l: { Land: '#EAEDF2', Water: '#B9CCE3', Park: '#D6E3D4', 'Main road': '#FBF1D3', 'Road edge': '#D8B868', Labels: '#14254A' }, d: { Land: '#0D1834', Water: '#06102A', Park: '#122A35', 'Main road': '#4B4128', Motorway: '#8C7334', Labels: '#E3E9F6' } };
+  $('r-map').innerHTML = sw(Object.keys(P.l).map(function (k) { return ['☀ ' + k, P.l[k]]; }).concat(Object.keys(P.d).map(function (k) { return ['☾ ' + k, P.d[k]]; })));
+
+  /* pins */
+  $('anat').innerHTML = C.pinHTML(by['basecamp']);
+  function fig(html, cap) { return '<figure>' + html + '<figcaption>' + cap + '</figcaption></figure>'; }
+  $('pin-states').innerHTML = [
+    fig(C.pinHTML(by['tann']), 'Rest · Café'),
+    fig(C.pinHTML(by['khoei']), 'Rest · Food'),
+    fig(C.pinHTML(by['zira-spa']), 'Rest · Spa'),
+    fig(C.pinHTML(by['run2paradise']), 'Rest · Sport'),
+    fig('<div style="padding-bottom:26px">' + C.pinHTML(by['oasis-nimman'], { active: true, showLabel: 'Oasis Spa Nimman' }) + '</div>', 'Selected · 60 px + label'),
+    fig(C.pinHTML(by['varalee']), 'No logo · monogram'),
+    fig(C.pinHTML(by['akai8'], { dim: true }), 'Not in search results'),
+    fig(C.clusterHTML([by['herb-nimman'], by['jeab'], by['rosemary'], by['tann'], by['fohhide']]), 'Cluster · tap to zoom')
+  ].join('');
+  $('pin-dark').innerHTML = [
+    fig(C.pinHTML(by['roast8ry-lab']), 'Black logo, white ring keeps the edge'),
+    fig(C.pinHTML(by['baan-landai']), 'Navy logo on navy map'),
+    fig(C.pinHTML(by['haidilao'], { active: true }), 'Selected'),
+    fig(C.clusterHTML([by['decathlon-thaphae'], by['ministry-of-roasters'], by['zira-spa']]), 'Cluster')
+  ].join('');
+  $('pin-all').innerHTML = S.map(function (s) { return C.pinHTML(s); }).join('');
+
+  /* components */
+  $('c-search').innerHTML = '<label class="search">' + ic('search') + '<input id="ds-q" value="roast" aria-label="Search"><button class="icon-btn" type="button" aria-label="Clear">' + ic('close') + '</button></label>';
+  function chips(lang, active) {
+    var L = CNX_I18N[lang];
+    return '<button class="chip" type="button" aria-pressed="' + (active === 'all') + '">' + ic('all') + L.all + ' <small>' + S.length + '</small></button>' +
+      C.CATS.map(function (c) { return '<button class="chip" type="button" data-cat="' + c + '" aria-pressed="' + (active === c) + '">' + ic(c) + L.cats[c] + ' <small>' + count(c) + '</small></button>'; }).join('');
+  }
+  $('c-chips').innerHTML = chips('en', 'cafe');
+  function brandbar(lang, emblem) {
+    var L = CNX_I18N[lang];
+    return '<div class="brandbar"><img src="' + emblem + '" alt=""><span class="bt"><b>' + L.appName + '</b><span>' + L.appSub + '</span></span>' +
+      '<span class="seg" role="group" aria-label="Language">' + ['th', 'en', 'zh'].map(function (l) { return '<button type="button" aria-pressed="' + (l === lang) + '" lang="' + CNX_I18N[l].htmlLang + '">' + CNX_I18N[l].short + '</button>'; }).join('') + '</span></div>';
+  }
+  var EMB = document.querySelector('.hero img').src;
+  $('c-bar').innerHTML = brandbar('th', EMB);
+  $('c-rows').innerHTML = ['roast8ry-flagship', 'oasis-nimman', 'krudam'].map(function (id) { return C.rowHTML(by[id], 'en', { now: NOW, dist: C.km(ME, by[id]), q: id === 'roast8ry-flagship' ? 'roast' : '' }); }).join('');
+  $('c-ticket').innerHTML = C.ticketHTML(by['ministry-of-roasters'], 'en');
+  $('c-btns').innerHTML = '<a class="btn btn-primary" href="#">' + ic('directions') + 'Directions</a><a class="btn" href="#">' + ic('phone') + 'Call</a><button class="btn" type="button" aria-label="Share">' + ic('share') + '</button>';
+  $('c-perks').innerHTML = ['tann', 'basecamp', 'oasis-nimman', 'ministry-of-roasters', 'bananarun', 'thorphan'].map(function (id) { return '<span class="perk">' + by[id].perk.en + '</span>'; }).join('') + ['th', 'zh'].map(function (l) { return '<span class="perk" lang="' + l + '">' + by['oasis-nimman'].perk[l] + '</span>'; }).join('');
+  $('c-status').innerHTML = [C.statusHTML(by['tann'], 'en', NOW), C.statusHTML(by['tann'], 'en', 16 * 60 + 20), C.statusHTML(by['each-other'], 'en', NOW), C.statusHTML(by['oasis-nimman'], 'th', NOW), C.statusHTML(by['oasis-nimman'], 'zh', NOW)].join('');
+
+  /* ---------- screens ---------- */
+  function placePins(key, ids, opts) {
+    opts = opts || {};
+    var pts = __PROJ[key].map(function (p) { return { s: by[p.id], x: p.x, y: p.y }; }).filter(function (p) { return !opts.only || opts.only(p.s); });
+    /* greedy clustering at 44 px, same rule as the app */
+    var groups = [];
+    pts.sort(function (a, b) { return (opts.active === b.s.id) - (opts.active === a.s.id); }).forEach(function (p) {
+      var g = groups.find(function (g) { return Math.hypot(g.x - p.x, g.y - p.y) < (opts.radius || 44) && g.s.id !== opts.active; });
+      if (g && p.s.id !== opts.active) g.items.push(p.s); else groups.push({ x: p.x, y: p.y, s: p.s, items: [p.s] });
+    });
+    return groups.map(function (g) {
+      var html = g.items.length > 1 ? C.clusterHTML(g.items) : C.pinHTML(g.s, { active: g.s.id === opts.active, dim: opts.dim && opts.dim(g.s), cat: opts.cat });
+      return html.replace(/^<button /, '<button style="left:' + g.x + 'px;top:' + g.y + 'px" ').replace('" style="--logo-bg', '" style="left:' + g.x + 'px;top:' + g.y + 'px;--logo-bg');
+    }).join('');
+  }
+  function phone(o) {
+    return '<div class="screen-col"><div class="phone" lang="' + CNX_I18N[o.lang].htmlLang + '"' + (o.dark ? ' data-dark' : '') + '><div class="mapbg" style="background-image:url(' + __MAPS[o.map] + ')"></div>' +
+      '<div class="pins">' + o.pins + '</div><div class="scrim"></div>' +
+      '<div class="statusbar">10:30<span>● ● ●</span></div><div class="appbar">' + brandbar(o.lang, EMB) + (o.search || '') + '</div>' +
+      (o.fabs ? '<div class="fabs" style="bottom:' + o.fabs + 'px"><button class="fab" type="button" aria-label="Locate">' + ic('locate') + '</button><button class="fab" type="button" aria-label="Show all">' + ic('fit') + '</button></div>' : '') +
+      '<div class="msheet sheet">' + o.sheet + '</div></div><p>' + o.note + '</p></div>';
+  }
+  function searchBlock(lang, q, active) {
+    var L = CNX_I18N[lang];
+    return '<label class="search">' + ic('search') + '<input value="' + (q || '') + '" placeholder="' + L.search + '" aria-label="' + L.search + '">' + (q ? '<button class="icon-btn" type="button" aria-label="Clear">' + ic('close') + '</button>' : '') + '</label><div class="chips">' + chips(lang, active || 'all') + '</div>';
+  }
+  function list(lang, ids, q, n) {
+    return ids.slice(0, n).map(function (s) { return C.rowHTML(s, lang, { now: NOW, dist: C.km(ME, s), q: q }); }).join('');
+  }
+  var nearest = S.slice().sort(function (a, b) { return C.km(ME, a) - C.km(ME, b); });
+  function detail(s, lang) {
+    var n = C.names(s, lang), L = CNX_I18N[lang], cat = s.cats[0], area = CNX_AREAS[s.area][lang];
+    return '<div class="sheet-handle"></div><div class="detail-head" data-cat="' + cat + '"><span class="detail-logo" style="--logo-bg:' + s.bg + '">' + C.logo(s) + '</span><div><h4>' + n.title + '</h4><div class="sub">' + n.sub + '</div>' +
+      '<div class="meta"><span class="cat-tag">' + ic(cat) + L.cats[cat] + '</span>' + C.statusHTML(s, lang, NOW) + '<span class="row-dist">' + C.t(lang, 'away', { d: C.distText(C.km(ME, s), lang) }) + '</span></div></div></div>' +
+      C.ticketHTML(s, lang) +
+      '<div class="actions"><a class="btn btn-primary" href="#">' + ic('directions') + L.directions + '</a><a class="btn" href="#">' + ic('phone') + L.call + '</a><button class="btn sq" type="button" aria-label="' + L.share + '">' + ic('share') + '</button></div>' +
+      '<div class="facts-list"><div>' + ic('clock') + '<span><b>' + C.hoursText(s) + '</b></span></div><div>' + ic('pin') + '<span><b>' + area + '</b> · ' + s.address + '</span></div><div>' + ic('phone') + '<span>' + s.phones.map(function (p) { return p.display; }).join(' · ') + '</span></div></div>';
+  }
+  var roastQ = 'roast';
+  var roastHits = S.filter(function (s) { return C.score(s, roastQ) > 0; }).sort(function (a, b) { return C.km(ME, a) - C.km(ME, b); });
+  $('screen-row').innerHTML = [
+    phone({ lang: 'en', map: 'm-light-en', pins: placePins('m-light-en'), search: searchBlock('en'), fabs: 230,
+      sheet: '<div class="sheet-handle"></div><div class="sum"><b>' + C.t('en', 'countAll', { n: S.length }) + '</b><span>' + C.t('en', 'sortNear') + '</span></div>' + list('en', nearest, '', 2),
+      note: '<b>1 · Home, English.</b> Logo pins over the Nimman grid; dense blocks collapse into logo-stack clusters. The sheet peeks with the nearest shops.' }),
+    phone({ lang: 'en', map: 'm-light-en', pins: placePins('m-light-en', null, { dim: function (s) { return C.score(s, roastQ) === 0; }, radius: 30 }), search: searchBlock('en', roastQ),
+      sheet: '<div class="sheet-handle"></div><div class="sum"><b>' + C.t('en', 'countFound', { n: roastHits.length }) + '</b><span>' + C.t('en', 'sortNear') + '</span></div>' + list('en', roastHits, roastQ, 5),
+      note: '<b>2 · Search.</b> "roast" matches names in any language, categories ("coffee", "นวด", "按摩") and areas ("Nimman"). Non-matching pins dim in place.' }),
+    phone({ lang: 'th', map: 'm-light-th', pins: placePins('m-light-th', null, { active: 'hongtauw-inn', radius: 36 }),
+      sheet: detail(by['hongtauw-inn'], 'th'),
+      note: '<b>3 · Shop detail, Thai.</b> Title stays as the logo writes it (ห้องแถว); the English reading sits under it. The privilege ticket comes before the address.' }),
+    phone({ lang: 'zh', dark: true, map: 'm-dark-zh', pins: placePins('m-dark-zh', null, { active: 'oasis-lanna', radius: 40 }),
+      sheet: detail(by['oasis-lanna'], 'zh'),
+      note: '<b>4 · Night mode, Chinese.</b> Follows the phone\'s dark setting. Map labels switch to Chinese with the UI; the gold arteries stay readable.' })
+  ].join('');
+  document.querySelectorAll('.phone[data-dark]').forEach(function (p) { p.setAttribute('data-theme-scope', 'dark'); p.querySelector('.statusbar').classList.remove('on-light'); });
+
+  /* desktop */
+  $('desk').innerHTML = '<aside class="desk-side">' + brandbar('en', EMB) + searchBlock('en', '', 'spa').replace('<div class="chips">', '<div class="chips" style="flex-wrap:wrap">') +
+    '<div class="sum" style="display:flex;justify-content:space-between;font-size:13px;color:var(--fg-3)"><b style="font:600 16px var(--f-display);color:var(--fg)">' + count('spa') + ' · Massage &amp; Spa</b><span>' + C.t('en', 'sortNear') + '</span></div>' +
+    '<div class="desk-list">' + list('en', nearest.filter(function (s) { return s.cats.indexOf('spa') >= 0; }), '', 6) + '</div></aside>' +
+    '<div class="desk-map" style="background-image:url(' + __MAPS['m-desk'] + ')"><div class="pins">' + placePins('m-desk', null, { only: function (s) { return s.cats.indexOf('spa') >= 0; }, radius: 58, active: 'oasis-lanna' }) + '</div></div>';
+
+  /* rules */
+  var R = [
+    ['pin', '<b>Tap a pin</b>: the map eases the pin above the sheet and the sheet opens on that shop. Tap the map or Back to return to the list.'],
+    ['fit', '<b>Tap a cluster</b>: zoom to fit its shops. At max zoom, overlapping shops fan out in a ring.'],
+    ['search', '<b>Search</b> runs on every keystroke across all three languages, categories, areas and offer text. Name matches rank first. Enter jumps to the top result.'],
+    ['all', '<b>Category chips</b> filter both map and list. Counts stay visible so you see how many shops each type has.'],
+    ['globe', '<b>Language</b>: TH / EN / 中 switches UI, offers, names and map labels together. Remembered on the device and kept in the link (?lang=).']
+  ], R2 = [
+    ['locate', '<b>My location</b> asks permission only on tap. With it, lists sort by distance and rows show how far each shop is.'],
+    ['clock', '<b>Open now</b> uses Bangkok time. "Closing soon" appears in the last hour.'],
+    ['directions', '<b>Directions</b> opens Google Maps to the sheet coordinates, which are more reliable than the sheet\'s short links (two of them point to the wrong shop).'],
+    ['share', '<b>Deep links</b>: ?shop=oasis-lanna opens that shop directly, so a QR code at each counter can point to its own page.'],
+    ['map', '<b>Desktop</b>: the list lives in a 360 px side panel; the detail replaces the list in the same panel.']
+  ];
+  function rules(list) { return list.map(function (r) { return '<li>' + ic(r[0]) + '<span>' + r[1] + '</span></li>'; }).join(''); }
+  $('rules').innerHTML = rules(R); $('rules2').innerHTML = rules(R2);
+
+  /* names table */
+  $('names-t').querySelector('tbody').innerHTML = S.map(function (s) {
+    return '<tr><td><b>' + C.esc(s.name[s.brand]) + '</b></td><td>' + C.esc(s.name.th) + '</td><td>' + C.esc(s.name.en) + '</td><td>' + C.esc(s.name.zh) + '</td><td>' + C.esc(CNX_AREAS[s.area].en) + '</td></tr>';
+  }).join('');
+
+  /* data flags */
+  var F = [
+    '<b>TANN and FOHHIDE share one Google Maps link</b> in the sheet. Directions use each row\'s coordinates instead.',
+    '<b>Treespoon\'s map link</b> has a spreadsheet range pasted into it ("+G5:G14"). Coordinates used instead.',
+    '<b>JEAB\'s phone (+66 092924449)</b> has 9 digits; Thai mobiles have 10. It may be 099 292 4449, the same number as Café Rosemary. Shown as written until confirmed.',
+    '<b>Roast8ry offer</b> says "Thailand Barista Championship 2027". Kept as written; likely a different year.',
+    '<b>Pasto hours</b> read "5:30–10:00, 11:30–20:00". Kept as written; 5:30 may be a typo.',
+    '<b>Thorphan Coffee Roaster</b> appears in both Café and Restaurant with slightly different wording. Merged into one pin listed under both categories.',
+    '<b>Varalee Massage (×3) and The Artist</b> have no logo in the sheet, so they use the navy monogram.',
+    '<b>Thai/Chinese names not printed on a logo</b> (e.g. ทอพัน, บ้านลานดาย, most Chinese names) are transliterations. Shops can send their official spelling and it replaces ours in one place.'
+  ];
+  $('flags').innerHTML = F.map(function (f) { return '<div class="flag">' + ic('ticket') + '<span>' + f + '</span></div>'; }).join('');
+})();
+</script>
