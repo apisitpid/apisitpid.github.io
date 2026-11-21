@@ -237,7 +237,7 @@
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
     map.on('load', function () {
-      if (!S.sel) map.jumpTo({ center: [98.9795, 18.7935], zoom: isDesk() ? 13.9 : 13.5 });   // Nimman ↔ Old City, where most shops are
+      if (!S.sel) map.jumpTo({ center: isDesk() ? [98.9795, 18.7935] : [98.9755, 18.7950], zoom: isDesk() ? 13.9 : 13.25 });   // Nimman ↔ Old City, where most shops are
       var at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show');
       recluster();
     });
