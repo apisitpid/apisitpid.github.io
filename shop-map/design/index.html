@@ -358,7 +358,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
     <div class="principles">
       <div class="panel"><h4>The logo is the pin</h4><p>Every logo is fitted into the pin's circle by measuring its content, so round badges fill the disc and wide wordmarks fit by their corners. Nothing is cropped. A shop without a logo gets a navy monogram.</p></div>
       <div class="panel"><h4>Gold means privilege</h4><p>Gold marks the perk badge, the privilege ticket, the selected pin and the main roads you navigate by. Navy carries structure. Category is shown by a ring color and an icon badge together, so it never depends on color alone.</p></div>
-      <div class="panel"><h4>Three languages, one identity</h4><p>The title is the name as printed on the shop's logo, in the reader's script when the logo prints it (海底捞火锅, กระทรวงการคั่ว). Chinese readers get the Latin brand plus a Chinese descriptor, never an invented name. The Thai name is always one tap away for drivers and staff.</p></div>
+      <div class="panel"><h4>Three languages, one identity</h4><p>The shop name is always exactly as written in the partner sheet, in every language. Thai and Chinese versions appear only as a smaller second line, and the Thai name is one tap away for drivers and staff.</p></div>
     </div>
   </section>
 
@@ -453,7 +453,7 @@ footer { padding-block: 40px 60px; color: var(--fg-3); font-size: 13px; }
   <section class="doc" id="names">
     <h2><small>09</small>Names in three languages</h2>
     <p class="lead">The "Logo" column is the identity and is never translated. The other columns are how each audience reads it. Official forms are used where they exist (Decathlon 迪卡侬, Haidilao 海底捞火锅, กระทรวงการคั่ว); the rest are transliterated, with meaning used where a brand name is a word (Basecamp 大本营, Pegasus 飞马, ก๋องคำ 金鼓).</p>
-    <div class="panel tw"><table class="names" id="names-t"><thead><tr><th>Logo</th><th>ไทย</th><th>English</th><th>中文</th><th>Area</th></tr></thead><tbody></tbody></table></div>
+    <div class="panel tw"><table class="names" id="names-t"><thead><tr><th>Shop name (sheet)</th><th>ไทย</th><th>English</th><th>中文</th><th>Area</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <section class="doc" id="audit">
@@ -3087,19 +3087,14 @@ window.CNX_STORES = [
     return '<span' + (cls ? ' class="' + cls + '"' : '') + ' lang="' + HTML_LANG[scriptOf(text)] + '">' + esc(text) + '</span>';
   }
 
-  /* Identity rule
-     · Title: the shop's name as printed on its own logo. If the logo prints the viewer's script too
-       (Haidilao prints 海底捞火锅, Ministry prints กระทรวงการคั่ว), the title uses that one.
-     · Sub-line: only when the title is not in the viewer's script, the name as the viewer reads it
-       (Chinese readers get the Latin brand plus a Chinese descriptor, never an invented translation).
-     · local: the Thai name, for showing a driver or staff (detail sheet only). */
+  /* Identity rule (client decision): the shop name is always exactly as written in the partner sheet,
+     in every language. It is never replaced by a translation. In Thai or Chinese mode the converted name
+     appears only as a smaller second line under it. `local` is the Thai name, for drivers and staff. */
+  function sheetName(s) { return String(s.sheetName || s.name.en).replace(/\s+/g, ' ').trim(); }
   function names(s, lang) {
-    var scripts = s.scripts || [s.brand];
-    var titleLang = scripts.indexOf(lang) >= 0 ? lang : s.brand;
-    var title = s.name[titleLang] || s.name.en;
-    var sub = '';
-    if (titleLang !== lang) sub = s.name[lang] || '';
-    if (sub && sub !== title && sub.indexOf(title + ' ') === 0) sub = sub.slice(title.length + 1);   // "TANN 咖啡馆" under "TANN" → "咖啡馆"
+    var title = sheetName(s);
+    var sub = lang === 'en' ? '' : (s.name[lang] || '');
+    if (sub && sub.indexOf(title + ' ') === 0) sub = sub.slice(title.length + 1);   // "TANN 咖啡馆" under "TANN" → "咖啡馆"
     if (sub === title) sub = '';
     return { title: title, sub: sub, local: s.name.th !== title ? s.name.th : '' };
   }
@@ -3285,7 +3280,7 @@ window.CNX_STORES = [
   g.CNX = { CATS: CATS, HTML_LANG: HTML_LANG, t: t, esc: esc, names: names, logo: logo, initials: initials, status: status, statusHTML: statusHTML, isOpen: isOpen,
     hoursText: hoursText, hhmm: hhmm, bkkMinutes: bkkMinutes, km: km, distText: distText, buildIndex: buildIndex, score: score, highlight: highlight, norm: norm,
     pinHTML: pinHTML, pinLabel: pinLabel, clusterHTML: clusterHTML, rowHTML: rowHTML, ticketHTML: ticketHTML, whoText: whoText, directionsURL: directionsURL,
-    catOf: catOf, scriptOf: scriptOf, langSpan: langSpan };
+    catOf: catOf, scriptOf: scriptOf, langSpan: langSpan, sheetName: sheetName };
 })(window);
 </script>
 <script>
@@ -3440,7 +3435,7 @@ window.__LOGOS = {"akai8": "data:image/webp;base64,UklGRvIfAABXRUJQVlA4IOYfAACwd
 
   /* names table */
   $('names-t').querySelector('tbody').innerHTML = S.map(function (s) {
-    return '<tr><td><b>' + C.esc(s.name[s.brand]) + '</b></td><td>' + C.esc(s.name.th) + '</td><td>' + C.esc(s.name.en) + '</td><td>' + C.esc(s.name.zh) + '</td><td>' + C.esc(CNX_AREAS[s.area].en) + '</td></tr>';
+    return '<tr><td><b>' + C.esc(C.sheetName(s)) + '</b></td><td>' + C.esc(s.name.th) + '</td><td>' + C.esc(s.name.en) + '</td><td>' + C.esc(s.name.zh) + '</td><td>' + C.esc(CNX_AREAS[s.area].en) + '</td></tr>';
   }).join('');
 
   /* data flags */

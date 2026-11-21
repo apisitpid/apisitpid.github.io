@@ -138,7 +138,7 @@
       '<button type="button" class="icon-btn staff-x" data-act="staff-close" aria-label="' + C.esc(T.close) + '">' + icon('close') + '</button>' +
       '<div class="staff-hint">' + C.esc(T.staffHint) + '</div>' +
       '<span class="detail-logo" style="--logo-bg:' + C.esc(s.bg) + '">' + C.logo(s, '', true) + '</span>' +
-      '<h2 id="staff-name" lang="th">' + C.esc(s.name.th) + '</h2>' + (n.title !== s.name.th ? '<div class="sub">' + C.langSpan(n.title) + '</div>' : '') +
+      '<h2 id="staff-name" lang="' + C.HTML_LANG[C.scriptOf(n.title)] + '">' + C.esc(n.title) + '</h2>' + (n.local ? '<div class="sub" lang="th">' + C.esc(n.local) + '</div>' : '') +
       '<div class="staff-perk" lang="th">' + C.esc(s.perk.th) + '</div>' +
       '<div class="staff-offer" lang="th">' + C.esc(s.offer.th) + '</div>' +
       '<div class="staff-who" lang="th">' + C.esc(C.whoText(s, 'th')) + '</div>' +

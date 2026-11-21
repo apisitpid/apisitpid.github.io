@@ -24,19 +24,14 @@
     return '<span' + (cls ? ' class="' + cls + '"' : '') + ' lang="' + HTML_LANG[scriptOf(text)] + '">' + esc(text) + '</span>';
   }
 
-  /* Identity rule
-     · Title: the shop's name as printed on its own logo. If the logo prints the viewer's script too
-       (Haidilao prints 海底捞火锅, Ministry prints กระทรวงการคั่ว), the title uses that one.
-     · Sub-line: only when the title is not in the viewer's script, the name as the viewer reads it
-       (Chinese readers get the Latin brand plus a Chinese descriptor, never an invented translation).
-     · local: the Thai name, for showing a driver or staff (detail sheet only). */
+  /* Identity rule (client decision): the shop name is always exactly as written in the partner sheet,
+     in every language. It is never replaced by a translation. In Thai or Chinese mode the converted name
+     appears only as a smaller second line under it. `local` is the Thai name, for drivers and staff. */
+  function sheetName(s) { return String(s.sheetName || s.name.en).replace(/\s+/g, ' ').trim(); }
   function names(s, lang) {
-    var scripts = s.scripts || [s.brand];
-    var titleLang = scripts.indexOf(lang) >= 0 ? lang : s.brand;
-    var title = s.name[titleLang] || s.name.en;
-    var sub = '';
-    if (titleLang !== lang) sub = s.name[lang] || '';
-    if (sub && sub !== title && sub.indexOf(title + ' ') === 0) sub = sub.slice(title.length + 1);   // "TANN 咖啡馆" under "TANN" → "咖啡馆"
+    var title = sheetName(s);
+    var sub = lang === 'en' ? '' : (s.name[lang] || '');
+    if (sub && sub.indexOf(title + ' ') === 0) sub = sub.slice(title.length + 1);   // "TANN 咖啡馆" under "TANN" → "咖啡馆"
     if (sub === title) sub = '';
     return { title: title, sub: sub, local: s.name.th !== title ? s.name.th : '' };
   }
@@ -222,5 +217,5 @@
   g.CNX = { CATS: CATS, HTML_LANG: HTML_LANG, t: t, esc: esc, names: names, logo: logo, initials: initials, status: status, statusHTML: statusHTML, isOpen: isOpen,
     hoursText: hoursText, hhmm: hhmm, bkkMinutes: bkkMinutes, km: km, distText: distText, buildIndex: buildIndex, score: score, highlight: highlight, norm: norm,
     pinHTML: pinHTML, pinLabel: pinLabel, clusterHTML: clusterHTML, rowHTML: rowHTML, ticketHTML: ticketHTML, whoText: whoText, directionsURL: directionsURL,
-    catOf: catOf, scriptOf: scriptOf, langSpan: langSpan };
+    catOf: catOf, scriptOf: scriptOf, langSpan: langSpan, sheetName: sheetName };
 })(window);
