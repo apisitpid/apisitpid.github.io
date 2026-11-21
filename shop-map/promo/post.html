@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Runner Privileges post</title>
+<!-- 1080×1350 social post in the HOKA Chiang Mai by UTMB campaign style:
+     misty mountain band on top, pale sky middle, deep ridges at the bottom; heavy geometric caps,
+     navy + silver headline, cyan accent; logos top corners; dotted info lines + QR bottom-left.
+     Usage: promo/post.html?cat=spa&lang=en   (rendered to PNG by promo/render.js) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Prompt:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@500;700;900&display=swap">
+<style>
+:root {
+  --navy: #131643; --navy-2: #2A3266; --cyan: #1E9BD7; --sky: #D5E6F5; --mist: #EEF5FB; --ink-2: #44507A;
+  --f: "Montserrat", "Prompt", "Noto Sans SC", sans-serif;
+  --M: 64px;                                   /* outer margin: every block aligns to it */
+}
+:lang(th) { --f: "Prompt", "Montserrat", sans-serif; }
+:lang(zh) { --f: "Noto Sans SC", "Montserrat", sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { width: 1080px; height: 1350px; overflow: hidden; position: relative; font-family: var(--f); color: var(--navy);
+  background: linear-gradient(180deg, #B9D2EA 0%, var(--sky) 22%, var(--mist) 48%, var(--sky) 72%, #9DBBDD 100%); }
+canvas { position: absolute; left: 0; width: 1080px; pointer-events: none; }
+#top { top: 0; height: 300px; } #bottom { bottom: 0; height: 340px; }
+
+/* top corners */
+.logo-r { position: absolute; top: 44px; right: var(--M); height: 108px; }
+.tag { position: absolute; top: 56px; left: var(--M); display: grid; gap: 4px; color: #fff; text-shadow: 0 2px 8px rgba(10,20,50,.35); }
+.tag b { font: 900 26px/1 var(--f); letter-spacing: .06em; text-transform: uppercase; }
+.tag span { font: 600 17px/1.2 var(--f); letter-spacing: .04em; opacity: .95; }
+:lang(th) .tag b, :lang(zh) .tag b { letter-spacing: 0; }
+
+/* headline */
+.head { position: absolute; left: var(--M); right: var(--M); top: 244px; }
+.k1 { font: 900 40px/1 var(--f); text-transform: uppercase; letter-spacing: .01em; color: var(--navy); }
+.k2 { margin-top: 4px; font: 900 104px/1 var(--f); text-transform: uppercase; letter-spacing: -.01em; white-space: nowrap; color: var(--navy);
+  text-shadow: 0 2px 0 rgba(255,255,255,.6), 0 12px 24px rgba(19,22,67,.18); }
+.k2 .amp { color: var(--cyan); }
+.k3 { margin-top: 12px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.k3 b { font: 900 34px/1 var(--f); color: var(--cyan); text-transform: uppercase; letter-spacing: .01em; }
+.k3 span { font: 700 24px/1.2 var(--f); color: var(--ink-2); }
+:lang(th) .k1, :lang(th) .k2, :lang(th) .k3 b { text-transform: none; letter-spacing: 0; }
+
+/* logo grid */
+.grid { position: absolute; left: var(--M); right: var(--M); display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: var(--gy) var(--gx); }
+.cell { width: var(--w); display: grid; justify-items: center; align-content: start; text-align: center; gap: 8px; }
+.disc { width: var(--d); height: var(--d); border-radius: 50%; overflow: hidden; background: #fff;
+  box-shadow: 0 0 0 5px #fff, 0 14px 24px -10px rgba(19,22,67,.45), 0 0 0 6px rgba(19,22,67,.08); }
+.disc img { width: 100%; height: 100%; display: block; }
+.name { margin-top: 6px; font: 700 18px/1.2 var(--f); color: var(--navy); text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.br { font: 600 14px/1 var(--f); color: var(--ink-2); }
+.perk { display: inline-block; white-space: nowrap; max-width: 100%; padding: 6px 12px; border-radius: 999px; background: var(--navy); color: #fff; font: 800 16px/1.1 var(--f); letter-spacing: .01em; }
+
+/* footer info, like the volunteer post */
+.foot { position: absolute; left: var(--M); right: var(--M); bottom: 48px; display: flex; align-items: center; gap: 28px; color: #fff; }
+.qr { width: 148px; height: 148px; flex: none; padding: 10px; background: #fff; border-radius: 12px; box-shadow: 0 10px 24px -10px rgba(0,0,0,.45); }
+.qr svg { width: 100%; height: 100%; display: block; }
+.info .l, .info .s { display: grid; grid-template-columns: 18px 1fr; }
+.info .l::before, .info .s::before { content: "•"; }
+.info .u { padding-left: 18px; }
+.info { display: grid; gap: 6px; text-shadow: 0 2px 8px rgba(8,14,40,.45); }
+.info .l { font: 700 25px/1.3 var(--f); }
+.info .s { font: 600 20px/1.35 var(--f); opacity: .95; }
+.info .u { margin-top: 6px; font: 600 19px/1 var(--f); opacity: .9; }
+</style>
+</head>
+<body>
+<canvas id="top" width="1080" height="300"></canvas>
+<canvas id="bottom" width="1080" height="340"></canvas>
+<div class="tag" id="tag"></div>
+<img class="logo-r" src="../brand/event-logo-white.png" alt="HOKA Chiang Mai Thailand by UTMB">
+<section class="head" id="head"><div class="k1" id="k1"></div><div class="k2" id="k2"></div><div class="k3" id="k3"></div></section>
+<section class="grid" id="grid"></section>
+<footer class="foot"><div class="qr" id="qr"></div><div class="info" id="info"></div></footer>
+<script src="../js/icons.js"></script><script src="../js/i18n.js"></script><script src="../data/stores.js"></script><script src="../js/core.js"></script>
+<script src="../vendor/qrcode-generator.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), cat = q.get('cat') || 'cafe', lang = q.get('lang') || 'en', C = window.CNX;
+  document.documentElement.lang = C.HTML_LANG[lang];
+
+  /* ---------- misty ridgelines (seeded, so every render is identical) ---------- */
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; }
+  function ridge(r, w, rough) {  // midpoint displacement → a natural mountain profile
+    var n = 129, y = new Array(n); y[0] = r(); y[n - 1] = r();
+    for (var step = n - 1, amp = 1; step > 1; step /= 2, amp *= rough)
+      for (var i = step / 2; i < n; i += step) y[i] = (y[i - step / 2] + y[i + step / 2]) / 2 + (r() - .5) * amp;
+    return y;
+  }
+  function layers(cv, spec, seed, flip) {
+    var g = cv.getContext('2d'), W = cv.width, H = cv.height, r = rng(seed);
+    spec.forEach(function (L) {
+      var y = ridge(r, W, .52), min = Math.min.apply(null, y), max = Math.max.apply(null, y);
+      g.beginPath(); g.moveTo(0, flip ? 0 : H);
+      y.forEach(function (v, i) { var t = (v - min) / (max - min); var yy = L.base + (t - .5) * L.amp; g.lineTo(i / (y.length - 1) * W, flip ? H - yy : yy); });
+      g.lineTo(W, flip ? 0 : H); g.closePath();
+      var gr = g.createLinearGradient(0, flip ? H - L.base - L.amp : L.base - L.amp, 0, flip ? 0 : H);
+      gr.addColorStop(0, L.c1); gr.addColorStop(1, L.c2); g.fillStyle = gr; g.fill();
+      if (L.mist) { var m = g.createLinearGradient(0, flip ? H - L.base : L.base, 0, flip ? H - L.base - 70 : L.base + 70);
+        m.addColorStop(0, 'rgba(238,245,251,0)'); m.addColorStop(1, 'rgba(238,245,251,' + L.mist + ')'); g.fillStyle = m; g.fillRect(0, 0, W, H); }
+    });
+  }
+  /* top band: dark ridges hanging from the top edge, fading into cloud (like the campaign's top photo strip) */
+  layers(document.getElementById('top'), [
+    { base: 236, amp: 70, c1: '#E3EEF8', c2: '#FFFFFF' },
+    { base: 205, amp: 80, c1: '#9DB7D6', c2: '#C9DAEC', mist: .55 },
+    { base: 160, amp: 90, c1: '#5F7DAA', c2: '#8FA9CC', mist: .35 },
+    { base: 112, amp: 80, c1: '#34507F', c2: '#5A77A5', mist: .25 }
+  ], 20261127, true);
+  /* bottom: layered ridges rising out of the mist, deepest navy-blue in front (footer text sits on it) */
+  layers(document.getElementById('bottom'), [
+    { base: 70, amp: 70, c1: '#AFC6E2', c2: '#C7D8EC', mist: .5 },
+    { base: 120, amp: 80, c1: '#6F8EBB', c2: '#92ACCF', mist: .35 },
+    { base: 175, amp: 80, c1: '#3D5D90', c2: '#5B79A8', mist: .2 },
+    { base: 235, amp: 70, c1: '#1F3363', c2: '#2B4478' }
+  ], 20261203, false);
+
+  /* ---------- copy ---------- */
+  var T = {
+    en: { k1: 'Runner privileges', shops: '{n} partner shops', tag: ['Partner shops', 'Race week perks'],
+          lines: ['Show your race bib at the counter', 'แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์', '到店出示号码布即可享受'], br: '{n} branches',
+          cats: { cafe: 'Café & Coffee', food: 'Restaurants', spa: 'Massage & Spa', sport: 'Sport & Fitness' } },
+    th: { k1: 'สิทธิพิเศษนักวิ่ง', shops: 'ร้านพันธมิตร {n} ร้าน', tag: ['ร้านพันธมิตร', 'สิทธิพิเศษช่วงงานวิ่ง'],
+          lines: ['แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์', 'Show your race bib at the counter', '到店出示号码布即可享受'], br: '{n} สาขา',
+          cats: { cafe: 'คาเฟ่ & กาแฟ', food: 'ร้านอาหาร', spa: 'นวด & สปา', sport: 'กีฬา & ฟิตเนส' } },
+    zh: { k1: '跑者专享优惠', shops: '{n} 家合作商户', tag: ['合作商户', '赛事周专享'],
+          lines: ['到店出示号码布即可享受', 'Show your race bib at the counter', 'แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์'], br: '{n} 家分店',
+          cats: { cafe: '咖啡馆', food: '餐厅', spa: '按摩与水疗', sport: '运动与健身' } }
+  }[lang];
+  var OTHER = { en: ['th', 'zh'], th: ['en', 'zh'], zh: ['en', 'th'] }[lang];
+  var ALL = { en: { cafe: 'Café & Coffee', food: 'Restaurants', spa: 'Massage & Spa', sport: 'Sport & Fitness' },
+              th: { cafe: 'คาเฟ่ & กาแฟ', food: 'ร้านอาหาร', spa: 'นวด & สปา', sport: 'กีฬา & ฟิตเนส' },
+              zh: { cafe: '咖啡馆', food: '餐厅', spa: '按摩与水疗', sport: '运动与健身' } };
+
+  var shops = window.CNX_STORES.filter(function (s) { return s.cats.indexOf(cat) >= 0; });
+  document.getElementById('tag').innerHTML = '<b>' + C.esc(T.tag[0]) + '</b><span>' + C.esc(T.tag[1]) + '</span>';
+  document.getElementById('k1').textContent = T.k1;
+  var k2 = document.getElementById('k2'); k2.innerHTML = C.esc(T.cats[cat]).replace('&amp;', '<span class="amp">&amp;</span>');
+  document.getElementById('k3').innerHTML = '<b>' + C.esc(T.shops.replace('{n}', shops.length)) + '</b><span>' +
+    OTHER.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(ALL[l][cat]) + '</span>'; }).join(' · ') + '</span>';
+
+  /* ---------- logos: branches of one brand share a tile ---------- */
+  var BRAND = [['varalee', 'Varalee Massage'], ['herb-', 'Herb Massage'], ['fahlanna-', 'Fah Lanna Spa'], ['oasis-', 'The Oasis Spa'], ['decathlon-', 'Decathlon']];
+  function brandOf(s) { var b = BRAND.find(function (x) { return s.id.indexOf(x[0]) === 0; }); return b ? b[1] : s.id; }
+  var groups = [];
+  shops.forEach(function (s) { var k = brandOf(s), g = groups.find(function (x) { return x.key === k; }); if (g) g.items.push(s); else groups.push({ key: k, items: [s] }); });
+  var grid = document.getElementById('grid');
+  grid.innerHTML = groups.map(function (g) {
+    var s = g.items[0], name = g.items.length > 1 ? g.key : C.sheetName(s);
+    return '<div class="cell"><div class="disc"><img src="../' + s.logo + '" alt=""></div><div class="name">' + C.esc(name) + '</div>' +
+      (g.items.length > 1 ? '<div class="br">' + T.br.replace('{n}', g.items.length) + '</div>' : '') + '<span class="perk">' + C.esc(s.perk[lang]) + '</span></div>';
+  }).join('');
+
+  /* ---------- footer ---------- */
+  var url = 'https://apisitpid.github.io/shop-map/?cat=' + cat + '&lang=' + lang;
+  document.getElementById('info').innerHTML = '<div class="l">' + C.esc(T.lines[0]) + '</div>' +
+    T.lines.slice(1).map(function (t, i) { return '<div class="s" lang="' + C.HTML_LANG[OTHER[i]] + '">' + C.esc(t) + '</div>'; }).join('') +
+    '<div class="u">apisitpid.github.io/shop-map</div>';
+  var qr = qrcode(0, 'M'); qr.addData(url); qr.make();
+  document.getElementById('qr').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  document.querySelectorAll('#qr svg path').forEach(function (p) { p.setAttribute('fill', '#131643'); });
+
+  /* ---------- layout on an 8px rhythm, measured after fonts load ---------- */
+  document.fonts.ready.then(function () {
+    var maxW = 1080 - 2 * 64;
+    var fs = 104; while (k2.scrollWidth > maxW && fs > 60) { fs -= 2; k2.style.fontSize = fs + 'px'; }
+    var headBottom = document.getElementById('head').getBoundingClientRect().bottom;
+    var footTop = document.querySelector('.foot').getBoundingClientRect().top;
+    var top = Math.ceil((headBottom + 32) / 8) * 8, bottom = Math.floor((footTop - 32) / 8) * 8, H = bottom - top, W = maxW;
+    var n = groups.length, gx = 16, gy = 20, best = { d: 0 };
+    for (var cols = 2; cols <= 6; cols++) {
+      var rows = Math.ceil(n / cols);
+      var d = Math.min((W - (cols - 1) * gx) / cols - 44, (H - (rows - 1) * gy) / rows - 96, 200);
+      if (d > best.d) best = { d: Math.floor(d / 2) * 2, cols: cols, rows: rows };
+    }
+    grid.style.top = top + 'px'; grid.style.height = H + 'px'; grid.style.setProperty('--gx', gx + 'px');
+    /* measure-and-fit: shrink until the cells fit with ≥32px air, then give spare height to the row gaps */
+    function apply(d, g) {
+      var colW = Math.floor((W - (best.cols - 1) * gx) / best.cols);       // cells use the full column: names wrap less
+      grid.style.setProperty('--d', Math.min(d, colW - 24) + 'px'); grid.style.setProperty('--w', colW + 'px'); grid.style.setProperty('--gy', g + 'px');
+      grid.style.padding = '0';
+    }
+    function used() { var cs = grid.querySelectorAll('.cell'), t = 1e9, b = 0; cs.forEach(function (c) { var r = c.getBoundingClientRect(); t = Math.min(t, r.top); b = Math.max(b, r.bottom); }); return b - t; }
+    var d = Math.min(200, Math.floor((W - (best.cols - 1) * gx) / best.cols) - 24), g = gy; apply(d, g);
+    while (used() > H && d > 60) { d -= 4; apply(d, g); }
+    var rows = Math.ceil(n / best.cols);
+    if (rows > 1) { var spare = H - used(); g = Math.min(56, g + Math.floor(spare * .5 / (rows - 1))); apply(d, g); }
+    best.d = d;
+    grid.querySelectorAll('.perk').forEach(function (el) { var f = 16; while (el.scrollWidth > el.parentNode.clientWidth && f > 11) { el.style.fontSize = --f + 'px'; } });
+    Promise.all([].map.call(document.images, function (im) { return im.complete ? 0 : new Promise(function (r) { im.onload = im.onerror = r; }); }))
+      .then(function () {
+        var box = function (sel) { var r = document.querySelector(sel).getBoundingClientRect(); return [Math.round(r.left), Math.round(r.top), Math.round(r.right), Math.round(r.bottom)]; };
+        var cells = [].map.call(document.querySelectorAll('.cell'), function (c) { var r = c.getBoundingClientRect(); return [Math.round(r.left), Math.round(r.top), Math.round(r.right), Math.round(r.bottom)]; });
+        window.__audit = { head: box('#head'), k2w: Math.round(k2.scrollWidth), grid: box('#grid'), cells: cells, foot: box('.foot'), logo: box('.logo-r'), tag: box('#tag'), disc: best.d, cols: best.cols };
+        window.__ready = true; });
+  });
+})();
+</script>
+</body>
+</html>
