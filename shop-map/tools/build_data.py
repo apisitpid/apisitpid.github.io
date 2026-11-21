@@ -96,7 +96,7 @@ def dist(a, b):
     return math.sqrt(sum((x - y) ** 2 for x, y in zip(a, b)))
 
 
-def fit_logo(data, trim=0.006, force=None):
+def fit_logo(data, trim=0.006, force=None, clean=False):
     """Return (square RGB image, bg hex, mode). The whole logo stays visible inside the pin's circle and is
     scaled as large as possible: we find the content pixel farthest from the content centre and make that
     distance the circle radius (round badges fill the circle, wordmarks fit by their corners)."""
@@ -114,11 +114,14 @@ def fit_logo(data, trim=0.006, force=None):
     rgb = a[..., :3] * alpha + bg * (1 - alpha)
     ring_rgb = np.concatenate([rgb[:3].reshape(-1, 3), rgb[-3:].reshape(-1, 3), rgb[:, :3].reshape(-1, 3), rgb[:, -3:].reshape(-1, 3)])
     uniform = (np.linalg.norm(ring_rgb - bg, axis=1) < 34).mean()
+    if clean:   # faint background pattern (Herb): push near-background pixels to the background colour
+        near = np.linalg.norm(rgb - bg, axis=2) < 70
+        rgb[near] = bg
     flat = Image.fromarray(rgb.clip(0, 255).astype(np.uint8))
     bgt = tuple(int(round(v)) for v in bg)
 
     if uniform < 0.55 and trim < 0.05:   # maybe a drawn frame at the edge: shave more and retry
-        return fit_logo(data, 0.06, force)
+        return fit_logo(data, 0.06, force, clean)
     if uniform < 0.55 or force == "cover":      # photographic / busy edge → centre cover-crop
         s = min(w, h)
         box = ((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s)
@@ -207,8 +210,10 @@ def main(xlsx):
                 "lat": latlng[0], "lng": latlng[1],
                 "logo": None, "bg": "#13254a", "ink": "light", "fit": None,
             }
+            if c.get("logoSrc"):   # a better file sent by the shop (tools/logo-src/, prepared by prep_drive_logos.py)
+                img = (ROOT / c["logoSrc"]).read_bytes()
             if img:
-                canvas, bg, mode = fit_logo(img, force=c.get("logoFit"))
+                canvas, bg, mode = fit_logo(img, force=c.get("logoFit"), clean=c.get("cleanBg", False))
                 canvas.save(ROOT / f"logos/{s['id']}.webp", "WEBP", quality=88, method=6)
                 s.update(logo=f"logos/{s['id']}.webp", bg=hexc(bg),
                          ink="dark" if luminance(bg) > 0.45 else "light", fit=mode)

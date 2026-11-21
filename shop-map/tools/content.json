@@ -458,7 +458,8 @@
     "en": "10% off all services and treatments",
     "th": "ลด 10% ทุกบริการและทรีตเมนต์",
     "zh": "所有服务与疗程 9 折"
-   }
+   },
+   "logoSrc": "tools/logo-src/varalee.jpg"
   },
   "2:6": {
    "id": "varalee-2",
@@ -478,7 +479,8 @@
     "en": "10% off all services and treatments",
     "th": "ลด 10% ทุกบริการและทรีตเมนต์",
     "zh": "所有服务与疗程 9 折"
-   }
+   },
+   "logoSrc": "tools/logo-src/varalee.jpg"
   },
   "2:7": {
    "id": "varalee-one-nimman",
@@ -498,7 +500,8 @@
     "en": "10% off all services and treatments",
     "th": "ลด 10% ทุกบริการและทรีตเมนต์",
     "zh": "所有服务与疗程 9 折"
-   }
+   },
+   "logoSrc": "tools/logo-src/varalee.jpg"
   },
   "2:8": {
    "id": "the-artist",
@@ -518,7 +521,8 @@
     "en": "10% off all services and treatments",
     "th": "ลด 10% ทุกบริการและทรีตเมนต์",
     "zh": "所有服务与疗程 9 折"
-   }
+   },
+   "logoSrc": "tools/logo-src/the-artist.jpg"
   },
   "2:9": {
    "id": "oasis-nimman",
@@ -623,7 +627,8 @@
     "en": "10% off all courses",
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
-   }
+   },
+   "cleanBg": true
   },
   "2:14": {
    "id": "herb-annex",
@@ -643,7 +648,8 @@
     "en": "10% off all courses",
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
-   }
+   },
+   "cleanBg": true
   },
   "2:15": {
    "id": "herb-central",
@@ -663,7 +669,8 @@
     "en": "10% off all courses",
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
-   }
+   },
+   "cleanBg": true
   },
   "2:16": {
    "id": "herb-nimman-soi6",
@@ -683,7 +690,8 @@
     "en": "10% off all courses",
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
-   }
+   },
+   "cleanBg": true
   },
   "2:17": {
    "id": "zira-spa",
@@ -913,7 +921,8 @@
     "zh"
    ],
    "who": "runner",
-   "tags": "hotpot hot pot shabu สุกี้ ชาบู หม้อไฟ 火锅"
+   "tags": "hotpot hot pot shabu สุกี้ ชาบู หม้อไฟ 火锅",
+   "logoSrc": "tools/logo-src/haidilao.png"
   },
   "3:9": {
    "id": "akai8",
@@ -1097,7 +1106,6 @@
   "3:18": {
    "id": "punn-toh",
    "brand": "th",
-   "logoFit": "cover",
    "area": "riverside",
    "name": {
     "en": "Punn Toh",
@@ -1117,7 +1125,8 @@
    "scripts": [
     "th",
     "en"
-   ]
+   ],
+   "logoSrc": "tools/logo-src/punn-toh.png"
   },
   "3:19": {
    "id": "jeab",

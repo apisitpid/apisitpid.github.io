@@ -903,10 +903,10 @@ window.CNX_STORES = [
   "hoursRaw": "10.00 น.-23.00น.",
   "lat": 18.79515,
   "lng": 98.97162,
-  "logo": null,
-  "bg": "#13254a",
-  "ink": "light",
-  "fit": null
+  "logo": "logos/varalee.webp",
+  "bg": "#ffffff",
+  "ink": "dark",
+  "fit": "fit"
  },
  {
   "id": "varalee-2",
@@ -953,10 +953,10 @@ window.CNX_STORES = [
   "hoursRaw": "10.00 น.-23.00น.",
   "lat": 18.79647,
   "lng": 98.96835,
-  "logo": null,
-  "bg": "#13254a",
-  "ink": "light",
-  "fit": null
+  "logo": "logos/varalee-2.webp",
+  "bg": "#ffffff",
+  "ink": "dark",
+  "fit": "fit"
  },
  {
   "id": "varalee-one-nimman",
@@ -1003,10 +1003,10 @@ window.CNX_STORES = [
   "hoursRaw": "10.00 น.-23.00น.",
   "lat": 18.79964,
   "lng": 98.96773,
-  "logo": null,
-  "bg": "#13254a",
-  "ink": "light",
-  "fit": null
+  "logo": "logos/varalee-one-nimman.webp",
+  "bg": "#ffffff",
+  "ink": "dark",
+  "fit": "fit"
  },
  {
   "id": "the-artist",
@@ -1053,10 +1053,10 @@ window.CNX_STORES = [
   "hoursRaw": "10.00 น.-23.00น.",
   "lat": 18.7993,
   "lng": 98.96702,
-  "logo": null,
-  "bg": "#13254a",
-  "ink": "light",
-  "fit": null
+  "logo": "logos/the-artist.webp",
+  "bg": "#ffffff",
+  "ink": "dark",
+  "fit": "fit"
  },
  {
   "id": "oasis-nimman",
@@ -1977,7 +1977,7 @@ window.CNX_STORES = [
   "lat": 18.80713,
   "lng": 99.01856,
   "logo": "logos/haidilao.webp",
-  "bg": "#fefefe",
+  "bg": "#ffffff",
   "ink": "dark",
   "fit": "fit"
  },
@@ -2435,9 +2435,9 @@ window.CNX_STORES = [
   "lat": 18.79157,
   "lng": 99.00375,
   "logo": "logos/punn-toh.webp",
-  "bg": "#ac935b",
-  "ink": "light",
-  "fit": "cover"
+  "bg": "#ffffff",
+  "ink": "dark",
+  "fit": "round"
  },
  {
   "id": "jeab",
