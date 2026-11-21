@@ -1,0 +1,21 @@
+Runner Privileges · Chiang Mai — deploy package
+==============================================
+runner-privileges/   the whole site (static files only, no server code, no database)
+nginx-runner-privileges.conf   example nginx config
+
+Steps
+1. Upload:   scp -r runner-privileges user@your-vps:/var/www/
+2. nginx:    edit the domain in nginx-runner-privileges.conf, install it, reload nginx
+3. HTTPS:    certbot --nginx -d shop.teambase.work   ("My location" only works on https)
+Domain: https://shop.teambase.work/  (already set in index.html, the share image and the post QR codes)
+DNS: point an A record for shop.teambase.work to the VPS IP before running certbot.
+
+The visitor's browser also loads, directly:
+  tiles.openfreemap.org   map tiles + map label fonts
+  fonts.googleapis.com / fonts.gstatic.com   Thai, English, Chinese fonts
+No API keys are needed.
+
+Useful links
+  ?lang=th | en | zh            open in a language
+  ?cat=cafe | food | spa | sport   open one category (used by the post QR codes)
+  ?shop=oasis-lanna             open one shop
