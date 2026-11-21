@@ -5,7 +5,7 @@
    ========================================================================== */
 :root {
   /* brand ramps */
-  --navy-950: #08122A; --navy-900: #0B1834; --navy-800: #12234A; --navy-700: #1B3263; --navy-500: #3A548C; --navy-200: #C5CEE0; --navy-100: #E4E8F1;
+  --navy-950: #070920; --navy-900: #0C0F33; --navy-800: #131643;   /* navy sampled from the event logo */ --navy-700: #1B3263; --navy-500: #3A548C; --navy-200: #C5CEE0; --navy-100: #E4E8F1;
   --gold-700: #8A6A1F; --gold-600: #A9822F; --gold-500: #C9A24B; --gold-300: #E6CC8A; --gold-100: #F7EED6;
   /* category hues: tuned to sit beside navy+gold, each passes 3:1 against white for the badge glyph ring */
   --c-cafe: #A55E33; --c-food: #B8325E; --c-spa: #1D7562; --c-sport: #2F62C6; --badge-fg: #FFFFFF;

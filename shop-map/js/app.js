@@ -63,7 +63,7 @@
     var T = I18N[S.lang];
     document.documentElement.lang = T.htmlLang;
     document.title = T.appName + ' · ' + T.appSub;
-    $('t-app').textContent = T.appName; $('t-sub').textContent = T.appSub;
+    $('t-app').textContent = T.appName; $('t-sub').textContent = T.barSub;
     Array.prototype.forEach.call($('langs').children, function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === S.lang)); b.title = I18N[b.dataset.lang].label; });
     $('q').placeholder = T.search; $('q').setAttribute('aria-label', T.search);
     $('i-search').innerHTML = icon('search');
@@ -144,7 +144,7 @@
       '<div class="staff-offer" lang="th">' + C.esc(s.offer.th) + '</div>' +
       '<div class="staff-who" lang="th">' + C.esc(C.whoText(s, 'th')) + '</div>' +
       (S.lang !== 'th' ? '<div class="staff-mine" lang="' + C.HTML_LANG[S.lang] + '"><b>' + C.esc(s.perk[S.lang]) + '</b> · ' + C.esc(s.offer[S.lang]) + '</div>' : '') +
-      '<div class="staff-mark"><img src="brand/emblem.svg" alt="" width="22"> ' + C.esc(I18N.th.appName + ' · ' + I18N.th.appSub) + '</div></div>';
+      '<div class="staff-mark"><img src="brand/event-logo.png" alt="HOKA Chiang Mai Thailand by UTMB" height="34"> ' + C.esc(I18N.th.appName) + '</div></div>';
     el.hidden = false;
     el.querySelector('.staff-x').focus();
     try { if (navigator.wakeLock) navigator.wakeLock.request('screen').then(function (w) { wake = w; }, function () {}); } catch (e) {}

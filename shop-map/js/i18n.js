@@ -2,7 +2,7 @@
 window.CNX_I18N = {
   th: {
     htmlLang: 'th', label: 'ไทย', short: 'TH',
-    appName: 'สิทธิพิเศษนักวิ่ง', appSub: 'เชียงใหม่',
+    appName: 'สิทธิพิเศษนักวิ่ง', appSub: 'เชียงใหม่', barSub: 'ร้านพันธมิตร',
     tagline: 'ร้านพันธมิตรที่มอบสิทธิพิเศษให้นักวิ่งและกองเชียร์',
     search: 'ค้นหาร้าน ประเภท หรือย่าน',
     all: 'ทั้งหมด', cats: { cafe: 'คาเฟ่', food: 'อาหาร', spa: 'นวด/สปา', sport: 'กีฬา' },
@@ -22,7 +22,7 @@ window.CNX_I18N = {
   },
   en: {
     htmlLang: 'en', label: 'English', short: 'EN',
-    appName: 'Runner Privileges', appSub: 'Chiang Mai',
+    appName: 'Runner Privileges', appSub: 'Chiang Mai', barSub: 'Partner shops',
     tagline: 'Partner shops with perks for runners and supporters',
     search: 'Search shops, types or areas',
     all: 'All', cats: { cafe: 'Café', food: 'Food', spa: 'Massage', sport: 'Sport' },
@@ -42,7 +42,7 @@ window.CNX_I18N = {
   },
   zh: {
     htmlLang: 'zh-Hans', label: '简体中文', short: '中文',
-    appName: '跑者专享优惠', appSub: '清迈',
+    appName: '跑者专享优惠', appSub: '清迈', barSub: '合作商户',
     tagline: '为跑者与亲友团提供优惠的合作商家',
     search: '搜索店名、类型或区域',
     all: '全部', cats: { cafe: '咖啡', food: '餐厅', spa: '按摩', sport: '运动' },

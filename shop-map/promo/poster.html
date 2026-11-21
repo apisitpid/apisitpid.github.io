@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700&family=Noto+Serif+SC:wght@600&family=Trirong:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap">
 <style>
 :root {
-  --navy-950: #08122A; --navy-900: #0B1834; --navy-800: #12234A; --gold-700: #8A6A1F; --gold-500: #C9A24B; --gold-300: #E6CC8A; --gold-100: #F7EED6;
+  --navy-950: #070920; --navy-900: #0C0F33; --navy-800: #131643; --gold-700: #8A6A1F; --gold-500: #C9A24B; --gold-300: #E6CC8A; --gold-100: #F7EED6;
   --paper: #FBF7EC; --ink: #101C38; --ink-2: #46536F; --cat: #A55E33;
   --f-display: "Trirong", "Noto Serif SC", serif; --f-ui: "IBM Plex Sans Thai", "Noto Sans SC", sans-serif; --f-bib: "Barlow Condensed", "IBM Plex Sans Thai", sans-serif;
 }
@@ -17,17 +17,17 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body { width: 1080px; height: 1350px; overflow: hidden; color: var(--ink); font-family: var(--f-ui);
-  background: radial-gradient(110% 80% at 85% 0%, #1D3672 0%, var(--navy-900) 55%, var(--navy-950) 100%); position: relative; }
+  background: radial-gradient(110% 80% at 85% 0%, #222868 0%, var(--navy-900) 55%, var(--navy-950) 100%); position: relative; }
 /* Lanna dot rule, top and bottom of the canvas */
 body::before, body::after { content: ""; position: absolute; left: 0; right: 0; height: 12px; opacity: .55;
   background: radial-gradient(circle at 6px 6px, var(--gold-500) 2px, transparent 2.6px) 0 0/24px 12px repeat-x, linear-gradient(var(--gold-500), var(--gold-500)) 0 50%/100% 1px no-repeat; }
 body::before { top: 22px; } body::after { bottom: 22px; }
 
-.top { position: absolute; left: 58px; right: 58px; top: 52px; height: 84px; display: flex; align-items: center; gap: 18px; color: #EDE7D6; }
-.top img { width: 52px; height: auto; }
-.top .t1 { font: 600 30px/1.1 var(--f-display); color: #FBF6EA; }
+.top { position: absolute; left: 58px; right: 58px; top: 30px; height: 120px; display: flex; align-items: center; gap: 22px; color: #EDE7D6; }
+.top img { height: 116px; width: auto; padding-right: 22px; border-right: 1px solid rgba(230,204,138,.4); }
+.top .t1 { font: 600 38px/1.1 var(--f-display); color: #FBF6EA; }
 .top .t1 em { font-style: normal; color: var(--gold-300); }
-.top .t2 { font: 500 17px/1.3 var(--f-ui); color: var(--gold-300); letter-spacing: .02em; margin-top: 4px; }
+.top .t2 { font: 500 20px/1.3 var(--f-ui); color: var(--gold-300); letter-spacing: .02em; margin-top: 4px; }
 .top .t2 span + span::before { content: "·"; margin: 0 8px; opacity: .7; }
 
 /* ---- the bib ---- */
@@ -45,6 +45,7 @@ body::before { top: 22px; } body::after { bottom: 22px; }
 .num b { display: block; font: 800 150px/.8 var(--f-bib); letter-spacing: -.02em; }
 .num small { display: block; margin-top: 10px; font: 700 15px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; opacity: .9; }
 
+:lang(th) .band .eyebrow, :lang(th) .num small, :lang(th) .qr-cap, :lang(zh) .band .eyebrow, :lang(zh) .num small, :lang(zh) .qr-cap { letter-spacing: 0; font-size: 18px; }
 /* logo grid */
 .grid { flex: 1; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; padding: 22px 36px 16px; gap: var(--gy) var(--gx); min-height: 0; }
 .cell { width: calc(var(--d) + 56px); }
@@ -72,7 +73,7 @@ body::before { top: 22px; } body::after { bottom: 22px; }
 </head>
 <body>
 <header class="top">
-  <img src="../brand/emblem.svg" alt="">
+  <img src="../brand/event-logo-white.png" alt="HOKA Chiang Mai Thailand by UTMB">
   <div><div class="t1" id="t1"></div><div class="t2" id="t2"></div></div>
 </header>
 <main class="bib" id="bib">
@@ -128,8 +129,8 @@ body::before { top: 22px; } body::after { bottom: 22px; }
       '<span class="perk">' + C.esc(s.perk[lang]) + '</span></div>';
   }).join('');
   var L = I[lang], others = ['th', 'en', 'zh'].filter(function (l) { return l !== lang; });
-  document.getElementById('t1').innerHTML = C.esc(L.appName) + ' <em>' + C.esc(L.appSub) + '</em>';
-  document.getElementById('t2').innerHTML = others.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(I[l].appName + ' ' + I[l].appSub) + '</span>'; }).join('');
+  document.getElementById('t1').textContent = L.appName;
+  document.getElementById('t2').innerHTML = others.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(I[l].appName) + '</span>'; }).join('');
   document.getElementById('eyebrow').textContent = TXT.eyebrow;
   document.getElementById('h1').textContent = TITLE[lang][cat];
   document.getElementById('alt').innerHTML = others.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(TITLE[l][cat]) + '</span>'; }).join('');

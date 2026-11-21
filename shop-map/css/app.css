@@ -16,7 +16,7 @@ button, input { font: inherit; }
 .top > * { pointer-events: auto; }
 .top .chips { margin: 0 calc(-1 * var(--gutter)); padding: 2px var(--gutter) 6px; }
 .brandbar { display: flex; align-items: center; gap: 10px; min-height: 50px; padding: 6px 6px 6px 12px; border-radius: 18px; background: var(--chrome); color: var(--chrome-fg); box-shadow: var(--sh-2); }
-.brandbar img { width: 26px; height: auto; flex: none; }
+.brandbar img.evt { height: 44px; width: auto; flex: none; padding-right: 10px; margin-right: 2px; border-right: 1px solid rgba(230, 204, 138, .35); box-sizing: content-box; }
 .brandbar .bt { flex: 1; min-width: 0; line-height: 1.15; }
 .brandbar .bt b { display: block; font: 600 16px/1.2 var(--f-display); color: #FBF6EA; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .brandbar .bt span { display: block; font: 600 10.5px/1.3 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-300); }
@@ -82,7 +82,7 @@ button, input { font: inherit; }
 .staff-offer { font: 500 18px/1.6 var(--f-ui); white-space: pre-line; text-align: left; width: 100%; }
 .staff-who { font: 600 15px/1.5 var(--f-ui); color: var(--fg); border-top: 1px dashed var(--ticket-line); padding-top: 10px; width: 100%; }
 .staff-mine { font: 400 13.5px/1.5 var(--f-ui); color: var(--fg-2); text-align: left; width: 100%; white-space: pre-line; }
-.staff-mark { display: flex; align-items: center; gap: 6px; font: 500 12px/1 var(--f-ui); color: var(--fg-3); margin-top: 4px; }
+.staff-mark { display: flex; align-items: center; gap: 10px; font: 500 12px/1 var(--f-ui); color: var(--fg-3); margin-top: 4px; }
 
 .map.z-near { --pin: 54px; }
 .chip-open .ico { color: var(--ok); }
