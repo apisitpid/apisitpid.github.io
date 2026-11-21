@@ -24,10 +24,10 @@
     return '<span' + (cls ? ' class="' + cls + '"' : '') + ' lang="' + HTML_LANG[scriptOf(text)] + '">' + esc(text) + '</span>';
   }
 
-  /* Identity rule (client decision): the shop name is always exactly as written in the partner sheet,
+  /* Identity rule (client decision): the shop name is the sheet's name, spelled the way the shop's logo spells it,
      in every language. It is never replaced by a translation. In Thai or Chinese mode the converted name
      appears only as a smaller second line under it. `local` is the Thai name, for drivers and staff. */
-  function sheetName(s) { return String(s.sheetName || s.name.en).replace(/\s+/g, ' ').trim(); }
+  function sheetName(s) { return String(s.display || s.sheetName || s.name.en).replace(/\s+/g, ' ').trim(); }
   function names(s, lang) {
     var title = sheetName(s);
     var sub = lang === 'en' ? '' : (s.name[lang] || '');
@@ -107,7 +107,7 @@
   }
   function buildIndex(stores) {
     stores.forEach(function (s) {
-      var nm = [s.name.en, s.name.th, s.name.zh, s.sheetName].map(norm);
+      var nm = [s.name.en, s.name.th, s.name.zh, s.sheetName, s.display].map(norm);
       var cat = s.cats.map(function (c) { return [SYN[c], I.th.cats[c], I.en.cats[c], I.zh.cats[c], I.th.catsLong[c], I.en.catsLong[c], I.zh.catsLong[c]].join(' '); }).join(' ');
       var area = AREAS[s.area] ? [AREAS[s.area].en, AREAS[s.area].th, AREAS[s.area].zh].join(' ') : '';
       s._ix = { name: nm, nameJoined: nm.map(function (x) { return x.replace(/ /g, ''); }), meta: norm(cat + ' ' + area + ' ' + (s.tags || '') + ' ' + s.address),

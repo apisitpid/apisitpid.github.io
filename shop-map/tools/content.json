@@ -142,7 +142,8 @@
     "th": "ลด 50 บาท เมื่อสั่งอาหารและเครื่องดื่มครบ 500 บาท\nลด 100 บาท เมื่อครบ 1,000 บาท",
     "zh": "餐饮消费满 500 泰铢减 50 泰铢\n满 1,000 泰铢减 100 泰铢"
    },
-   "tags": "pizza พิซซ่า 披萨"
+   "tags": "pizza พิซซ่า 披萨",
+   "display": "Café de Oasis & Toby's Pizza Chiang Mai"
   },
   "0:8": {
    "id": "basecamp",
@@ -182,7 +183,8 @@
     "en": "10% off all menu items, plus a free energy bar",
     "th": "ลด 10% ทุกเมนู แถมฟรีเอนเนอร์จีบาร์",
     "zh": "全单 9 折，另赠能量棒一根"
-   }
+   },
+   "display": "Café Rosemary"
   },
   "0:10": {
    "id": "roast8ry-flagship",
@@ -248,7 +250,8 @@
    "scripts": [
     "en",
     "th"
-   ]
+   ],
+   "display": "Ministry of Roasters Chiang Mai"
   },
   "0:13": {
    "id": "thorphan",
@@ -288,7 +291,8 @@
     "en": "10% off all menu items",
     "th": "ลด 10% ทุกเมนู",
     "zh": "全单 9 折"
-   }
+   },
+   "display": "Pegasus Café & Roastery"
   },
   "1:5": {
    "id": "run2paradise",
@@ -309,7 +313,8 @@
     "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 4,000 บาทขึ้นไป",
     "zh": "单笔消费满 4,000 泰铢，额外再减 5%"
    },
-   "tags": "running shoes trail gear รองเท้าวิ่ง รองเท้า 跑鞋 跑步"
+   "tags": "running shoes trail gear รองเท้าวิ่ง รองเท้า 跑鞋 跑步",
+   "display": "RUN2PARADISE Nimman"
   },
   "1:6": {
    "id": "highlandner",
@@ -330,7 +335,8 @@
     "th": "ลดเพิ่ม 5% เมื่อซื้อครบ 1,000 บาทต่อใบเสร็จ (ยกเว้นสินค้าเคลียร์สต็อก)",
     "zh": "单张小票满 1,000 泰铢，额外再减 5%（清仓商品除外）"
    },
-   "tags": "trail running shoes outdoor triathlon รองเท้าวิ่ง เทรล 越野跑 跑鞋 户外"
+   "tags": "trail running shoes outdoor triathlon รองเท้าวิ่ง เทรล 越野跑 跑鞋 户外",
+   "display": "The Highlandner"
   },
   "1:7": {
    "id": "bananarun",
@@ -501,7 +507,8 @@
     "th": "ลด 10% ทุกบริการและทรีตเมนต์",
     "zh": "所有服务与疗程 9 折"
    },
-   "logoSrc": "tools/logo-src/varalee.jpg"
+   "logoSrc": "tools/logo-src/varalee.jpg",
+   "display": "Varalee Massage @ One Nimman"
   },
   "2:8": {
    "id": "the-artist",
@@ -542,7 +549,8 @@
     "en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB",
     "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท",
     "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"
-   }
+   },
+   "display": "The Oasis Spa Nimman"
   },
   "2:10": {
    "id": "oasis-lanna",
@@ -562,7 +570,8 @@
     "en": "Buy 1 Get 1 FREE:\n• King / Queen of Oasis Signature Massage, 2 hrs, 3,900++ THB\n• Coconut Nourishing Package, 2.5 hrs, 3,900++ THB\n• Coco Mango Package, 2.5 hrs, 3,900++ THB",
     "th": "ซื้อ 1 แถม 1:\n• King / Queen of Oasis Signature Massage 2 ชม. 3,900++ บาท\n• Coconut Nourishing Package 2.5 ชม. 3,900++ บาท\n• Coco Mango Package 2.5 ชม. 3,900++ บาท",
     "zh": "买一送一：\n• King / Queen of Oasis 招牌按摩 2 小时 3,900++ 泰铢\n• 椰子滋养套餐 2.5 小时 3,900++ 泰铢\n• 椰子芒果套餐 2.5 小时 3,900++ 泰铢"
-   }
+   },
+   "display": "The Oasis Spa Lanna"
   },
   "2:11": {
    "id": "gc-wellness",
@@ -583,7 +592,8 @@
     "th": "ลด 15% ทุกบริการ",
     "zh": "所有服务 85 折"
    },
-   "tags": "clinic physio physical therapy chinese medicine คลินิก กายภาพ แพทย์แผนจีน 中医 理疗"
+   "tags": "clinic physio physical therapy chinese medicine คลินิก กายภาพ แพทย์แผนจีน 中医 理疗",
+   "display": "GC Wellness House Polyclinic"
   },
   "2:12": {
    "id": "rungwara",
@@ -628,7 +638,8 @@
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
    },
-   "cleanBg": true
+   "cleanBg": true,
+   "display": "Herb Massage at Nimman"
   },
   "2:14": {
    "id": "herb-annex",
@@ -649,7 +660,8 @@
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
    },
-   "cleanBg": true
+   "cleanBg": true,
+   "display": "Herb Massage Annex"
   },
   "2:15": {
    "id": "herb-central",
@@ -691,7 +703,8 @@
     "th": "ลด 10% ทุกคอร์ส",
     "zh": "所有疗程 9 折"
    },
-   "cleanBg": true
+   "cleanBg": true,
+   "display": "Herb Massage at Nimman Soi 6"
   },
   "2:17": {
    "id": "zira-spa",
@@ -731,7 +744,8 @@
     "en": "• Aroma hot oil massage, 2 hrs: 1,100 THB (from 1,400)\n• Deep tissue massage, 2 hrs: 1,500 THB (from 1,700)\n• Foot & Thai massage, 1.5 hrs: 600 THB (from 660)",
     "th": "• นวดน้ำมันอโรมาร้อน 2 ชม. 1,100 บาท (ปกติ 1,400)\n• นวดกดลึก (Deep tissue) 2 ชม. 1,500 บาท (ปกติ 1,700)\n• นวดเท้าและนวดไทย 1.30 ชม. 600 บาท (ปกติ 660)",
     "zh": "• 香薰热油按摩 2 小时 1,100 泰铢（原价 1,400）\n• 深层组织按摩 2 小时 1,500 泰铢（原价 1,700）\n• 足部 + 泰式按摩 1.5 小时 600 泰铢（原价 660）"
-   }
+   },
+   "display": "The Gentle Massage & Spa"
   },
   "2:19": {
    "id": "g-massage",
@@ -755,7 +769,8 @@
    "scripts": [
     "en",
     "th"
-   ]
+   ],
+   "display": "G Massage Therapy Central Festival Chiangmai"
   },
   "2:20": {
    "id": "fahlanna-oldcity",
@@ -803,7 +818,8 @@
    "scripts": [
     "en",
     "th"
-   ]
+   ],
+   "display": "Fah Lanna Massage"
   },
   "2:22": {
    "id": "fahlanna-nimman",
@@ -827,7 +843,8 @@
    "scripts": [
     "en",
     "th"
-   ]
+   ],
+   "display": "Fah Lanna Spa Exclusive Nimman"
   },
   "3:5": {
    "id": "treespoon",
@@ -873,7 +890,8 @@
    "scripts": [
     "th",
     "en"
-   ]
+   ],
+   "display": "Mee An Ja Kin"
   },
   "3:7": {
    "id": "khoei",
@@ -971,7 +989,8 @@
    "scripts": [
     "th",
     "en"
-   ]
+   ],
+   "display": "Hong Tauw Inn"
   },
   "3:11": {
    "id": "krua-lhong-khao",
@@ -995,7 +1014,8 @@
    "scripts": [
     "th",
     "en"
-   ]
+   ],
+   "display": "Lhongkhao Kitchen"
   },
   "3:12": {
    "id": "saiyud-doctor-sai",
@@ -1015,7 +1035,8 @@
     "en": "5% off food, plus a complimentary set of auspicious Thai desserts",
     "th": "ลด 5% ค่าอาหาร แถมฟรีขนมไทยมงคล 1 ชุด",
     "zh": "食物 95 折，另赠泰式吉祥甜点一套"
-   }
+   },
+   "display": "Saiyut and Doctor Sai Kitchen"
   },
   "3:13": {
    "id": "gongkham",
@@ -1056,7 +1077,8 @@
     "en": "5% off food",
     "th": "ลด 5% ค่าอาหาร",
     "zh": "食物 95 折"
-   }
+   },
+   "display": "Each Other!"
   },
   "3:15": {
    "id": "pasto",
@@ -1077,7 +1099,8 @@
     "th": "ลด 10% ค่าอาหาร เมื่อสั่งครบ 1,500 บาท (ไม่รวมเครื่องดื่ม) เงื่อนไขอาจเปลี่ยนแปลงโดยไม่แจ้งล่วงหน้า",
     "zh": "消费满 1,500 泰铢，食物享 9 折（饮品除外），如有变动恕不另行通知"
    },
-   "tags": "italian pasta pizza อิตาเลียน 意大利"
+   "tags": "italian pasta pizza อิตาเลียน 意大利",
+   "display": "Pasto Italian Restaurant"
   },
   "3:16": {
    "id": "baan-landai",
@@ -1150,7 +1173,8 @@
    "scripts": [
     "th",
     "en"
-   ]
+   ],
+   "display": "JEAB Cafe & Thai Food"
   }
  }
 }

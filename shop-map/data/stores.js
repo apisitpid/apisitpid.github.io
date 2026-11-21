@@ -13,6 +13,7 @@ window.CNX_STORES = [
    "zh": "TANN 咖啡馆"
   },
   "sheetName": "TANN",
+  "display": "TANN",
   "area": "nimman",
   "perk": {
    "en": "−15 ฿",
@@ -63,6 +64,7 @@ window.CNX_STORES = [
    "zh": "FOHHIDE 咖啡馆"
   },
   "sheetName": "FOHHIDE",
+  "display": "FOHHIDE",
   "area": "nimman",
   "perk": {
    "en": "−15 ฿",
@@ -113,6 +115,7 @@ window.CNX_STORES = [
    "zh": "Café de Oasis & Toby's 披萨咖啡馆"
   },
   "sheetName": "Cafe de Oasis & Toby's Pizza Chiang Mai",
+  "display": "Café de Oasis & Toby's Pizza Chiang Mai",
   "area": "changphueak",
   "perk": {
    "en": "Up to −100 ฿",
@@ -163,6 +166,7 @@ window.CNX_STORES = [
    "zh": "Basecamp 咖啡"
   },
   "sheetName": "Basecamp Coffee Club",
+  "display": "Basecamp Coffee Club",
   "area": "suthep",
   "perk": {
    "en": "−50% special menu",
@@ -213,6 +217,7 @@ window.CNX_STORES = [
    "zh": "Café Rosemary 咖啡馆"
   },
   "sheetName": "Cafe Rosemary",
+  "display": "Café Rosemary",
   "area": "nimman",
   "perk": {
    "en": "−10% + gift",
@@ -263,6 +268,7 @@ window.CNX_STORES = [
    "zh": "Roast8ry 咖啡 旗舰店"
   },
   "sheetName": "Roast8ry Flagship Store",
+  "display": "Roast8ry Flagship Store",
   "area": "nimman",
   "perk": {
    "en": "2 gifts",
@@ -313,6 +319,7 @@ window.CNX_STORES = [
    "zh": "Roast8ry Lab 咖啡"
   },
   "sheetName": "Roast8ry Lab",
+  "display": "Roast8ry Lab",
   "area": "nimman",
   "perk": {
    "en": "2 gifts",
@@ -363,6 +370,7 @@ window.CNX_STORES = [
    "zh": "Ministry of Roasters 咖啡烘焙"
   },
   "sheetName": "Ministry of Roasters-Chaing Mai",
+  "display": "Ministry of Roasters Chiang Mai",
   "area": "thaphae",
   "perk": {
    "en": "Free drink · 100 ฿+",
@@ -415,6 +423,7 @@ window.CNX_STORES = [
    "zh": "Thorphan 咖啡烘焙"
   },
   "sheetName": "Thorphan Coffee Roaster",
+  "display": "Thorphan Coffee Roaster",
   "area": "oldcity",
   "perk": {
    "en": "2 for 100 ฿",
@@ -465,6 +474,7 @@ window.CNX_STORES = [
    "zh": "Pegasus 咖啡烘焙坊"
   },
   "sheetName": "Pegasus Caf'e &Roastery",
+  "display": "Pegasus Café & Roastery",
   "area": "oldcity",
   "perk": {
    "en": "−10%",
@@ -520,6 +530,7 @@ window.CNX_STORES = [
    "zh": "Run2Paradise 跑步装备 宁曼店"
   },
   "sheetName": "RUN2PARADISE NIMMAN",
+  "display": "RUN2PARADISE Nimman",
   "area": "nimman",
   "perk": {
    "en": "Extra 5% · 4,000 ฿+",
@@ -570,6 +581,7 @@ window.CNX_STORES = [
    "zh": "The Highlandner 户外运动装备"
   },
   "sheetName": "The highlandner",
+  "display": "The Highlandner",
   "area": "changphueak",
   "perk": {
    "en": "Extra 5% · 1,000 ฿+",
@@ -620,6 +632,7 @@ window.CNX_STORES = [
    "zh": "BananaRun 跑步装备 清迈店"
   },
   "sheetName": "BananaRun ChiangMai",
+  "display": "BananaRun ChiangMai",
   "area": "nimman",
   "perk": {
    "en": "Up to −40%",
@@ -670,6 +683,7 @@ window.CNX_STORES = [
    "zh": "Krudam 泰拳健身馆"
   },
   "sheetName": "Krudam Gym Chiangmai",
+  "display": "Krudam Gym Chiangmai",
   "area": "haiya",
   "perk": {
    "en": "−20%",
@@ -720,6 +734,7 @@ window.CNX_STORES = [
    "zh": "迪卡侬 清迈店"
   },
   "sheetName": "Decathlon Chiang Mai",
+  "display": "Decathlon Chiang Mai",
   "area": "superhighway",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -770,6 +785,7 @@ window.CNX_STORES = [
    "zh": "迪卡侬 杭东便利店"
   },
   "sheetName": "Decathlon Hangdong Convenience Store",
+  "display": "Decathlon Hangdong Convenience Store",
   "area": "hangdong",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -820,6 +836,7 @@ window.CNX_STORES = [
    "zh": "迪卡侬 塔佩门店"
   },
   "sheetName": "Decathlon Tha Phae Gate",
+  "display": "Decathlon Tha Phae Gate",
   "area": "thaphae",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -870,6 +887,7 @@ window.CNX_STORES = [
    "zh": "Varalee 泰式按摩"
   },
   "sheetName": "Varalee Massage",
+  "display": "Varalee Massage",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -920,6 +938,7 @@ window.CNX_STORES = [
    "zh": "Varalee 泰式按摩 2 号店"
   },
   "sheetName": "Varalee Massage 2",
+  "display": "Varalee Massage 2",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -970,6 +989,7 @@ window.CNX_STORES = [
    "zh": "Varalee 泰式按摩 One Nimman 店"
   },
   "sheetName": "Varalee Massage@1Nimman",
+  "display": "Varalee Massage @ One Nimman",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1020,6 +1040,7 @@ window.CNX_STORES = [
    "zh": "The Artist 按摩店"
   },
   "sheetName": "The Artist",
+  "display": "The Artist",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1070,6 +1091,7 @@ window.CNX_STORES = [
    "zh": "Oasis Spa 宁曼店"
   },
   "sheetName": "Oasis Spa At Nimman",
+  "display": "The Oasis Spa Nimman",
   "area": "nimman",
   "perk": {
    "en": "Buy 1 Get 1",
@@ -1120,6 +1142,7 @@ window.CNX_STORES = [
    "zh": "Oasis Spa 兰纳店"
   },
   "sheetName": "Oasis Spa Lanna",
+  "display": "The Oasis Spa Lanna",
   "area": "oldcity",
   "perk": {
    "en": "Buy 1 Get 1",
@@ -1170,6 +1193,7 @@ window.CNX_STORES = [
    "zh": "GC Wellness 中医理疗诊所"
   },
   "sheetName": "GC WELLNESS HOUSE POLYCLINIC",
+  "display": "GC Wellness House Polyclinic",
   "area": "south",
   "perk": {
    "en": "−15%",
@@ -1220,6 +1244,7 @@ window.CNX_STORES = [
    "zh": "Rungwara 泰式按摩"
   },
   "sheetName": "Rungwara Thai Massage",
+  "display": "Rungwara Thai Massage",
   "area": "oldcity",
   "perk": {
    "en": "−20%",
@@ -1271,6 +1296,7 @@ window.CNX_STORES = [
    "zh": "Herb Massage 宁曼店"
   },
   "sheetName": "Herb Massage at nimman",
+  "display": "Herb Massage at Nimman",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1321,6 +1347,7 @@ window.CNX_STORES = [
    "zh": "Herb Massage 分店"
   },
   "sheetName": "Herb massage annex",
+  "display": "Herb Massage Annex",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1371,6 +1398,7 @@ window.CNX_STORES = [
    "zh": "Herb Massage 尚泰清迈店"
   },
   "sheetName": "Herb Massage at Central Chiang Mai",
+  "display": "Herb Massage at Central Chiang Mai",
   "area": "central",
   "perk": {
    "en": "−10%",
@@ -1421,6 +1449,7 @@ window.CNX_STORES = [
    "zh": "Herb Massage 宁曼 6 巷店"
   },
   "sheetName": "Herb massage at nimman soi6",
+  "display": "Herb Massage at Nimman Soi 6",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1471,6 +1500,7 @@ window.CNX_STORES = [
    "zh": "Zira Spa 水疗"
   },
   "sheetName": "Zira Spa",
+  "display": "Zira Spa",
   "area": "oldcity",
   "perk": {
    "en": "−5% · 2,000 ฿+",
@@ -1521,6 +1551,7 @@ window.CNX_STORES = [
    "zh": "The Gentle 按摩水疗"
   },
   "sheetName": "The gentle massage and spa",
+  "display": "The Gentle Massage & Spa",
   "area": "nimman",
   "perk": {
    "en": "Special price",
@@ -1571,6 +1602,7 @@ window.CNX_STORES = [
    "zh": "G Massage Therapy 尚泰节日店"
   },
   "sheetName": "G Massage Therapy Central Festival Chingmai",
+  "display": "G Massage Therapy Central Festival Chiangmai",
   "area": "central",
   "perk": {
    "en": "−20%",
@@ -1622,6 +1654,7 @@ window.CNX_STORES = [
    "zh": "Fah Lanna Spa 古城店"
   },
   "sheetName": "Fah Lanna Spa Old City",
+  "display": "Fah Lanna Spa Old City",
   "area": "oldcity",
   "perk": {
    "en": "−10%",
@@ -1678,6 +1711,7 @@ window.CNX_STORES = [
    "zh": "Fah Lanna 按摩"
   },
   "sheetName": "Fah Lanna massage",
+  "display": "Fah Lanna Massage",
   "area": "nightbazaar",
   "perk": {
    "en": "−10%",
@@ -1734,6 +1768,7 @@ window.CNX_STORES = [
    "zh": "Fah Lanna Spa 宁曼尊享店"
   },
   "sheetName": "Fah Lanna Spa Exclusive, Nimman",
+  "display": "Fah Lanna Spa Exclusive Nimman",
   "area": "nimman",
   "perk": {
    "en": "−10%",
@@ -1790,6 +1825,7 @@ window.CNX_STORES = [
    "zh": "Treespoon 烧烤餐厅"
   },
   "sheetName": "Treespoon Barbecue",
+  "display": "Treespoon Barbecue",
   "area": "suthep",
   "perk": {
    "en": "Runner menu",
@@ -1840,6 +1876,7 @@ window.CNX_STORES = [
    "zh": "Mee An Ja Kin 咖啡餐厅"
   },
   "sheetName": "MeeAnJaKin",
+  "display": "Mee An Ja Kin",
   "area": "padaet",
   "perk": {
    "en": "−15%",
@@ -1891,6 +1928,7 @@ window.CNX_STORES = [
    "zh": "Khoei 清迈北部菜"
   },
   "sheetName": "Khoei Chiang Mai",
+  "display": "Khoei Chiang Mai",
   "area": "santitham",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -1941,6 +1979,7 @@ window.CNX_STORES = [
    "zh": "海底捞火锅"
   },
   "sheetName": "Haidilao Hot Pot",
+  "display": "Haidilao Hot Pot",
   "area": "central",
   "perk": {
    "en": "−20%",
@@ -1993,6 +2032,7 @@ window.CNX_STORES = [
    "zh": "Akai8 海南鸡饭"
   },
   "sheetName": "Akai8",
+  "display": "Akai8",
   "area": "suthep",
   "perk": {
    "en": "−10%",
@@ -2044,6 +2084,7 @@ window.CNX_STORES = [
    "zh": "Hong Tauw Inn 泰式餐厅"
   },
   "sheetName": "Hongtauw Inn",
+  "display": "Hong Tauw Inn",
   "area": "nimman",
   "perk": {
    "en": "Up to −10% · 1,000 ฿+",
@@ -2095,6 +2136,7 @@ window.CNX_STORES = [
    "zh": "Lhongkhao Kitchen 泰式餐厅"
   },
   "sheetName": "KruaLawngKhao",
+  "display": "Lhongkhao Kitchen",
   "area": "maerim",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -2146,6 +2188,7 @@ window.CNX_STORES = [
    "zh": "Saiyud & Doctor Sai 泰式厨房"
   },
   "sheetName": "Saiyud and Doctor sai kitchen",
+  "display": "Saiyut and Doctor Sai Kitchen",
   "area": "chotana",
   "perk": {
    "en": "−5% + dessert",
@@ -2196,6 +2239,7 @@ window.CNX_STORES = [
    "zh": "Gongkham 北部菜餐厅"
   },
   "sheetName": "Gongkham",
+  "display": "Gongkham",
   "area": "maerim",
   "perk": {
    "en": "−10% · 1,000 ฿+",
@@ -2246,6 +2290,7 @@ window.CNX_STORES = [
    "zh": "Each Other! 餐厅"
   },
   "sheetName": "Each other",
+  "display": "Each Other!",
   "area": "riverside",
   "perk": {
    "en": "−5%",
@@ -2296,6 +2341,7 @@ window.CNX_STORES = [
    "zh": "Pasto 意大利餐厅"
   },
   "sheetName": "Pasto restaurant",
+  "display": "Pasto Italian Restaurant",
   "area": "oldcity",
   "perk": {
    "en": "−10% · 1,500 ฿+",
@@ -2350,6 +2396,7 @@ window.CNX_STORES = [
    "zh": "Baan Landai 餐厅 湄林"
   },
   "sheetName": "BAAN Landai Mae Rim",
+  "display": "BAAN Landai Mae Rim",
   "area": "maerim",
   "perk": {
    "en": "Free drink",
@@ -2400,6 +2447,7 @@ window.CNX_STORES = [
    "zh": "Punn Toh 餐厅"
   },
   "sheetName": "Punn Toh",
+  "display": "Punn Toh",
   "area": "riverside",
   "perk": {
    "en": "−15%",
@@ -2451,6 +2499,7 @@ window.CNX_STORES = [
    "zh": "JEAB 咖啡 & 泰餐"
   },
   "sheetName": "JEAB cafe & Thai Food",
+  "display": "JEAB Cafe & Thai Food",
   "area": "nimman",
   "perk": {
    "en": "−10%",

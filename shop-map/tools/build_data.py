@@ -197,6 +197,7 @@ def main(xlsx):
                 "brand": c["brand"],
                 "name": c["name"],
                 "sheetName": str(name).strip(),
+                "display": c.get("display", " ".join(str(name).split())),   # name as the logo spells it
                 "area": c["area"],
                 "perk": c["perk"],
                 "scripts": c.get("scripts", [c["brand"]]),

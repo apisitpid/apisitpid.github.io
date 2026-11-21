@@ -22,6 +22,7 @@
   }
 
   var S = { lang: detectLang(), cat: 'all', open: false, q: '', sel: null, me: null, sheet: 'peek', prevSheet: 'peek', group: null };
+  if (C.CATS.indexOf(params.get('cat')) >= 0) S.cat = params.get('cat');   // ?cat=spa: links/QR codes from the promo posts
   var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   function dur(ms) { return reduceMotion.matches ? 0 : ms; }
   function L(k, v) { return C.t(S.lang, k, v); }
@@ -237,7 +238,8 @@
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
     map.on('load', function () {
-      if (!S.sel) map.jumpTo({ center: isDesk() ? [98.9795, 18.7935] : [98.9755, 18.7950], zoom: isDesk() ? 13.9 : 13.25 });   // Nimman ↔ Old City, where most shops are
+      if (!S.sel && S.cat !== 'all') fitTo(STORES.filter(matches), { duration: 0, max: 14.5 });
+      else if (!S.sel) map.jumpTo({ center: isDesk() ? [98.9795, 18.7935] : [98.9755, 18.7950], zoom: isDesk() ? 13.9 : 13.25 });   // Nimman ↔ Old City, where most shops are
       var at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show');
       recluster();
     });
@@ -359,7 +361,7 @@
     S.sel = null; showView('list'); setSheet(S.group ? 'half' : (S.prevSheet === 'full' ? 'full' : 'peek')); recluster(); syncURL();
   }
   function syncURL() {
-    var p = new URLSearchParams(); p.set('lang', S.lang); if (S.sel) p.set('shop', S.sel);
+    var p = new URLSearchParams(); p.set('lang', S.lang); if (S.cat !== 'all') p.set('cat', S.cat); if (S.sel) p.set('shop', S.sel);
     history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash);
   }
 
@@ -437,7 +439,7 @@
       S.group = null;
       if (S.sel && !matches(BY[S.sel])) { S.sel = null; showView('list'); syncURL(); }
       renderChips(); renderList(); recluster();
-      fitTo(STORES.filter(matches), { max: 15.5 });
+      fitTo(STORES.filter(matches), { max: 15.5 }); syncURL();
     });
     $('panel').addEventListener('click', function (e) {
       var row = e.target.closest('.row[data-id]');

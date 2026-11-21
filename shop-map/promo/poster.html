@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Runner Privileges poster</title>
+<!-- Social post (1080×1350, 4:5). Concept: every category is a race bib.
+     Bib number = how many partner shops; tear-off strip = how to redeem + QR to the filtered map.
+     Usage: promo/poster.html?cat=spa&lang=en   (rendered to PNG by promo/render.js) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700&family=Noto+Serif+SC:wght@600&family=Trirong:wght@600;700&family=Barlow+Condensed:wght@700;800&display=swap">
+<style>
+:root {
+  --navy-950: #08122A; --navy-900: #0B1834; --navy-800: #12234A; --gold-700: #8A6A1F; --gold-500: #C9A24B; --gold-300: #E6CC8A; --gold-100: #F7EED6;
+  --paper: #FBF7EC; --ink: #101C38; --ink-2: #46536F; --cat: #A55E33;
+  --f-display: "Trirong", "Noto Serif SC", serif; --f-ui: "IBM Plex Sans Thai", "Noto Sans SC", sans-serif; --f-bib: "Barlow Condensed", "IBM Plex Sans Thai", sans-serif;
+}
+:lang(zh) { --f-display: "Noto Serif SC", "Trirong", serif; --f-ui: "Noto Sans SC", "IBM Plex Sans Thai", sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { width: 1080px; height: 1350px; overflow: hidden; color: var(--ink); font-family: var(--f-ui);
+  background: radial-gradient(110% 80% at 85% 0%, #1D3672 0%, var(--navy-900) 55%, var(--navy-950) 100%); position: relative; }
+/* Lanna dot rule, top and bottom of the canvas */
+body::before, body::after { content: ""; position: absolute; left: 0; right: 0; height: 12px; opacity: .55;
+  background: radial-gradient(circle at 6px 6px, var(--gold-500) 2px, transparent 2.6px) 0 0/24px 12px repeat-x, linear-gradient(var(--gold-500), var(--gold-500)) 0 50%/100% 1px no-repeat; }
+body::before { top: 22px; } body::after { bottom: 22px; }
+
+.top { position: absolute; left: 58px; right: 58px; top: 52px; height: 84px; display: flex; align-items: center; gap: 18px; color: #EDE7D6; }
+.top img { width: 52px; height: auto; }
+.top .t1 { font: 600 30px/1.1 var(--f-display); color: #FBF6EA; }
+.top .t1 em { font-style: normal; color: var(--gold-300); }
+.top .t2 { font: 500 17px/1.3 var(--f-ui); color: var(--gold-300); letter-spacing: .02em; margin-top: 4px; }
+.top .t2 span + span::before { content: "·"; margin: 0 8px; opacity: .7; }
+
+/* ---- the bib ---- */
+.bib { position: absolute; left: 54px; right: 54px; top: 158px; bottom: 58px; border-radius: 28px; background: var(--paper);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.55), inset 0 0 0 1px rgba(138,106,31,.25); overflow: hidden; display: flex; flex-direction: column; }
+.pin-hole { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--navy-900); box-shadow: inset 0 2px 3px rgba(0,0,0,.6), 0 0 0 3px rgba(255,255,255,.9); z-index: 3; }
+.ph-tl { top: 22px; left: 22px; } .ph-tr { top: 22px; right: 22px; } .ph-bl { bottom: 22px; left: 22px; } .ph-br { bottom: 22px; right: 22px; }
+.band { position: relative; height: 204px; flex: none; background: var(--cat); color: #fff; padding: 36px 58px 0; display: flex; justify-content: space-between; align-items: flex-start; overflow: hidden; }
+.band::after { content: ""; position: absolute; inset: auto 0 0 0; height: 10px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.0) 0 18px, rgba(255,255,255,.22) 18px 20px); }
+.band .eyebrow { font: 700 16px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; opacity: .85; }
+.band h1 { margin: 10px 0 8px; font: 700 62px/1.02 var(--f-display); letter-spacing: -.01em; }
+.band .alt { font: 500 24px/1.3 var(--f-ui); opacity: .92; }
+.band .alt span + span::before { content: "·"; margin: 0 10px; opacity: .7; }
+.num { text-align: right; line-height: .8; }
+.num b { display: block; font: 800 150px/.8 var(--f-bib); letter-spacing: -.02em; }
+.num small { display: block; margin-top: 10px; font: 700 15px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; opacity: .9; }
+
+/* logo grid */
+.grid { flex: 1; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; padding: 22px 36px 16px; gap: var(--gy) var(--gx); min-height: 0; }
+.cell { width: calc(var(--d) + 56px); }
+.cell { display: grid; justify-items: center; align-content: start; gap: 8px; text-align: center; }
+.disc { width: var(--d); height: var(--d); border-radius: 50%; overflow: hidden; background: #fff;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--cat), 0 10px 18px -8px rgba(8,18,42,.45); }
+.disc img { width: 100%; height: 100%; display: block; }
+.name { margin-top: 6px; font: 600 19px/1.2 var(--f-ui); color: var(--ink); max-width: calc(var(--d) + 50px); text-wrap: balance; }
+.branches { font: 500 14px/1 var(--f-ui); color: var(--ink-2); }
+.perk { display: inline-block; padding: 5px 11px; border-radius: 7px; background: linear-gradient(180deg, var(--gold-300), var(--gold-500)); color: var(--navy-950);
+  font: 700 17px/1.1 var(--f-ui); box-shadow: inset 0 0 0 1px rgba(138,106,31,.35); max-width: calc(var(--d) + 56px); }
+
+/* tear-off strip */
+.tear { position: relative; flex: none; height: 178px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 0 58px;
+  border-top: 3px dashed rgba(18,35,74,.28); background: linear-gradient(180deg, rgba(201,162,75,.10), rgba(201,162,75,.18)); }
+.tear::before, .tear::after { content: ""; position: absolute; top: -17px; width: 32px; height: 32px; border-radius: 50%; background: var(--navy-900); }
+.tear::before { left: -16px; } .tear::after { right: -16px; }
+.how b { display: block; font: 700 30px/1.15 var(--f-display); color: var(--navy-800); }
+.how div { margin-top: 6px; font: 500 20px/1.45 var(--f-ui); color: var(--ink-2); }
+.how .url { margin-top: 10px; font: 700 18px/1 var(--f-ui); color: var(--gold-700); letter-spacing: .02em; }
+.qr { width: 150px; height: 150px; padding: 10px; background: #fff; border-radius: 14px; box-shadow: 0 0 0 2px var(--navy-800); }
+.qr svg { width: 100%; height: 100%; display: block; }
+.qr-cap { margin-top: 6px; text-align: center; font: 700 13px/1 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--navy-800); }
+</style>
+</head>
+<body>
+<header class="top">
+  <img src="../brand/emblem.svg" alt="">
+  <div><div class="t1" id="t1"></div><div class="t2" id="t2"></div></div>
+</header>
+<main class="bib" id="bib">
+  <i class="pin-hole ph-tl"></i><i class="pin-hole ph-tr"></i><i class="pin-hole ph-bl"></i><i class="pin-hole ph-br"></i>
+  <section class="band"><div><div class="eyebrow" id="eyebrow"></div><h1 id="h1"></h1><div class="alt" id="alt"></div></div>
+    <div class="num"><b id="num"></b><small id="numlab"></small></div></section>
+  <section class="grid" id="grid"></section>
+  <section class="tear"><div class="how" id="how"></div><div><div class="qr" id="qr"></div><div class="qr-cap" id="qrcap"></div></div></section>
+</main>
+<script src="../js/icons.js"></script><script src="../js/i18n.js"></script><script src="../data/stores.js"></script><script src="../js/core.js"></script>
+<script src="../vendor/qrcode-generator.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), cat = q.get('cat') || 'cafe', lang = q.get('lang') || 'en', C = window.CNX, I = window.CNX_I18N;
+  var COLORS = { cafe: '#A55E33', food: '#B8325E', spa: '#1D7562', sport: '#2F62C6' };
+  /* branches of one brand share a tile */
+  var BRAND = [['varalee', 'Varalee Massage'], ['herb-', 'Herb Massage'], ['fahlanna-', 'Fah Lanna Spa'], ['oasis-', 'The Oasis Spa'], ['decathlon-', 'Decathlon']];
+  function brandOf(s) { var b = BRAND.find(function (x) { return s.id.indexOf(x[0]) === 0; }); return b ? b[1] : s.id; }
+  var TITLE = { en: { cafe: 'Café & Coffee', food: 'Restaurants', spa: 'Massage & Spa', sport: 'Sport & Fitness' },
+                th: { cafe: 'คาเฟ่ & ร้านกาแฟ', food: 'ร้านอาหาร', spa: 'นวด & สปา', sport: 'กีฬา & ฟิตเนส' },
+                zh: { cafe: '咖啡馆', food: '餐厅', spa: '按摩与水疗', sport: '运动与健身' } };
+  var TXT = {
+    en: { eyebrow: 'Runner privilege', shops: 'partner shops', branches: '{n} branches', how: 'Show your race bib at the counter',
+          sub: ['แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์', '到店出示号码布即可享受'], scan: 'Scan for map' },
+    th: { eyebrow: 'สิทธิพิเศษนักวิ่ง', shops: 'ร้านพันธมิตร', branches: '{n} สาขา', how: 'แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์',
+          sub: ['Show your race bib at the counter', '到店出示号码布即可享受'], scan: 'สแกนดูแผนที่' },
+    zh: { eyebrow: '跑者专享', shops: '家合作商户', branches: '{n} 家分店', how: '到店出示号码布即可享受',
+          sub: ['Show your race bib at the counter', 'แสดง BIB ที่เคาน์เตอร์เพื่อรับสิทธิ์'], scan: '扫码看地图' }
+  }[lang];
+  document.documentElement.lang = C.HTML_LANG[lang];
+  document.body.style.setProperty('--cat', COLORS[cat]);
+  var shops = window.CNX_STORES.filter(function (s) { return s.cats.indexOf(cat) >= 0; });
+  /* one tile per logo: branches of the same brand share a tile */
+  var groups = [];
+  shops.forEach(function (s) {
+    var key = brandOf(s), g = groups.find(function (x) { return x.key === key; });
+    if (g) g.items.push(s); else groups.push({ key: key, items: [s] });
+  });
+  /* pick the column count that gives the biggest logos inside the space between band and tear-off */
+  var n = groups.length, gx = 12, gy = 16, W = 972 - 72, H = 1134 - 204 - 178 - 38, best = { d: 0 };
+  for (var cols = 2; cols <= 6; cols++) {
+    var rows = Math.ceil(n / cols);
+    var d = Math.min((W - (cols - 1) * gx) / cols - 56, (H - (rows - 1) * gy) / rows - 108, 220);
+    if (d > best.d) best = { d: Math.floor(d), cols: cols };
+  }
+  var grid = document.getElementById('grid'), d = best.d;
+  grid.style.setProperty('--d', d + 'px'); grid.style.setProperty('--gx', gx + 'px'); grid.style.setProperty('--gy', gy + 'px');
+  grid.style.maxWidth = (best.cols * (d + 56) + (best.cols - 1) * gx + 72) + 'px'; grid.style.margin = '0 auto';
+  grid.innerHTML = groups.map(function (g) {
+    var s = g.items[0], name = g.items.length > 1 ? g.key : C.sheetName(s);
+    return '<div class="cell"><div class="disc"><img src="../' + s.logo + '" alt=""></div><div class="name">' + C.esc(name) + '</div>' +
+      (g.items.length > 1 ? '<div class="branches">' + TXT.branches.replace('{n}', g.items.length) + '</div>' : '') +
+      '<span class="perk">' + C.esc(s.perk[lang]) + '</span></div>';
+  }).join('');
+  var L = I[lang], others = ['th', 'en', 'zh'].filter(function (l) { return l !== lang; });
+  document.getElementById('t1').innerHTML = C.esc(L.appName) + ' <em>' + C.esc(L.appSub) + '</em>';
+  document.getElementById('t2').innerHTML = others.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(I[l].appName + ' ' + I[l].appSub) + '</span>'; }).join('');
+  document.getElementById('eyebrow').textContent = TXT.eyebrow;
+  document.getElementById('h1').textContent = TITLE[lang][cat];
+  document.getElementById('alt').innerHTML = others.map(function (l) { return '<span lang="' + C.HTML_LANG[l] + '">' + C.esc(TITLE[l][cat]) + '</span>'; }).join('');
+  document.getElementById('num').textContent = shops.length;
+  document.getElementById('numlab').textContent = TXT.shops;
+  var url = 'https://apisitpid.github.io/shop-map/?cat=' + cat + '&lang=' + lang;
+  document.getElementById('how').innerHTML = '<b>' + C.esc(TXT.how) + '</b><div>' + TXT.sub.map(C.esc).join('<br>') + '</div><div class="url">apisitpid.github.io/shop-map</div>';
+  var qr = qrcode(0, 'M'); qr.addData(url); qr.make();
+  document.getElementById('qr').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  document.querySelector('#qr svg rect').setAttribute('fill', '#fff');
+  document.querySelectorAll('#qr svg path').forEach(function (p) { p.setAttribute('fill', '#12234A'); });
+  document.getElementById('qrcap').textContent = TXT.scan;
+  document.fonts.ready.then(function () { Promise.all([].map.call(document.images, function (im) { return im.complete ? 0 : new Promise(function (r) { im.onload = im.onerror = r; }); })).then(function () { window.__ready = true; }); });
+})();
+</script>
+</body>
+</html>
